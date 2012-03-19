@@ -1,8 +1,13 @@
 #labels Featured
 === Prochaine version ===
 
-  * Génération de services EJB3 Session Stateless et intercepteurs EJB3
   * IHM en GWT dans l'application blanche
+  * Compléments dans le guide d'architecture Spi4J
+
+=== 0.15 ===
+
+  * Génération de services EJB3 Session Stateless et intercepteurs EJB3 (déclarés dans ejb-jar.xml)
+  * Début d'exemple d'IHM en GWT dans l'application blanche
   * Configuration Apache dans la procédure d'installation de l'application blanche
   * Compléments dans le guide d'architecture Spi4J
 
