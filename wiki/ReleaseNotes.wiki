@@ -2,7 +2,11 @@
 === Prochaine version ===
 
   * IHM en GWT dans l'application blanche
-  * Compléments dans le guide d'architecture Spi4J
+
+=== 0.16 ===
+
+  * Clarifications et compléments dans le guide d'architecture Spi4J
+  * Corrections de bugs
 
 === 0.15 ===
 
