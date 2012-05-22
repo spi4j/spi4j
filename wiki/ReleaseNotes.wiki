@@ -1,7 +1,13 @@
 #labels Featured
-=== Prochaine version ===
+=== 0.17 ===
 
-  * IHM en GWT dans l'application blanche
+  * Possibilité d'utiliser Ehcache comme implémentation de cache
+  * Correction génération sur noms trop longs des séquences
+  * Correction génération sur l'énumération des exigences
+  * Correction génération sur DTO non persisté dans certains cas
+  * Mise à jour du guide d'architecture (dépendances).
+  * Correction de la configuration Apache dans la documentation d'installation de l'application blanche.
+  * IHM en GWT dans l'application blanche. Une [http://demo.javamelody.cloudbees.net/ démo publique] est disponible.
 
 === 0.16 ===
 
