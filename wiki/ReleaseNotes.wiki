@@ -1,4 +1,9 @@
 #labels Featured
+=== 0.18 ===
+
+  * Corrections et évolutions mineures dans Spi4J
+  * La version de Pacman est inchangée et reste en 0.17.1
+
 === 0.17 ===
 
   * Possibilité d'utiliser Ehcache comme implémentation de cache
