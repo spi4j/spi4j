@@ -1,4 +1,10 @@
 #labels Featured
+=== 0.19 ===
+
+  * Amélioration de la gestion des cookies http multiples dans le remoting
+  * Corrections dans les composants Spi4J-Swing
+  * La version de Pacman est inchangée et reste en 0.17.1
+
 === 0.18 ===
 
   * Corrections et évolutions mineures dans Spi4J
