@@ -1,4 +1,12 @@
 #labels Featured
+=== 0.21 ===
+
+  * Pacman v0.21 nécessite Safr@n Studio v1+ (avec les nouvelles version d'Acceleo et du Designer)
+  * Gestion de DtoFromEntity lors de la génération de code
+  * Nommages paramétrables dans la génération de code
+  * Améliorations de la génération de code pour les DTOs non persistants
+  * Améliorations de la génération des scripts SQL sur les nommages spécifiques des index et des contraintes
+
 === 0.19 ===
 
   * Amélioration de la gestion des cookies http multiples dans le remoting
