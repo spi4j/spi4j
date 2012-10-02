@@ -1,4 +1,14 @@
 #labels Featured
+=== 0.22 ===
+
+  * Correction warnings sur code généré
+  * Selon paramètre, ajout TableSpace pour les indexes dans les scripts pour Oracle
+  * Possibilité de choisir un nom, autre que celui par défaut, de la clé primaire en base de données
+  * Remonter une erreur typée lorsqu'une donnée n'existe plus en base de données
+  * Améliorations SpiTreeComponent
+  * Automatisation en intégration continue des tests de performance avec Apache JMeter exécutant les user stories JBehave dans l'application blanche
+  * Nouveau module optionnel Spi4j-Report pour des éditions PDF en utilisant BIRT
+
 === 0.21 ===
 
   * Pacman v0.21 nécessite *Safr@n Studio v1+* (avec les nouvelles version d'Acceleo et du Designer)
