@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/fr.pacman.entity.jdbc.ui.feature_0.22.0.201210011409.jar" id="fr.pacman.entity.jdbc.ui.feature" version="0.22.0.201210011409">
+      <category name="fr.pacman"/>
+   </feature>
+   <feature url="features/fr.pacman.entity.sql.ui.feature_0.22.0.201210011409.jar" id="fr.pacman.entity.sql.ui.feature" version="0.22.0.201210011409">
+      <category name="fr.pacman"/>
+   </feature>
+   <feature url="features/fr.pacman.entity.xmi.ui.feature_0.22.0.201210011409.jar" id="fr.pacman.entity.xmi.ui.feature" version="0.22.0.201210011409">
+      <category name="fr.pacman"/>
+   </feature>
+   <feature url="features/fr.pacman.requirement.ui.feature_0.22.0.201210011409.jar" id="fr.pacman.requirement.ui.feature" version="0.22.0.201210011409">
+      <category name="fr.pacman"/>
+   </feature>
+   <feature url="features/fr.pacman.soa.ui.feature_0.22.0.201210011409.jar" id="fr.pacman.soa.ui.feature" version="0.22.0.201210011409">
+      <category name="fr.pacman"/>
+   </feature>
+   <category-def name="fr.pacman" label="PacMan (Safr@n)"/>
+</site>
