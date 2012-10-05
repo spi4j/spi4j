@@ -1,6 +1,10 @@
 #summary Installer un IDE pour développer avec Spi4J / Pacman
 #labels Phase-Deploy,Phase-Support
 
+Cette page décrit les étapes nécessaires à l'installation d'un environnement de développement avec plugins de génération de code Pacman et plugins de modélisation d'Obeo.
+
+Après avoir installé l'environnement, il est conseillé de lire les guides utilisateurs Entity et SOA et/ou les TP. Ces documents sont téléchargeables sur la [http://code.google.com/p/spi4j/downloads/list page des téléchargements].
+
 = I. Installation de l’IDE =
 
 _Au choix, l’une des 2 versions suivantes :_
@@ -12,14 +16,19 @@ _Au choix, l’une des 2 versions suivantes :_
 
 = II. Paramétrage de l’IDE =
  * Préciser la manière dont Eclipse se connecte à Internet (Proxy)
- * Installer les plugins : Help / Install New Software…
+ * Installer les plugins : *Help / Install New Software…*
  == 1. Installation métamodèles et designers ==
  * Saisir l’URL suivante : *http://marketplace.obeonetwork.com/updates/od6/ *
  * Sélectionner l’ensemble Information System – Models
  * Sélectionner également le plugin Information System – Designs / IS Designer.
 
 Si on désire travailler avec la version d’essai avec éditeurs graphiques, il faudra sélectionner l’ensemble Information System – Designs (sauf Obeo Demonstration JEE Weblog).
+
+http://spi4j.googlecode.com/svn/wiki/images/plugins_obeo.png
+
  == 2. Installation générateurs de code Pacman ==
  * Télécharger la dernière version de l’update site de Pacman à l’adresse suivante : *http://code.google.com/p/spi4j/downloads/list/ *
  * Cliquer sur Add… puis sur Archive… pour aller pointer vers le zip téléchargé.
  * Installer les générateurs souhaités.
+
+http://spi4j.googlecode.com/svn/wiki/images/plugins_pacman.png
