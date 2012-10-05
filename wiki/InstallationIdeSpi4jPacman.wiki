@@ -27,8 +27,7 @@ Si on désire travailler avec la version d’essai avec éditeurs graphiques, il
 http://spi4j.googlecode.com/svn/wiki/images/plugins_obeo.png
 
  == 2. Installation générateurs de code Pacman ==
- * Télécharger la dernière version de l’update site de Pacman à l’adresse suivante : *http://code.google.com/p/spi4j/downloads/list/ *
- * Cliquer sur Add… puis sur Archive… pour aller pointer vers le zip téléchargé.
+ * Saisir l'URL suivante : *http://spi4j.googlecode.com/svn/trunk/updatesite/pacman/ *
  * Installer les générateurs souhaités.
 
 http://spi4j.googlecode.com/svn/wiki/images/plugins_pacman.png
