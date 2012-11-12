@@ -4,6 +4,7 @@
   * Correction dans la prise en compte de certains paramètres de génération de code
   * Possibilité de découper l'énumération générée des exigences
   * Découpage des méthodes générées de test des DTO
+  * Migration de pom.xml de Spi4J en Maven 3
   * Ajout d'un archetype Maven dans les librairies packagés pour générer la structure et la configuration de projets basés sur Spi4J et Pacman. Après installation de spi4j-archetype dans le repository Maven local, il suffit d'exécuter la commande suivante pour générer les modules d'un projet, en répondant à quelques questions (par exemple : groupId=fr.test, artifactId=test, version=1.0-SNAPSHOT, package=fr.test, spi4jVersion=0.23) : {{{mvn archetype:generate -DarchetypeGroupId=fr.spi4j -DarchetypeArtifactId=spi4j-archetype -DarchetypeVersion=0.23}}}
 
 === 0.22 ===
