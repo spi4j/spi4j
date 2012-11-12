@@ -1,5 +1,5 @@
 #summary Installer un IDE pour développer avec Spi4J / Pacman
-#labels Phase-Deploy,Phase-Support
+#labels Phase-Deploy,Phase-Support,Featured
 
 Cette page décrit les étapes nécessaires à l'installation d'un environnement de développement avec plugins de génération de code Pacman et plugins de modélisation d'Obeo.
 
