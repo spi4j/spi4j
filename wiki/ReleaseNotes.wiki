@@ -1,4 +1,13 @@
 #labels Featured
+=== 0.24 ===
+
+  * Pacman : Découper la méthode de test d'un DTO   
+  * Pacman : Revoir l'énumération des exigences (énumération ne compile pas si trop d'exigences)
+  * Pacman : Problème de génération avec changement de paramétrage   
+  * Spi4J : Amélioration Spi4J UI suite à retour d'expérience
+  * Spi4J : Pouvoir récupérer une liste d'entités à partir d'un cursor   
+  * Spi4J : Faire un tearDown même quand la story est en échec pendant les tests de charge    
+
 === 0.23 ===
 
   * Correction dans la prise en compte de certains paramètres de génération de code
