@@ -1,4 +1,9 @@
 #labels Featured
+=== 0.25 ===
+
+  * Pacman : Validation de la taille d'attributs non obligatoires
+  * Spi4J : Contrôle surfacique des champs d'un écran Swing
+
 === 0.24 ===
 
   * Pacman : Découper la méthode de test d'un DTO   
