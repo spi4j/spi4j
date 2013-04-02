@@ -3,7 +3,7 @@
 
   * Pacman : Gestion du versionning des exigences
   * Pacman : Correction de la génération de la méthode testValidate
-  * Spi4J : Renommage de getters et setters pour enlever '_'
+  * Spi4J : Renommage de getters et setters pour enlever {{{'_'}}}
   * Spi4J : Correction trop de requêtes exécutées par les Mappers de web-services
   * Spi4J : Correction TableCriteria avec critères de recherche quasi identiques (ex: libellé et libelléAbrégé)
   * Spi4J : Correction findByColumn avec une valeur nulle
