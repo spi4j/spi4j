@@ -1,4 +1,12 @@
 #labels Featured
+=== 0.28 ===
+
+  * Spi4J : Correction de DaoJdbc_Abs.findByCriteria : La map passée en paramètre peut être nulle
+  * Spi4J : Correction d'un problème d'accent avec SSO
+  * Pacman : Génération GWT sans les sources de Pacman
+  * Pacman : Nommage Xto dans Cinematic
+  * Pacman : Relations inverses dans AttributesEnum
+
 === 0.27 ===
 
   * Pacman : Gestion du versionning des exigences
