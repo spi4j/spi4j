@@ -1,4 +1,33 @@
 #labels Featured
+=== 0.29 ===
+ * Spi4J : Dans les logs de debuggage, afficher le nombre de requêtes SQL pour chaque appel service
+ * Spi4J : Sql de debug incorrect avec un paramètre sql de type date
+ * Spi4J : Remoting autre que Java
+ * Spi4J : Erreur lors de l'appel à setList sur le SpiSelectorTable
+ * Spi4J : Simplification UserBusiness
+  * Renommage de initServerBindings et initClientBindings en une seule méthode : initBindings()
+  * La méthode setProxyFactory initialise automatiquement les bindings
+  * Utilisation d'une seule méthode pour initialiser la factory des proxies : setProxyFactory()
+ * Spi4J : Ajout méthode getCompletePhysicalName dans les Columns_Enum
+ * Spi4J : Compilation GWT sans les sources
+Pour utiliser, rajouter
+{{{
+<classifier>gwt</classifier>
+}}}
+au niveau des dépendances :
+{{{
+<dependency>
+    <groupId>fr.spi4j</groupId>
+    <artifactId>spi4j-gwt</artifactId>
+    <version>0.29</version>
+    <classifier>gwt</classifier>
+</dependency>
+}}}
+ * Spi4J : Démarrage d'un client GWT et initialisation de la base de données
+ * Pacman : Gérer l'annotation Computed sur les relations
+ * Pacman : User code dans les getId et setId sur DTO non persistants
+ * Pacman : Optimiser la génération
+
 === 0.28 ===
 
   * Spi4J : Correction de DaoJdbc_Abs.findByCriteria : La map passée en paramètre peut être nulle
