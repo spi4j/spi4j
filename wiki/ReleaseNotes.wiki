@@ -1,4 +1,14 @@
 #labels Featured
+=== 0.30 ===
+ * Spi4J : Mémoriser l’historique de navigation de manière centralisée : Affichage de la liste des présenteurs ouverts lors de l'interception d'une erreur non catchée
+ * Spi4J : Prendre en compte le « setId() » sur une Entity afin de « court-circuiter » la séquence (en mode « peuplage BdD » par exemple) : Activation : ParamPersistence_Abs.enableInsertWithId(true)
+ * Spi4J : Détection de perte de focus après édition d'une cellule d'un SpiTable
+ * Spi4J : Désactiver les popup des SpiTable
+ * Pacman : Problème de génération du test de DTO si attribut avec cardinalité multiple
+ * Pacman : Remplacer les Alias de ParamPersistenceGen_Abs
+ * Pacman : [GWT] : Ajouter une classe dans le SpiPanel pour référencer la mise en forme depuis une CSS
+ * Pacman : Cinematic : Permettre de façon générale un typage plus primitif (Integer, String, …)
+
 === 0.29 ===
  * Spi4J : Dans les logs de debuggage, afficher le nombre de requêtes SQL pour chaque appel service
  * Spi4J : Sql de debug incorrect avec un paramètre sql de type date
