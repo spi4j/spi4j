@@ -1,4 +1,15 @@
 #labels Featured
+=== 0.31 ===
+ * Mise à jour des guides d'architecture et des guides utilisateurs Spi4J et Pacman
+ * Pacman : Nouveau générateur pour la validation de modèle
+ * Pacman : Nouveau générateur pour le démarrage d'un nouveau projet
+ * Pacman : Paramétrisation (current ou none) du RequirementVersionTest pour le versionning d'exigence
+ * Pacman : Centralisation d'erreurs de génération dans la vue Error Log d'Eclipse
+ * Pacman : Ajout de User Code sur le test d'un DTO non persistant (car l'id peut être dynamique)
+ * Spi4J : Suppression du type de l'exigence dans l'énumération des exigences
+ * Spi4J : Optimisation des SpiTable (entre autres) avec gestion de cache sur les java.lang.Method au niveau des énumérations d'attributs
+ * Spi4J : Ajout d'un outil de vérification de cohérence de la structure en base de données (et accès dans la servlet d'administration)
+
 === 0.30 ===
  * Spi4J : Mémoriser l’historique de navigation de manière centralisée : Affichage de la liste des présenteurs ouverts lors de l'interception d'une erreur non catchée
  * Spi4J : Prendre en compte le « setId() » sur une Entity afin de « court-circuiter » la séquence (en mode « peuplage BdD » par exemple) : Activation : ParamPersistence_Abs.enableInsertWithId(true)
