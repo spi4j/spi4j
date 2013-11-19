@@ -1,25 +1,20 @@
 #labels Featured
 === 0.32 ===
-Pacman :
- * 927 : Ajout d'une propriété pour indiquer si le nom de la balise user code pour les méthodes de service contient le type des paramètres ou uniquement le nom de l'opération : deprecated.soa.usercode.params
- * 1980 : Générateur Cinematic Swing
- * 2520 : Suppression de warnings dans le code généré dans l'énumération d'exigences
- * 2553 : ModelFinder - Recherche d'éléments dans le modèle
- * 2986 : Générateur de scripts Java de remplissage de base de données
- * 3028 : Suppression de warnings dans le code généré dans les énumérations d'attributs
- * 3064 : Ajout icone Safr@n dans About Eclipse
- * 3166 : Couverture de code des méthodes get[G/S]etterMethod() dans les classes xxxAttributes_Enum
- * 3170 : Gestion métadonnée AcceptUnauthentified sur les opérations de service
- * 3171 : Migration des générateurs pour Studio 1.3.0
- * 3178 : Ordre des énumérés dans AttributesEnum
- 
-Spi4J :
- * 2863 : Possibilité de surcharger l'initialisation d'un présenteur (méthode initPresenter)
- * 2994 : Faciliter la remise à null des SpiRadioButton
- * 3083 : Ajout de la classe DaoUtils pour effectuer des count en base
- 
-Divers : 
- * 1377 : Changement d'auteur dans la Javadoc
+ * Pacman : Ajout d'une propriété pour indiquer si le nom de la balise user code pour les méthodes de service contient le type des paramètres ou uniquement le nom de l'opération : deprecated.soa.usercode.params
+ * Pacman : Générateur Cinematic Swing
+ * Pacman : Suppression de warnings dans le code généré dans l'énumération d'exigences
+ * Pacman : ModelFinder - Recherche d'éléments dans le modèle
+ * Pacman : Générateur de scripts Java de remplissage de base de données
+ * Pacman : Suppression de warnings dans le code généré dans les énumérations d'attributs
+ * Pacman : Ajout icone Safr@n dans About Eclipse
+ * Pacman : Couverture de code des méthodes get[G/S]etterMethod() dans les classes xxxAttributes_Enum
+ * Pacman : Gestion métadonnée AcceptUnauthentified sur les opérations de service
+ * Pacman : Migration des générateurs pour Studio 1.3.0
+ * Pacman : Ordre des énumérés dans AttributesEnum
+  * Spi4J : Possibilité de surcharger l'initialisation d'un présenteur (méthode initPresenter)
+ * Spi4J : Faciliter la remise à null des SpiRadioButton
+ * Spi4J : Ajout de la classe DaoUtils pour effectuer des count en base
+ * Divers : Changement d'auteur dans la Javadoc
 === 0.31 ===
  * Mise à jour des guides d'architecture et des guides utilisateurs Spi4J et Pacman
  * Pacman : Nouveau générateur pour la validation de modèle
