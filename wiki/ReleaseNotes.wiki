@@ -1,6 +1,6 @@
 #labels Featured
 === 0.32 ===
-Pacman v0.32 nécessite *Safr@n Studio v1.3.0 mini* (avec les nouvelles version du méta-modèle cinématique)
+Pacman v0.32 nécessite *Safr@n Studio v1.3.0 mini* ou *OD4IS 6.1.2* (avec les nouvelles version du méta-modèle cinématique)
  * Pacman : Ajout d'une propriété pour indiquer si le nom de la balise user code pour les méthodes de service contient le type des paramètres ou uniquement le nom de l'opération : deprecated.soa.usercode.params
  * Pacman : Générateur Cinematic Swing
  * Pacman : Suppression de warnings dans le code généré dans l'énumération d'exigences
