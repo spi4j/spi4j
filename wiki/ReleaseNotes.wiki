@@ -1,4 +1,16 @@
 #labels Featured
+=== 1.0 ===
+Pacman v1.0 nécessite *Safr@n Studio v1.3.0 mini* ou *OD4IS 6.1.2* (avec la nouvelle version du méta-modèle cinématique et une version du plugin EMF 2.8.x en max)
+ * Spi4J : Enrichir le champs "Solution potentiel" pour "Paramètre IN ou OUT absent dans l'index"
+ * Spi4J : Dans la requête SQL provenant d'un TableCriteria, préfixer les colonnes des critéres avec le nom de la table.
+ * Spi4J : Correction d'un bug entrainant NullPointerException dans DtoUtil.findInCollectionById().
+ * Pacman : Harmoniser le "User...Gen". L'idée étant de supprimer le "Gen", et d'ajouter le préfixe applicatif devant chaque "User..." (ex : CosiUserBusiness).
+ * Pacman : Utilisation de la description de le référence se touvant dans la modélisation pour les commentaires des getter des DTO.
+ * Pacman : Dans ModelFinder, on ne déploit que la partie contenant l'objet recherché.
+ * Pacmam : Fonctionne maintenant aussi avec des modèles sous CDO.
+ * Pacman : Ajouter la possibilité de typer un DTO; la finalité étant de factoriser du code en typant des DTOs.
+ * Pacman : Possibilité de faire de la génération partiel à partir de l'OIS pour Entity et SOA/DTO
+ * Pacman : Correction du bug de compilation lorsqu'un DTO spécifique (not persistent) inclus un autre DTO spécifique(not persistent)
 === 0.32 ===
 Pacman v0.32 nécessite *Safr@n Studio v1.3.0 mini* ou *OD4IS 6.1.2* (avec la nouvelle version du méta-modèle cinématique)
  * Pacman : Ajout d'une propriété pour indiquer si le nom de la balise user code pour les méthodes de service contient le type des paramètres ou uniquement le nom de l'opération : deprecated.soa.usercode.params
