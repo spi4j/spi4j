@@ -7,7 +7,7 @@ Pacman v1.0 nécessite *Safr@n Studio v1.3.0 mini* ou *OD4IS 6.1.2* (avec la nou
  * Pacman : Harmoniser le "User...Gen". L'idée étant de supprimer le "Gen", et d'ajouter le préfixe applicatif devant chaque "User..." (ex : CosiUserBusiness).
  * Pacman : Utilisation de la description de le référence se touvant dans la modélisation pour les commentaires des getter des DTO.
  * Pacman : Dans ModelFinder, on ne déploit que la partie contenant l'objet recherché.
- * Pacmam : Fonctionne maintenant aussi avec des modèles sous CDO.
+ * Pacman : Fonctionne maintenant aussi avec des modèles sous CDO.
  * Pacman : Ajouter la possibilité de typer un DTO; la finalité étant de factoriser du code en typant des DTOs.
  * Pacman : Possibilité de faire de la génération partiel à partir de l'OIS pour Entity et SOA/DTO
  * Pacman : Correction du bug de compilation lorsqu'un DTO spécifique (not persistent) inclus un autre DTO spécifique(not persistent)
