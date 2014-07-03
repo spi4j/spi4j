@@ -1,5 +1,5 @@
 #labels Featured
-=== Version en cours (1.2) ===
+=== Dernière version (1.2) ===
 Update site Eclipse contenant les plugins Pacman v1.2 : <a href="https://drive.google.com/file/d/0B_CIqBpjpa16WVNzUGktb2Q2Ulk/edit?usp=sharing">fr.pacman.update_1.2.0.zip</a>.
 
 Sources du projet Pacman au 28/04/2014 : <a href="https://drive.google.com/file/d/0B_CIqBpjpa16MGJESkMxSkJ1Qk0/edit?usp=sharing">pacman-20140428-sources.zip</a>.
