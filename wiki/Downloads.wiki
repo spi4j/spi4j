@@ -2,9 +2,9 @@
 === Version en cours (1.2) ===
 Update site Eclipse contenant les plugins Pacman v1.2 : <a href="https://drive.google.com/file/d/0B_CIqBpjpa16WVNzUGktb2Q2Ulk/edit?usp=sharing">fr.pacman.update_1.2.0.zip</a>.
 
-Sources du projet Pacman au 01/04/2014 <a href="https://drive.google.com/file/d/0B_CIqBpjpa16MGJESkMxSkJ1Qk0/edit?usp=sharing">pacman-20140428-sources.zip</a>.
+Sources du projet Pacman au 28/04/2014 <a href="https://drive.google.com/file/d/0B_CIqBpjpa16MGJESkMxSkJ1Qk0/edit?usp=sharing">pacman-20140428-sources.zip</a>.
 
-Sources du projet Spi4J au 01/04/2014 : <a href="https://drive.google.com/file/d/0B_CIqBpjpa16c3ZORzdnSGlob3c/edit?usp=sharing">spi4j-20140428-sources.zip</a>.
+Sources du projet Spi4J au 28/04/2014 : <a href="https://drive.google.com/file/d/0B_CIqBpjpa16c3ZORzdnSGlob3c/edit?usp=sharing">spi4j-20140428-sources.zip</a>.
 
 Librairies packagées de Spi4J v1.2 : <a href="https://drive.google.com/file/d/0B_CIqBpjpa16UFZURUhxOVlESFU/edit?usp=sharing">spi4j-maven-repo-1.2-repository.zip</a>.
 
