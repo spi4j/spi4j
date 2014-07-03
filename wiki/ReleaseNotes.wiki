@@ -1,4 +1,11 @@
 #labels Featured
+=== 1.2 ===
+ * Spi4J : Upgrade des dépendances
+ * Spi4J : Ajout du module Spi4J_DocReport permettant de faire des documents ODT et DOCX à partir de template ODT ou DOCX
+ * Spi4J : résolution d'un bug sur SpiSelectorTable
+ * Spi4J : résolution d'un bug sur  le job checkDatabase. Ne pas arrêter la vérification si le premier UserPersistence à des erreurs.
+ * Spi4J : résolution d'un bug sur le contrôle de surface SpiTextField
+ 
 === 1.0 ===
 Pacman v1.0 nécessite *Safr@n Studio v1.3.0 mini* ou *OD4IS 6.1.2* (avec la nouvelle version du méta-modèle cinématique et une version du plugin EMF 2.8.x en max)
  * Spi4J : Enrichir le champs "Solution potentiel" pour "Paramètre IN ou OUT absent dans l'index"
