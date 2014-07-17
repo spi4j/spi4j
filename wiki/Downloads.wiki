@@ -20,6 +20,6 @@ Librairies packagées de Spi4J v1.2 : <a href="https://drive.google.com/file/d/0
 Guide Utilisateur du module Spi4J_DocReport : <a href="https://drive.google.com/file/d/0B_CIqBpjpa16RnR6Y2E2M0hackU/edit?usp=sharing">GUT_Spi4J_DocReport_v0.1_01-04-2014.doc</a>.
 
 
-=== Archives ===
+=== Archives (jusqu'à la version 1.0) ===
 
 Les archives sont téléchargeables à <a href="https://code.google.com/p/spi4j/downloads/list">cette adresse</a>.
