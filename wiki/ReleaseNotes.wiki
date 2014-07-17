@@ -1,4 +1,9 @@
 #labels Featured
+=== 1.3 ===
+  * Pacman : Modification dans le générateur Pacman start
+  * Pacman : Correction dans le générateur Pacman swing
+  * Pacman : Prise en compte de la configuration de nommage dans Pacman SOA et Pacman Persistance JDBC
+
 === 1.2 ===
  * Spi4J : Upgrade des dépendances
  * Spi4J : Ajout du module Spi4J_DocReport permettant de faire des documents ODT et DOCX à partir de template ODT ou DOCX
