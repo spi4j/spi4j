@@ -2,6 +2,10 @@
 === 1.3 ===
   * Pacman : Modification dans le générateur Pacman start
   * Pacman : Correction dans le générateur Pacman swing
+     * Ajout de balise user code au niveau des layout
+     * Prise en compte des labels au niveau du code
+     * Ajout de TUA
+     * Correction d'un bug au niveau des présenteurs 
   * Pacman : Prise en compte de la configuration de nommage dans Pacman SOA et Pacman Persistance JDBC
 
 === 1.2 ===
