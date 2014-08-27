@@ -1,9 +1,11 @@
 #labels Featured
+Pour récupérer un fichier, cliquer sur le lien du fichier puis sur l'icône "télécharger" dans la page qui s'affiche.
+
 === Documentations ===
 
 [https://drive.google.com/file/d/0B_CIqBpjpa16WHA2UGI5bDFaQ2c/edit?usp=sharing Introduction Spi4J Pacman]
 
-[https://drive.google.com/file/d/0B_CIqBpjpa16WHA2UGI5bDFaQ2c/edit?usp=sharing Présentations]
+[https://drive.google.com/file/d/0B_CIqBpjpa16N1FfRnJLWXJHNkU/edit?usp=sharing Présentations]
 
 [https://drive.google.com/file/d/0B_CIqBpjpa16QjFHbTFOeU8wemc/edit?usp=sharing Guides Architecture]
 
