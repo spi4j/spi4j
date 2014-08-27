@@ -11,7 +11,7 @@
 
 [https://drive.google.com/file/d/0B_CIqBpjpa16NVZmbHBQbUhqT3c/edit?usp=sharing Formation "architecte applicatif"]
 
-[https://drive.google.com/file/d/0B_CIqBpjpa16S3I5SlB6YldxTjg/edit?usp=sharing Formation "concepteur-développeur"] avec TD, [https://spi4j.googlecode.com/files/workspace_td.zip TD workspace corrigé]
+[https://drive.google.com/file/d/0B_CIqBpjpa16S3I5SlB6YldxTjg/edit?usp=sharing Formation "concepteur-développeur"] avec TD, [https://spi4j.googlecode.com/files/workspace_td.zip workspace corrigé]
 
 [https://drive.google.com/file/d/0B_CIqBpjpa16QWRjZUNocW14UHc/edit?usp=sharing Formation "analyste"]
 
