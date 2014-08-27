@@ -1,15 +1,19 @@
 #labels Featured
 === Documentations ===
 
-[https://spi4j.googlecode.com/files/Introduction_Spi4J_PacMan.zip Introduction Spi4J Pacman]
+[https://drive.google.com/file/d/0B_CIqBpjpa16WHA2UGI5bDFaQ2c/edit?usp=sharing Introduction Spi4J Pacman]
 
-[https://spi4j.googlecode.com/files/Pr%C3%A9sentations.zip Présentations]
+[https://drive.google.com/file/d/0B_CIqBpjpa16WHA2UGI5bDFaQ2c/edit?usp=sharing Présentations]
 
-[https://spi4j.googlecode.com/files/Guides%20Architecture.zip Guides Architecture]
+[https://drive.google.com/file/d/0B_CIqBpjpa16QjFHbTFOeU8wemc/edit?usp=sharing Guides Architecture]
 
-[https://spi4j.googlecode.com/files/Guides%20Utilisateurs.zip Guides Utilisateur]
+[https://drive.google.com/file/d/0B_CIqBpjpa16ZVhsRGowX3kweEU/edit?usp=sharing Guides Utilisateur]
 
-[https://spi4j.googlecode.com/files/Supports%20de%20cours%20-%20concepteur-d%C3%A9veloppeur.zip Supports de cours - "concepteur-développeur"], [https://spi4j.googlecode.com/files/workspace_td.zip TD workspace corrigé]
+[https://drive.google.com/file/d/0B_CIqBpjpa16NVZmbHBQbUhqT3c/edit?usp=sharing Formation "architecte applicatif"]
+
+[https://drive.google.com/file/d/0B_CIqBpjpa16S3I5SlB6YldxTjg/edit?usp=sharing Formation "concepteur-développeur"] avec TD, [https://spi4j.googlecode.com/files/workspace_td.zip TD workspace corrigé]
+
+[https://drive.google.com/file/d/0B_CIqBpjpa16QWRjZUNocW14UHc/edit?usp=sharing Formation "analyste"]
 
 === Dernière version (1.3) ===
 Update site Eclipse contenant les plugins Pacman v1.3 : <a href="https://drive.google.com/file/d/0B_CIqBpjpa16UXcwYlhtUkt3VTg/edit?usp=sharing">fr.pacman.update_1.3.0.zip</a>.
