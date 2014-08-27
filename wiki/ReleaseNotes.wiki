@@ -1,4 +1,6 @@
 #labels Featured
+  * Documentations mises à jour dans les [#Downloads Téléchargements] avec une nouvelle formation "architecte applicatif".
+
 === 1.3 ===
   * Pacman : Modification dans le générateur Pacman start
      * Correction d'un bug au niveau du pom (plugin management) du projet commons
