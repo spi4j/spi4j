@@ -1,5 +1,5 @@
 #labels Featured
-Pour récupérer un fichier, cliquer sur le lien du fichier puis sur l'icône "télécharger" dans la page qui s'affiche.
+_Pour récupérer un fichier, cliquer sur le lien du fichier puis sur l'icône "télécharger" dans la page qui s'affiche._
 
 === Documentations ===
 
