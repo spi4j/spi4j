@@ -1,4 +1,10 @@
 #labels Featured
+=== 1.4 ===
+  * Pacman : Dans Pacman Start, ajout d'un choix entre une configuration de nommage SUN ou une configuration de nommage SAFRAN.
+  * Pacman : Dans Pacman Start, compléments de configuration JavaWebStart pour client Swing.
+  * Pacman : Corrections dans le générateur cinematic Swing.
+  * Pacman : Corrections dans le générateur de spécifications si les logos ne sont pas renseignés ou s'ils contiennent des accents.
+  * Spi4J : Dans spi4j-swing, optimisation de getRowCount() et correction de addObject/removeObject pour une SpiTable.
   * Documentations mises à jour et réorganisées dans les [Downloads Téléchargements] avec une nouvelle formation "architecte applicatif".
 
 === 1.3 ===
