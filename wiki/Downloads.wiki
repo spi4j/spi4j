@@ -49,4 +49,4 @@ Guide Utilisateur du module Spi4J_DocReport : <a href="https://drive.google.com/
 
 === Archives (jusqu'à la version 1.0) ===
 
-Les archives sont téléchargeables à <a href="https://code.google.com/p/spi4j/downloads/list">cette adresse</a>.
+Les archives sont téléchargeables à <a href="https://code.google.com/p/spi4j/downloads/list?can=1">cette adresse</a>.
