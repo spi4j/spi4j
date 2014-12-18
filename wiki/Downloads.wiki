@@ -17,7 +17,16 @@ _Pour récupérer un fichier, cliquer sur le lien du fichier puis sur l'icône "
 
 [https://drive.google.com/file/d/0B_CIqBpjpa16QWRjZUNocW14UHc/edit?usp=sharing Formation "analyste"]
 
-=== Dernière version (1.4) ===
+=== Dernière version (1.5) ===
+Update site Eclipse contenant les plugins Pacman v1.5 : <a href="https://drive.google.com/file/d/0B_CIqBpjpa16T3hUcXJUVktWWFU/view?usp=sharing">fr.pacman.update_1.5.0.zip</a>.
+
+Librairies packagées de Spi4J v1.5 : <a href="https://drive.google.com/file/d/0B_CIqBpjpa16cURESzFyNHdCOFE/view?usp=sharing">spi4j-maven-repo-1.5-repository.zip</a>.
+
+Sources du projet Pacman au 15/12/2014 : <a href="https://drive.google.com/file/d/0B_CIqBpjpa16Q3hQbnNxd1JGYkE/view?usp=sharing">pacman-20141215-sources</a>.
+
+Sources du projet Spi4J au 15/12/2014 : <a href="https://drive.google.com/file/d/0B_CIqBpjpa16T29kb2VPbHBjcDA/view?usp=sharing">spi4j-20141215-sources</a>.
+
+=== version (1.4) ===
 Update site Eclipse contenant les plugins Pacman v1.4 : <a href="https://drive.google.com/file/d/0B_CIqBpjpa16TmY3R1l4Zi1ZMFU/edit?usp=sharing">fr.pacman.update_1.4.0.zip</a>.
 
 Librairies packagées de Spi4J v1.4 : <a href="https://drive.google.com/file/d/0B_CIqBpjpa16a3NRNkszRlp0MmM/edit?usp=sharing">spi4j-maven-repo-1.4-repository.zip</a>.
