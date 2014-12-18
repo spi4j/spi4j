@@ -1,9 +1,11 @@
 #labels Featured
 === 1.5 ===
   * Pacman : Dans Pacman Start, ajout d'un choix pour pouvoir générer un client JSF au lieu de GWT ou Swing.
-  * Pacman : Meilleure prise en compte de la configuration de nommage dans la génération
   * Pacman : Ajout d'un plugin pour regrouper plusieurs fichiers requirements (exigences) en un seul fichier
+  * Pacman : Meilleure prise en compte de la configuration de nommage dans la génération
   * Spi4J et Pacman : Upgrade des plugins Maven
+  * Spi4J : Dans l'application blanche, utilisation d'une base de données open-source (Postgresql plutôt qu'Oracle).
+  * Spi4J : Refonte du client JSF d'exemple de l'application blanche, avec JSF 2, facelet et Primefaces.
 
 === 1.4 ===
   * Pacman : Dans Pacman Start, ajout d'un choix entre une configuration de nommage SUN ou une configuration de nommage SAFRAN.
