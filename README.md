@@ -16,13 +16,16 @@ Ces projets ont été créés avec la participation de **[Bull](http://www.bull.
   * Architecture en couches (business, matching, persistence, ui) et N-tiers physiques (client, serveur d'applications, base de données relationnelle)
   * L'API générée est volontairement simple et promeut les bonnes pratiques de développement pour les applications de gestion
 
-### [Téléchargements](http://code.google.com/p/spi4j/wiki/Downloads) ###
-  * Présentation d'introduction à Spi4J et Pacman
-  * Documentations d'architecture technique et d'utilisation de Spi4J et Pacman
+### [Téléchargements](../../releases/latest) ###
   * Sources du projet Spi4J, et de l'application blanche servant d'exemple d'utilisation
   * Sources du projet Pacman (scripts [Acceleo](http://www.acceleo.org))
   * Librairies packagées de Spi4J
   * Update site Eclipse contenant les plugins packagés de Pacman
+
+### [Documentations](../../releases/tag/Documentations) ###
+  * Présentation d'introduction à Spi4J et Pacman
+  * Documentations d'architecture technique et d'utilisation de Spi4J et Pacman
+  * Formations
 
 ### Vidéo de démonstration d'utilisation des outils ###
   * [DSL Entity](https://drive.google.com/file/d/0B_CIqBpjpa16NTJzLUhSTnpKQzA/edit?usp=sharing)
