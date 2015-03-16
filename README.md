@@ -27,7 +27,7 @@ Ces projets ont été créés avec la participation de **[Bull](http://www.bull.
   * Documentations d'architecture technique et d'utilisation de Spi4J et Pacman
   * Formations
 
-### Vidéo de démonstration d'utilisation des outils ###
+### Vidéos de démonstration d'utilisation des outils ###
   * [DSL Entity](https://drive.google.com/file/d/0B_CIqBpjpa16NTJzLUhSTnpKQzA/edit?usp=sharing)
   * [DSL SOA-DTO](https://drive.google.com/file/d/0B_CIqBpjpa16aUtqNE5KUGhWaU0/edit?usp=sharing)
   * [DSL Requirement](https://drive.google.com/file/d/0B_CIqBpjpa16dmt3S1ZtTWRmdHc/edit?usp=sharing)
