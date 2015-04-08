@@ -7,7 +7,7 @@ Spi4J est composé d'une partie principale et de modules optionnels. Une applica
 
 Ces projets sont opensource en licence Apache (ASL v2).
 <br />
-Ces projets ont été créés avec la participation de **[Bull](http://www.bull.fr)** et sont encore en cours en mars 2015 (version courante : 1.5).
+Ces projets ont été créés avec la participation de **[Bull](http://www.bull.fr)** et sont encore en cours en avril 2015 (version courante : 1.6).
 
 ### Principaux éléments techniques directeurs de l'architecture ###
   * Architecture JavaEE
