@@ -7,7 +7,7 @@ Spi4J est composé d'une partie principale et de modules optionnels. Une applica
 
 Ces projets sont opensource en licence Apache (ASL v2).
 <br />
-Ces projets ont été créés avec la participation de **[Bull](http://www.bull.fr)** et sont encore en cours en avril 2015 (version courante : 1.6).
+Ces projets ont été créés avec la participation de [Bull] et sont encore en cours en décembre 2016 (version courante Spi4J : 1.7.2).
 
 ### Principaux éléments techniques directeurs de l'architecture ###
   * Architecture JavaEE
@@ -18,9 +18,9 @@ Ces projets ont été créés avec la participation de **[Bull](http://www.bull.
 
 ### [Téléchargements](../../releases/latest) ###
   * Sources du projet Spi4J, et de l'application blanche servant d'exemple d'utilisation
-  * Sources du projet Pacman (scripts [Acceleo](http://www.acceleo.org))
+  * Sources du projet Pacman (scripts [Acceleo](http://www.acceleo.org)) jusqu'à la version 1.6
   * Librairies packagées de Spi4J
-  * Update site Eclipse contenant les plugins packagés de Pacman
+  * Update site Eclipse contenant les plugins packagés de Pacman (jusqu'à la version 1.6)
 
 ### [Documentations](../../releases/tag/Documentations) ###
   * Présentation d'introduction à Spi4J et Pacman
@@ -36,6 +36,6 @@ Ces projets ont été créés avec la participation de **[Bull](http://www.bull.
   * [DSL Implémentation Requirement 2](https://drive.google.com/file/d/0B_CIqBpjpa16bUxXOGtDTzRkRFU/edit?usp=sharing)
 
 ### Modélisation ###
-Pour créer les modèles ([SOA](http://marketplace.obeonetwork.com/module/soa), [Entity](http://marketplace.obeonetwork.com/module/entity), [Database](http://marketplace.obeonetwork.com/module/database-designer), [Requirements](http://marketplace.obeonetwork.com/module/Requirements), [Graal](http://marketplace.obeonetwork.com/module/graal), [Cinematic](http://marketplace.obeonetwork.com/module/cinematic)), le Ministère de la Défense dispose d'une licence libératoire, non opensource, pour utiliser le bundle Eclipse **Safr@n Studio** en interne ainsi que pour les projets externes du Ministère de la Défense. Ce bundle inclut les designers graphiques et hiérarchiques pour créer les modèles ainsi qu'Acceleo pour la génération MDA. Les designers et les fichiers des DSL (méta-modèles) sur lesquels s’appuient les modèles seront publiés en opensource sur [ObeoNetwork](http://www.obeonetwork.com/) et sur [git](https://github.com/ObeoNetwork/InformationSystem/tree/master/models) [hub](https://github.com/ObeoNetwork/InformationSystem/tree/master/designs).
+Pour créer les modèles (SOA/DTO, Entity, Database, Requirements, Graal, State Machine & Interaction), le Ministère de la Défense dispose d'un bundle Eclipse **Safr@n Studio**. Ce bundle inclut les designers graphiques et hiérarchiques pour créer les modèles ainsi qu'Acceleo pour la génération MDA. Les designers et les fichiers des DSL (méta-modèles) sur lesquels s’appuient les modèles seront publiés en opensource sur [ObeoNetwork](http://www.obeonetwork.com/) et sur [git](https://github.com/ObeoNetwork/InformationSystem/tree/master/models) [hub](https://github.com/ObeoNetwork/InformationSystem/tree/master/designs).
 
 Si vous ne disposez pas de **Safr@n Studio**, il est également possible de créer les modèles en utilisant Obeo Designer : [InstallationIdeSpi4jPacman](../../wiki/InstallationIdeSpi4jPacman).
