@@ -18,9 +18,11 @@ Ces projets ont été créés avec la participation de [Bull] et sont encore en 
 
 ### [Téléchargements](../../releases/latest) ###
   * Sources du projet Spi4J, et de l'application blanche servant d'exemple d'utilisation
-  * Sources du projet Pacman (scripts [Acceleo](http://www.acceleo.org)) jusqu'à la version 1.6
+  * Sources du projet Pacman (scripts [Acceleo](http://www.acceleo.org))
   * Librairies packagées de Spi4J
-  * Update site Eclipse contenant les plugins packagés de Pacman (jusqu'à la version 1.6)
+  * Update site Eclipse contenant les plugins packagés de Pacman
+  
+  * NB : Téléchargement de Pacman jusqu'à la version 1.6 dans ce projet; pour les versions supérieures se rendre sur le projet [pacman](https://github.com/spi4j/pacman/)
 
 ### [Documentations](../../releases/tag/Documentations) ###
   * Présentation d'introduction à Spi4J et Pacman
