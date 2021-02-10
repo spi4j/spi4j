@@ -40,4 +40,4 @@ Ces projets ont été créés avec la participation de [Bull] et sont encore en 
 ### Modélisation ###
 Pour créer les modèles (Cinematic, SOA/DTO, Entity, Database, Requirements, Graal, State Machine & Interaction), le Ministère des Armées dispose d'un bundle Eclipse **Safr@n Studio**. Ce bundle inclut les designers graphiques et hiérarchiques pour créer les modèles ainsi qu'Acceleo pour la génération MDA. Les designers et les fichiers des DSL (méta-modèles) sur lesquels s’appuient les modèles seront publiés en opensource sur [ObeoNetwork](http://www.obeonetwork.com/) et sur [git](https://github.com/ObeoNetwork/InformationSystem/tree/master/models) [hub](https://github.com/ObeoNetwork/InformationSystem/tree/master/designs).
 
-Si vous ne disposez pas de **Safr@n Studio**, il est également possible de créer les modèles en utilisant le bundle open-source IS-Designer : [InstallationIdeSpi4jPacman](../../wiki/Installation_de_Spi4jPacman).
+Si vous ne disposez pas de **Safr@n Studio**, il est également possible de créer les modèles en utilisant le bundle open-source IS-Designer : [Installation de Spi4jPacman](../../wiki/Installation_de_Spi4jPacman).
