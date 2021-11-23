@@ -7,7 +7,7 @@ Spi4J est composé d'une partie principale et de modules optionnels. Une applica
 
 Ces projets sont opensource en licence Apache (ASL v2).
 <br />
-Ces projets ont été créés avec la participation de [Bull] et sont encore en cours en février 2021 (version courante Spi4J : 2.0.0).
+Ces projets ont été créés avec la participation de [Bull] et sont encore en cours en Novembre 2021 (version courante Spi4J : 2.2.0).
 
 ### Principaux éléments techniques directeurs de l'architecture ###
   * Architecture JavaEE
@@ -38,6 +38,6 @@ Ces projets ont été créés avec la participation de [Bull] et sont encore en 
   * [DSL Implémentation Requirement 2](https://drive.google.com/file/d/0B_CIqBpjpa16bUxXOGtDTzRkRFU/edit?usp=sharing)
 
 ### Modélisation ###
-Pour créer les modèles (Cinematic, SOA/DTO, Entity, Database, Requirements, Graal, State Machine & Interaction), le Ministère des Armées dispose d'un bundle Eclipse **Safr@n Studio**. Ce bundle inclut les designers graphiques et hiérarchiques pour créer les modèles ainsi qu'Acceleo pour la génération MDA. Les designers et les fichiers des DSL (méta-modèles) sur lesquels s’appuient les modèles seront publiés en opensource sur [ObeoNetwork](http://www.obeonetwork.com/) et sur [git](https://github.com/ObeoNetwork/InformationSystem/tree/master/models) [hub](https://github.com/ObeoNetwork/InformationSystem/tree/master/designs).
+Pour créer les modèles (Cinematic, SOA/DTO, Entity, Database, Requirements, Graal, State Machine & Interaction), le Ministère des Armées dispose d'un bundle Eclipse **Safr@n Studio**. Ce bundle inclut les designers graphiques et hiérarchiques pour créer les modèles ainsi qu'Acceleo pour la génération MDA. Les designers et les fichiers des DSL (méta-modèles) sur lesquels s’appuient les modèles sont publiés en opensource sur [gitHub/ObeoNetwork](https://github.com/ObeoNetwork/InformationSystem/).
 
-Si vous ne disposez pas de **Safr@n Studio**, il est également possible de créer les modèles en utilisant le bundle open-source IS-Designer : [Installation de Spi4jPacman](../../wiki/Installation_de_Spi4jPacman).
+Si vous ne disposez pas de **Safr@n Studio**, il est possible de créer les modèles en utilisant le bundle open-source [IS-Designer (Information System Designer)](https://www.isdesigner.org/).
