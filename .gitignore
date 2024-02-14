@@ -1,6 +1,32 @@
-# Ignorer le répertoire de compilation Maven 
-/target
-# Ignorer le répertoire des préférences Eclipse
-/.settings
-# Ignorer le répertoire de compilation par défaut d'Eclipse
-/bin
+# ***********************************
+# Répertoire des préférences Eclipse
+# ***********************************
+.settings/
+# ******************************
+# Répertoire de travail Eclipse
+# ******************************
+.metadata/
+# ***********************************************
+# Répertoire de compilation par défaut d'Eclipse
+# ***********************************************
+bin/
+# ***************************************************
+# Fichiers de sauvegarde pour les éditeurs sous unix
+# ***************************************************
+*~
+# *****************************************************
+# Fichiers de sauvegarde pour les éditeurs sous windows
+# *****************************************************
+*.bak
+# ********************************
+# Répertoire de compilation Maven 
+# ********************************
+target/
+# ***************
+# Fichiers de log
+# ***************
+*.log
+# ******************************************************************
+# Sécurité supplémentaire si un fichier est compilé hors de sa zone.
+# ******************************************************************
+*.class
