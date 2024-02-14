@@ -1,0 +1,6 @@
+# Ignorer le répertoire de compilation Maven 
+/target
+# Ignorer le répertoire des préférences Eclipse
+/.settings
+# Ignorer le répertoire de compilation par défaut d'Eclipse
+/bin
