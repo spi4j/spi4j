@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 3.7.2.v20120213 Build &lt;3.7.2.v20120214-1408></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/chart_listing.gif</property>
+    <property name="cheatSheet">org.eclipse.birt.report.designer.ui.cheatsheet.chartlisting</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <styles>
+        <style name="report" id="33">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="37">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="38">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="40">
+            <property name="fontSize">24pt</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">Exemple d'image incorporée dynamiquement</text-property>
+        </label>
+        <image id="43">
+            <property name="height">2.0416666666666665in</property>
+            <property name="width">3.90625in</property>
+            <property name="source">embed</property>
+            <property name="imageName">image_vide.png</property>
+        </image>
+    </body>
+    <list-property name="images">
+        <structure>
+            <property name="name">image_vide.png</property>
+            <property name="type">image/png</property>
+            <property name="data">
+                iVBORw0KGgoAAAANSUhEUgAAAXcAAADECAIAAADri/bGAAAABGdBTUEAALGPC/xhBQAABg5JREFUeF7t
+                17ENgDAQBEHTf9EGitjohgIuGL1W5rn3Hh8BAgQ6ga8yPgIECHQCp5u2TIAAgf9viQIBAgRSAZVJeY0T
+                IOAt4wYIEIgFvGViYPME5gVUZv4EABCIBVQmBjZPYF5AZeZPAACBWEBlYmDzBOYFVGb+BAAQiAVUJgY2
+                T2BeQGXmTwAAgVhAZWJg8wTmBVRm/gQAEIgFVCYGNk9gXkBl5k8AAIFYQGViYPME5gVUZv4EABCIBVQm
+                BjZPYF5AZeZPAACBWEBlYmDzBOYFVGb+BAAQiAVUJgY2T2BeQGXmTwAAgVhAZWJg8wTmBVRm/gQAEIgF
+                VCYGNk9gXkBl5k8AAIFYQGViYPME5gVUZv4EABCIBVQmBjZPYF5AZeZPAACBWEBlYmDzBOYFVGb+BAAQ
+                iAVUJgY2T2BeQGXmTwAAgVhAZWJg8wTmBVRm/gQAEIgFVCYGNk9gXkBl5k8AAIFYQGViYPME5gVUZv4E
+                ABCIBVQmBjZPYF5AZeZPAACBWEBlYmDzBOYFVGb+BAAQiAVUJgY2T2BeQGXmTwAAgVhAZWJg8wTmBVRm
+                /gQAEIgFVCYGNk9gXkBl5k8AAIFYQGViYPME5gVUZv4EABCIBVQmBjZPYF5AZeZPAACBWEBlYmDzBOYF
+                VGb+BAAQiAVUJgY2T2BeQGXmTwAAgVhAZWJg8wTmBVRm/gQAEIgFVCYGNk9gXkBl5k8AAIFYQGViYPME
+                5gVUZv4EABCIBVQmBjZPYF5AZeZPAACBWEBlYmDzBOYFVGb+BAAQiAVUJgY2T2BeQGXmTwAAgVhAZWJg
+                8wTmBVRm/gQAEIgFVCYGNk9gXkBl5k8AAIFYQGViYPME5gVUZv4EABCIBVQmBjZPYF5AZeZPAACBWEBl
+                YmDzBOYFVGb+BAAQiAVUJgY2T2BeQGXmTwAAgVhAZWJg8wTmBVRm/gQAEIgFVCYGNk9gXkBl5k8AAIFY
+                QGViYPME5gVUZv4EABCIBVQmBjZPYF5AZeZPAACBWEBlYmDzBOYFVGb+BAAQiAVUJgY2T2BeQGXmTwAA
+                gVhAZWJg8wTmBVRm/gQAEIgFVCYGNk9gXkBl5k8AAIFYQGViYPME5gVUZv4EABCIBVQmBjZPYF5AZeZP
+                AACBWEBlYmDzBOYFVGb+BAAQiAVUJgY2T2BeQGXmTwAAgVhAZWJg8wTmBVRm/gQAEIgFVCYGNk9gXkBl
+                5k8AAIFYQGViYPME5gVUZv4EABCIBVQmBjZPYF5AZeZPAACBWEBlYmDzBOYFVGb+BAAQiAVUJgY2T2Be
+                QGXmTwAAgVhAZWJg8wTmBVRm/gQAEIgFVCYGNk9gXkBl5k8AAIFYQGViYPME5gVUZv4EABCIBVQmBjZP
+                YF5AZeZPAACBWEBlYmDzBOYFVGb+BAAQiAVUJgY2T2BeQGXmTwAAgVhAZWJg8wTmBVRm/gQAEIgFVCYG
+                Nk9gXkBl5k8AAIFYQGViYPME5gVUZv4EABCIBVQmBjZPYF5AZeZPAACBWEBlYmDzBOYFVGb+BAAQiAVU
+                JgY2T2BeQGXmTwAAgVhAZWJg8wTmBVRm/gQAEIgFVCYGNk9gXkBl5k8AAIFYQGViYPME5gVUZv4EABCI
+                BVQmBjZPYF5AZeZPAACBWEBlYmDzBOYFVGb+BAAQiAVUJgY2T2BeQGXmTwAAgVhAZWJg8wTmBVRm/gQA
+                EIgFVCYGNk9gXkBl5k8AAIFYQGViYPME5gVUZv4EABCIBVQmBjZPYF5AZeZPAACBWEBlYmDzBOYFVGb+
+                BAAQiAVUJgY2T2BeQGXmTwAAgVhAZWJg8wTmBVRm/gQAEIgFVCYGNk9gXkBl5k8AAIFYQGViYPME5gVU
+                Zv4EABCIBVQmBjZPYF5AZeZPAACBWEBlYmDzBOYFVGb+BAAQiAVUJgY2T2BeQGXmTwAAgVhAZWJg8wTm
+                BVRm/gQAEIgFVCYGNk9gXkBl5k8AAIFYQGViYPME5gVUZv4EABCIBVQmBjZPYF5AZeZPAACBWEBlYmDz
+                BOYFVGb+BAAQiAVUJgY2T2BeQGXmTwAAgVhAZWJg8wTmBVRm/gQAEIgFXsFSywtfdIcHAAAAAElFTkSu
+                QmCC
+            </property>
+        </structure>
+    </list-property>
+</report>

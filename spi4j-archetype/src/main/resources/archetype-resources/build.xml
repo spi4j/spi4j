@@ -1,0 +1,15 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="." default="checkIfLostExists" name="Lost">
+	<!-- Vérification qu'il n'y a pas de fichier lost Acceleo -->
+	<target name="checkIfLostExists">
+		<fileset dir="." includes="**/*.lost" id="lostFileset" />
+		<condition property="lostNotExists">
+			<equals arg1="${symbol_dollar}{toString:lostFileset}" arg2="" />
+		</condition>
+		<fail unless="lostNotExists" message="Des fichiers LOST d'Acceleo sont présents : ils doivent être traités et ne doivent pas être commités avec les sources" />
+	</target>
+</project>

@@ -1,0 +1,287 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>fr.spi4j</groupId>
+	<artifactId>spi4j-lib-jmeter-jbehave</artifactId>
+	<packaging>jar</packaging>
+	<version>4.4.0</version>
+	<name>spi4j-jmeter-jbehave-sampler</name>
+	<licenses>
+		<license>
+			<name>ASL</name>
+			<url>LICENSE</url>
+		</license>
+	</licenses>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>5.3.1</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jbehave</groupId>
+			<artifactId>jbehave-core</artifactId>
+			<version>5.1</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jmeter</groupId>
+			<artifactId>jmeter-core</artifactId>
+			<version>${jmeter.version}</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/ApacheJMeter_core.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jmeter</groupId>
+			<artifactId>jmeter-java</artifactId>
+			<version>${jmeter.version}</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/ApacheJMeter_java.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jmeter</groupId>
+			<artifactId>jmeter-junit</artifactId>
+			<version>${jmeter.version}</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/ApacheJMeter_junit.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jorphan</groupId>
+			<artifactId>jorphan</artifactId>
+			<version>${jmeter.version}</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/jorphan.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logkit</groupId>
+			<artifactId>logkit</artifactId>
+			<version>${jmeter.version}</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/logkit-2.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.avalon</groupId>
+			<artifactId>avalon-framework</artifactId>
+			<version>${jmeter.version}</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/avalon-framework-4.1.4.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.oro</groupId>
+			<artifactId>oro</artifactId>
+			<version>${jmeter.version}</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/oro-2.0.8.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.20.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.20.0</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.spi4j</groupId>
+			<artifactId>spi4j-lib-jbehave</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+			</resource>
+			<!-- inclusion du fichier de licence dans le jar -->
+			<resource>
+				<directory>${project.basedir}</directory>
+				<includes>
+					<include>LICENSE*</include>
+				</includes>
+			</resource>
+		</resources>
+
+		<testResources>
+			<testResource>
+				<directory>${project.basedir}/src/test/java</directory>
+				<includes>
+					<include>**/*.story</include>
+				</includes>
+			</testResource>
+		</testResources>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.10.1</version>
+				<configuration>
+					<release>11</release>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.4</version>
+			</plugin>
+			<!-- Execution des tests unitaires -->
+			<!-- -Dfile.encoding=UTF-8 est nécessaire pour que les tests jbehave dans 
+				maven sous windows fonctionnent (car JBehave ne sait lire les fichiers story 
+				qu'avec le charset par défaut, Cp1252 sous Windows, et n'accepte aucune configuration) -->
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<!-- Attention bug sur la version 3.0.0-M6 -->
+				<version>3.0.0-M5</version>
+				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>
+					<argLine>-Xmx128m -Dfile.encoding=UTF-8</argLine>
+				</configuration>
+			</plugin>
+
+			<!-- Verification des prerequis -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>3.0.0-M2</version>
+				<executions>
+					<execution>
+						<id>enforce</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<banDuplicatePomDependencyVersions />
+								<requireMavenVersion>
+									<version>3.6.3</version>
+								</requireMavenVersion>
+								<requireJavaVersion>
+									<version>11</version>
+								</requireJavaVersion>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Couverture de code des tests unitaires -->
+			<!-- JaCoco remplace cobertura-maven-plugin pour la version 11 de Java -->
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.8</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<!-- Javadoc -->
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9</version>
+			</plugin>
+			<!-- Rapport des tests unitaires -->
+			<plugin>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.18</version>
+				<configuration>
+					<linkXRef>false</linkXRef>
+				</configuration>
+				<!-- http://jira.codehaus.org/browse/SUREFIRE-257 -->
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>report-only</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<!-- Rapport checkstyle -->
+			<plugin>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.13</version>
+				<configuration>
+					<enableRSS>false</enableRSS>
+					<linkXRef>false</linkXRef>
+					<configLocation>${basedir}/conf/Checks_Spi4j.xml</configLocation>
+				</configuration>
+			</plugin>
+			<!-- Rapport findbugs -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<xmlOutput>true</xmlOutput>
+					<omitVisitors>FindReturnRef,FindNullDeref,CloneIdiom</omitVisitors>
+				</configuration>
+			</plugin>
+			<!-- Rapport pmd -->
+			<plugin>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>2.7.1</version>
+				<configuration>
+					<enableRulesSummary>false</enableRulesSummary>
+					<source>11</source>
+					<targetJdk>11</targetJdk>
+					<linkXRef>false</linkXRef>
+					<minimumPriority>4</minimumPriority>
+					<minimumTokens>100</minimumTokens>
+					<rulesets>
+						<ruleset>${basedir}/conf/PMD_Spi4j.xml</ruleset>
+					</rulesets>
+				</configuration>
+			</plugin>
+
+			<!-- Information sur le projet -->
+			<plugin>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.7</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>summary</report>
+							<report>license</report>
+							<report>mailing-list</report>
+							<report>issue-tracking</report>
+							<report>scm</report>
+							<report>cim</report>
+							<report>plugin-management</report>
+							<report>plugins</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<!-- Site Maven -->
+			<plugin>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.4</version>
+			</plugin>
+		</plugins>
+	</reporting>
+
+	<properties>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jmeter.version>5.5</jmeter.version>
+	</properties>
+</project>

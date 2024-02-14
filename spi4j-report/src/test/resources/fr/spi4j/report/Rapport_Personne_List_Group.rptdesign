@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 3.7.2.v20120213 Build &lt;3.7.2.v20120214-1408></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-header>
+                <text name="text_lien_url" id="33"/>
+            </page-header>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <list name="list_personne" id="7">
+            <group id="8">
+                <property name="groupName">group_personne</property>
+                <property name="interval">none</property>
+                <property name="sortDirection">asc</property>
+                <structure name="toc"/>
+                <property name="repeatHeader">true</property>
+                <property name="hideDetail">false</property>
+                <property name="pageBreakAfter">auto</property>
+                <property name="pageBreakBefore">auto</property>
+                <property name="pageBreakInside">auto</property>
+                <header>
+                    <label name="lab_nom_personne" id="32">
+                        <property name="fontFamily">"Comic Sans MS"</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="color">red</property>
+                        <property name="textUnderline">none</property>
+                        <property name="display">inline</property>
+                        <text-property name="text">Nom : </text-property>
+                    </label>
+                    <data name="data_nom" id="9">
+                        <property name="fontFamily">"Comic Sans MS"</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="fontStyle">normal</property>
+                        <property name="color">black</property>
+                        <property name="display">inline</property>
+                    </data>
+                </header>
+            </group>
+            <detail>
+                <table name="table_personne" id="10">
+                    <property name="fontFamily">"Comic Sans MS"</property>
+                    <property name="borderBottomColor">#000080</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">medium</property>
+                    <property name="borderLeftColor">#000080</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">medium</property>
+                    <property name="borderRightColor">#000080</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">medium</property>
+                    <property name="borderTopColor">#000080</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">medium</property>
+                    <property name="textAlign">center</property>
+                    <column id="23"/>
+                    <column id="24"/>
+                    <column id="25"/>
+                    <header>
+                        <row id="11">
+                            <cell id="12">
+                                <label name="lab_id_personne" id="27">
+                                    <property name="fontWeight">bold</property>
+                                    <property name="color">red</property>
+                                    <property name="textUnderline">underline</property>
+                                    <text-property name="text">Identifiant</text-property>
+                                </label>
+                            </cell>
+                            <cell id="13">
+                                <label name="lab_nomAndPrenom_personne" id="28">
+                                    <property name="fontWeight">bold</property>
+                                    <property name="color">red</property>
+                                    <property name="textUnderline">underline</property>
+                                    <text-property name="text">Nom et prénom</text-property>
+                                </label>
+                            </cell>
+                            <cell id="14">
+                                <label name="lab_age_personne" id="29">
+                                    <property name="fontWeight">bold</property>
+                                    <property name="color">red</property>
+                                    <property name="textUnderline">underline</property>
+                                    <text-property name="text">Age</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                    </header>
+                    <detail>
+                        <row id="15">
+                            <cell id="16">
+                                <data name="data_id" id="26"/>
+                            </cell>
+                            <cell id="17">
+                                <data name="data_nomAndPrenom" id="30"/>
+                            </cell>
+                            <cell id="18">
+                                <data name="data_age" id="31"/>
+                            </cell>
+                        </row>
+                    </detail>
+                    <footer>
+                        <row id="19">
+                            <cell id="20"/>
+                            <cell id="21"/>
+                            <cell id="22"/>
+                        </row>
+                    </footer>
+                </table>
+            </detail>
+        </list>
+    </body>
+</report>

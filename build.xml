@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="." default="zip" name="Spi4J">
+	<!-- Zip de tous les soures de tous les projets Spi4J -->
+	<target name="zip" depends="">
+		<echo message="Construction du zip des sources Spi4J" level="info" />
+		<tstamp>
+			<format property="TODAY" pattern="yyyyMMdd" />
+		</tstamp>
+		<delete dir="." includes="*-sources.zip" />
+		<zip destfile="spi4j-${TODAY}-sources.zip">
+			<!-- on exclut les répertoires target des builds maven (les répertoires .svn de subversion seront exclus automatiquement par Ant) -->
+			<zipfileset dir="." excludes="**/target/**,appwhite1/appwhite1-deploiement-jmeter/JMeter*.zip,spi4j*.zip,appwhite1/appwhite1-deploiement-jmeter/*.log,**/*.log.bak" />
+		</zip>
+	</target>
+</project>

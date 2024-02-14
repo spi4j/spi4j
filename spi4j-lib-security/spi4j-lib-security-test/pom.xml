@@ -1,0 +1,154 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>fr.spi4j</groupId>
+		<artifactId>spi4j-lib-security</artifactId>
+		<version>4.4.0</version>
+	</parent>
+	<artifactId>spi4j-lib-security-test</artifactId>
+	<packaging>jar</packaging>
+	<name>Spi4J Security - Tests</name>
+	<licenses>
+		<license>
+			<name>ASL</name>
+			<url>LICENSE</url>
+		</license>
+	</licenses>
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>spi4j-lib-security-server</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<version>5.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.9.3</version>
+			<scope>test</scope>
+			<!--<optional>true</optional> -->
+		</dependency>
+		<dependency>
+			<groupId>jakarta.transaction</groupId>
+			<artifactId>jakarta.transaction-api</artifactId>
+			<version>2.0.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.ejb</groupId>
+			<artifactId>jakarta.ejb-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+			</resource>
+			<!-- inclusion du fichier de licence dans le jar -->
+			<resource>
+				<directory>${project.basedir}</directory>
+				<includes>
+					<include>LICENSE*</include>
+				</includes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.5.1</version>
+				<executions>
+					<!-- Pour inclusion des statistiques de couverture de code sur les autres 
+						modules (commons, server) lors des tests d'intégration: on récupère et on 
+						décompresse les sources des autres modules installés précédemment dans le 
+						repo local (maven-dependency-plugin) puis on recompile dans ce module d'intégration 
+						pour que Cobertura les instrumente ensuite -->
+					<execution>
+						<id>unpack-integration-dependencies-sources</id>
+						<phase>test</phase>
+						<goals>
+							<goal>unpack-dependencies</goal>
+						</goals>
+						<configuration>
+							<!-- Attention: pour que cela fonctionne, il y a un attachement (construction 
+								et installation) des sources des sous-modules dans le pom parent "spi4j-lib-security" -->
+							<!-- Remarque: ce "unpack-dependencies" affiche une erreur qui peut 
+								être ignorée lors de la compilation de l'intégration dans Eclipse, et c'est 
+								un bug connu de Maven -->
+							<classifier>sources</classifier>
+							<includeGroupIds>fr.spi4j</includeGroupIds>
+							<includeArtifactIds>spi4j-lib-security-commons,spi4j-lib-security-server</includeArtifactIds>
+							<outputDirectory>${project.build.directory}/generated-sources/integration-dependencies</outputDirectory>
+							<!-- "failOnMissingClassifierArtifact" nécessaire pour pouvoir exécuter 
+								des commandes release dans Maven car on ne doit pas planter lors du "clean 
+								verify" au moment où les artefacts ne sont pas encore installés dans le repository -->
+							<failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>add-integration-dependencies-sources</id>
+						<phase>test</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${project.build.directory}/generated-sources/integration-dependencies</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Verification des prerequis -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>3.0.0-M2</version>
+				<executions>
+					<execution>
+						<id>enforce</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<banDuplicatePomDependencyVersions />
+								<requireMavenVersion>
+									<version>3.6.3</version>
+								</requireMavenVersion>
+								<requireJavaVersion>
+									<version>11</version>
+								</requireJavaVersion>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Utilisé pour la prise en compte @Disabled sous Junit 5. -->
+			<!-- De plus mauvaise integration de Junit 5 et maven si manquant. -->
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<!-- Attention bug sur la version 3.0.0-M6 -->
+				<version>3.0.0-M5</version>
+			</plugin>
+		</plugins>
+	</build>
+</project>

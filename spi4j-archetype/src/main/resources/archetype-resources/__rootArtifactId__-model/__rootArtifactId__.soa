@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.obeonetwork.dsl.soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/2.0.0" xmlns:org.obeonetwork.dsl.soa="http://www.obeonetwork.org/dsl/soa/2.0.0" xmi:id="_qFcWgGzyEeCG2-tAxDtkMQ">
+  <ownedDtoRegistry xmi:id="_tgVwEGzyEeCG2-tAxDtkMQ">
+    <metadatas xmi:id="_IdRgQHAXEeCTfbDD237d1g">
+      <metadatas xsi:type="oenv:Annotation" xmi:id="_JETrEHAXEeCTfbDD237d1g" title="PACKAGE" body="fr.${parentArtifactId}"/>
+      <metadatas xsi:type="oenv:Annotation" xmi:id="_LPRCgJfyEeCZQtHVMkbgsA" title="IdAppli" body="${parentArtifactId}"/>
+    </metadatas>
+  </ownedDtoRegistry>
+</org.obeonetwork.dsl.soa:System>

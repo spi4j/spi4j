@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<assembly>
+  <id>repository</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <repositories>
+    <repository>
+      <includeMetadata>false</includeMetadata>
+      <includes>
+        <include>fr.spi4j:*</include>
+      </includes>
+      <excludes>
+        <exclude>apache*:*</exclude>
+        <exclude>commons-*:*</exclude>
+        <exclude>com.*:*</exclude>
+        <exclude>org.*:*</exclude>
+        <exclude>javax.*:*</exclude>
+        <exclude>jakarta.*:*</exclude>
+        <exclude>junit:*</exclude>
+        <exclude>log4j:*</exclude>
+        <exclude>xpp3:*</exclude>
+        <exclude>fr.opensagres.xdocreport:*</exclude>
+      </excludes>
+    </repository>
+  </repositories>
+</assembly>

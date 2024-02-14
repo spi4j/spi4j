@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    This configuration file was written by the eclipse-cs plugin configuration editor
+-->
+<!--
+    Checkstyle-Configuration: MINARM Checks
+    Description: 
+Configuration Checkstyle vérifiant les conventions de développement du MINARM.
+-->
+<!DOCTYPE module PUBLIC "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN" "https://checkstyle.org/dtds/configuration_1_3.dtd">
+<module name="Checker">
+  <metadata name="net.sf.eclipsecs.core.comment" value="Verification Exigences Code Java EMAT"/>
+  <property name="severity" value="warning"/>
+  <property name="localeCountry" value="fr"/>
+  <property name="localeLanguage" value="fr"/>
+  <module name="TreeWalker">
+    <module name="FileContentsHolder"/>
+    <module name="JavadocMethod">
+      <property name="suppressLoadErrors" value="true"/>
+    </module>
+    <module name="JavadocType">
+      <!-- non supporté par plugin checkstyle dans maven: <property name="allowUnknownTags" value="true"/> -->
+    </module>
+    <module name="JavadocVariable">
+      <property name="excludeScope" value="private"/>
+    </module>
+    <!--
+    <module name="JavadocStyle"/>
+    -->
+    <module name="ConstantName">
+      <metadata name="net.sf.eclipsecs.core.comment" value="Une constante doit commençée par &quot;c_&quot; (ex : &quot;c_maCte&quot;)"/>
+      <property name="severity" value="error"/>
+      <property name="format" value="^c_[a-zA-Z0-9_]*$"/>
+    </module>
+    <module name="LocalFinalVariableName">
+      <metadata name="net.sf.eclipsecs.core.comment" value="Une constante doit commençée par &quot;c_&quot; (ex : &quot;c_maCte&quot;)"/>
+      <property name="severity" value="error"/>
+      <property name="format" value="^v_[a-zA-Z0-9_]*$"/>
+    </module>
+    <module name="LocalVariableName">
+      <metadata name="net.sf.eclipsecs.core.comment" value="Une variable locale doit commençée par &quot;v_&quot; (ex : &quot;v_maVar&quot;)"/>
+      <property name="severity" value="error"/>
+      <property name="format" value="^v_[a-zA-Z0-9_]*$"/>
+    </module>
+    <module name="MemberName">
+      <metadata name="net.sf.eclipsecs.core.comment" value="Un attribut doit commençée par &quot;_&quot; (ex : &quot;_monAtt&quot;)"/>
+      <property name="severity" value="error"/>
+      <property name="format" value="^_[a-zA-Z0-9_]*$"/>
+    </module>
+    <module name="MethodName">
+      <metadata name="net.sf.eclipsecs.core.comment" value="Le nom de la méthode est incorrect"/>
+      <property name="severity" value="error"/>
+      <property name="format" value="^[a-z][a-zA-Z0-9_]*$"/>
+    </module>
+    <module name="PackageName"/>
+    <module name="ParameterName">
+      <metadata name="net.sf.eclipsecs.core.comment" value="Un paramètre de méthode doit commençée par &quot;p_&quot; (ex : &quot;p_monParam&quot;)"/>
+      <property name="severity" value="error"/>
+      <property name="format" value="^p_[a-zA-Z0-9_]*$"/>
+    </module>
+    <module name="StaticVariableName">
+      <property name="format" value="^(map_)?(tab_)?[a-z][a-zA-Z0-9]*$"/>
+    </module>
+    <module name="TypeName">
+      <metadata name="net.sf.eclipsecs.core.comment" value="Le nom de la classe est incorrect"/>
+      <property name="severity" value="error"/>
+      <property name="format" value="^[A-Z][a-zA-Z0-9_]*$"/>
+    </module>
+    <module name="AvoidStarImport"/>
+    <module name="IllegalImport"/>
+    <module name="RedundantImport"/>
+    <module name="UnusedImports"/>
+    <module name="MethodLength"/>
+    <!--
+    <module name="ParameterNumber"/>
+    -->
+    <module name="EmptyForIteratorPad"/>
+    <module name="MethodParamPad">
+      <property name="option" value="space"/>
+      <property name="tokens" value="CTOR_DEF,METHOD_DEF"/>
+    </module>
+    <module name="NoWhitespaceAfter"/>
+    <module name="NoWhitespaceBefore"/>
+    <module name="OperatorWrap"/>
+    <module name="ParenPad"/>
+    <module name="TypecastParenPad"/>
+    <module name="WhitespaceAfter"/>
+    <module name="WhitespaceAround"/>
+    <module name="AvoidNestedBlocks"/>
+    <!--
+    <module name="EmptyBlock"/>
+    -->
+    <module name="AvoidInlineConditionals"/>
+    <module name="EmptyStatement"/>
+    <module name="EqualsHashCode"/>
+    <module name="HiddenField"/>
+    <module name="IllegalInstantiation"/>
+    <module name="InnerAssignment"/>
+    <module name="MagicNumber">
+      <property name="severity" value="ignore"/>
+      <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
+    </module>
+    <module name="MissingSwitchDefault"/>
+    <module name="SimplifyBooleanReturn"/>
+    <module name="FinalClass"/>
+    <module name="HideUtilityClassConstructor"/>
+    <!--
+    <module name="InterfaceIsType"/>
+    -->
+    <module name="VisibilityModifier">
+      <property name="protectedAllowed" value="true"/>
+    </module>
+    <module name="ArrayTypeStyle"/>
+    <module name="FinalParameters"/>
+    <module name="TodoComment"/>
+    <module name="UpperEll"/>
+    <module name="MethodParamPad">
+      <property name="tokens" value="LITERAL_NEW,METHOD_CALL,SUPER_CTOR_CALL"/>
+    </module>
+    <module name="MutableException"/>
+    <module name="ExplicitInitialization"/>
+    <module name="DeclarationOrder"/>
+  	<module name="ModifiedControlVariable"/>
+    <module name="MultipleVariableDeclarations"/>
+    <module name="ParameterAssignment"/>
+  </module>
+  <module name="SuppressionCommentFilter"/>
+  <module name="RegexpSingleline">
+    <property name="format" value="[^*]\s+$"/>
+    <property name="message" value="Line has trailing spaces."/>
+  </module>
+  <module name="FileTabCharacter">
+    <metadata name="net.sf.eclipsecs.core.comment" value="Pas de tabulation."/>
+    <property name="severity" value="warning"/>
+    <property name="id" value="PRES_CODE"/>
+  </module>
+  <module name="FileLength"/>
+  <!--
+  <module name="JavadocPackage">
+    <property name="allowLegacy" value="true"/>
+  </module>
+  -->
+  <module name="Translation"/>
+  <!-- TODO
+  <module name="NewlineAtEndOfFile"/>
+  <module name="LineLength"/>
+  <module name="ModifierOrder"/>
+  <module name="RedundantModifier"/>
+  <module name="LeftCurly"/>
+  <module name="NeedBraces"/>
+  <module name="RightCurly"/>
+  <module name="SimplifyBooleanExpression"/>
+  <module name="SimplifyBooleanReturn"/>
+  <module name="DesignForExtension"/>
+  -->
+</module>

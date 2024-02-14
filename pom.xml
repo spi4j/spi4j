@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>fr.spi4j</groupId>
+	<artifactId>modules</artifactId>
+	<packaging>pom</packaging>
+	<version>4.4.0</version>
+	<name>Modules Spi4j</name>
+	<description>Spi4j : Simple Programming Interface for Java (API Mutualisée)</description>
+	<licenses>
+		<license>
+			<name>ASL</name>
+			<url>LICENSE</url>
+		</license>
+	</licenses>
+
+	<modules>
+		<module>spi4j</module>
+		<module>spi4j-ui</module>
+		<module>spi4j-swing</module>
+		<module>spi4j-gwt</module>
+		<module>spi4j-jsp</module>
+		<module>spi4j-lib-jbehave</module>
+		<module>spi4j-lib-jmeter-jbehave</module>
+		<module>spi4j-lib-security</module>
+		<module>spi4j-report</module>
+		<module>spi4j-doc-report</module> 		
+		<!-- Construction du repository maven -->
+		<module>spi4j-maven-repo</module>
+	</modules>
+
+	<organization>
+		<name>MinDef / Safr@n</name>
+	</organization>
+
+	<build>
+		<plugins>
+			<plugin>
+				<!-- pour corriger http://jira.codehaus.org/browse/MRELEASE-679 en Maven 3 -->
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.3.2</version>
+			</plugin>
+			<plugin>
+				<!-- pour corriger "Plugin not found", lors du release:perform en Maven 3 -->
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.4</version>
+			</plugin>
+			
+			<!-- Verification des prerequis -->
+			<plugin>
+    			<groupId>org.apache.maven.plugins</groupId>
+    			<artifactId>maven-enforcer-plugin</artifactId>
+    			<version>3.0.0-M2</version>
+    			<executions>
+    				<execution>
+  						<id>enforce</id>
+        				<goals>
+            				<goal>enforce</goal>
+        				</goals>
+        				<configuration>
+            				<rules>
+                				<banDuplicatePomDependencyVersions/>
+                				<requireMavenVersion>
+    								<version>3.6.3</version>
+								</requireMavenVersion>
+								<requireJavaVersion>
+    								<version>11</version>
+								</requireJavaVersion>
+            				</rules>
+        				</configuration>   		
+        			</execution>		
+    			</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<reporting>
+		<plugins>
+			<!-- Métriques sur les lignes de code et sur les lignes de commentaires -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>javancss-maven-plugin</artifactId>
+				<version>2.0</version>
+			</plugin>
+		</plugins>
+	</reporting>
+</project>
