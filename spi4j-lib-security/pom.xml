@@ -5,7 +5,7 @@
 	<groupId>fr.spi4j</groupId>
 	<artifactId>spi4j-lib-security</artifactId>
 	<packaging>pom</packaging>
-	<version>4.4.0</version>
+	<version>4.5.0-SNAPSHOT</version>
 	<name>Spi4J Lib Security</name>
 	<description>Spi4j Lib Security : Librairie de Sécurité pour Spi4J</description>
 	<organization>

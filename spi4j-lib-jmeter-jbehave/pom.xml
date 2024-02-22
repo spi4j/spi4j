@@ -5,7 +5,7 @@
 	<groupId>fr.spi4j</groupId>
 	<artifactId>spi4j-lib-jmeter-jbehave</artifactId>
 	<packaging>jar</packaging>
-	<version>4.4.0</version>
+	<version>4.5.0-SNAPSHOT</version>
 	<name>spi4j-jmeter-jbehave-sampler</name>
 	<licenses>
 		<license>

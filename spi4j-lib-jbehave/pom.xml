@@ -5,7 +5,7 @@
 	<groupId>fr.spi4j</groupId>
 	<artifactId>spi4j-lib-jbehave</artifactId>
 	<packaging>jar</packaging>
-	<version>4.4.0</version>
+	<version>4.5.0-SNAPSHOT</version>
 	<name>spi4j Lib JBehave</name>
 	<description>Spi4j Lib JBehave : Simple Programming Interface for JBehave (API Mutualisée)</description>
 	<licenses>
