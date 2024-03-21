@@ -155,6 +155,12 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- Site Maven -->
+			<plugin>
+			 	<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.7.1</version>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -175,15 +181,23 @@
 					<configLocation>${basedir}/conf/Checks_Spi4j.xml</configLocation>
 				</configuration>
 			</plugin>
+			<!-- Rapport spotbugs (anciennement findbugs) -->
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>findbugs-maven-plugin</artifactId>
-				<version>3.0.0</version>
+				<groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.8.3.1</version>
 				<configuration>
+					<plugins>
+                        <plugin>
+                            <groupId>com.h3xstream.findsecbugs</groupId>
+                            <artifactId>findsecbugs-plugin</artifactId>
+                            <version>1.12.0</version>
+                        </plugin>
+                    </plugins>
 					<xmlOutput>true</xmlOutput>
 					<omitVisitors>FindReturnRef,FindNullDeref,CloneIdiom</omitVisitors>
 				</configuration>
-			</plugin>
+			</plugin>			
 			<!-- Rapport pmd -->
 			<plugin>
 				<artifactId>maven-pmd-plugin</artifactId>
@@ -208,22 +222,17 @@
 				<reportSets>
 					<reportSet>
 						<reports>
-							<report>summary</report>
-							<report>license</report>
-							<report>mailing-list</report>
-							<report>issue-tracking</report>
-							<report>scm</report>
-							<report>cim</report>
-							<report>plugin-management</report>
-							<report>plugins</report>
+                            <report>summary</report>
+                            <report>licenses</report>
+                            <report>mailing-lists</report>
+                            <report>team</report>
+                            <report>scm</report>
+                            <report>dependencies</report>
+                            <report>dependency-info</report>
+                            <report>plugins</report>
 						</reports>
 					</reportSet>
 				</reportSets>
-			</plugin>
-			<!-- Site Maven -->
-			<plugin>
-				<artifactId>maven-site-plugin</artifactId>
-				<version>3.4</version>
 			</plugin>
 		</plugins>
 	</reporting>
