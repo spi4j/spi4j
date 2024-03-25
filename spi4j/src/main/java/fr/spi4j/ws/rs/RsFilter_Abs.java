@@ -157,9 +157,9 @@ public abstract class RsFilter_Abs implements ContainerRequestFilter, ContainerR
 	/**
 	 * Check if the resource (service) has some security defined. Retrieve and
 	 * decode the requested token(s).
+	 * <p>
+	 * If an access token is invalid or expired, abort directly with an exception.
 	 *
-	 * @apiNote If an access token is invalid or expired, abort directly with an
-	 *          exception.
 	 * @param p_requestCtx : The request context for the call.
 	 */
 	private void checkAllTokens(final ContainerRequestContext p_requestCtx) {
@@ -215,8 +215,9 @@ public abstract class RsFilter_Abs implements ContainerRequestFilter, ContainerR
 
 	/**
 	 * Decode the specific token and retrieve the claims for the token.
+	 * <p>
+	 * If the token is not found, return null for the claims.
 	 *
-	 * @apiNote If the token is not found, return null for the claims.
 	 * @param p_requestCtx : The request context for the call.
 	 * @param p_token      : The definition (and the token) for the requested token.
 	 * @return The claims for the token or null if the token is not found.
@@ -247,8 +248,9 @@ public abstract class RsFilter_Abs implements ContainerRequestFilter, ContainerR
 	/**
 	 * Retrieve the string current token from the request, depends of required token
 	 * parameters.
+	 * <p>
+	 * Here work with a copy of the token definition !!!
 	 *
-	 * @apiNote Here work with a copy of the token definition !!!
 	 * @param p_requestCtx : The request context for the call.
 	 * @param p_token      : The definition for the requested token.
 	 * @return The required token completed with the token string without the type
@@ -319,8 +321,9 @@ public abstract class RsFilter_Abs implements ContainerRequestFilter, ContainerR
 	/**
 	 * Check if a refresh token exists and is valid. If so, create and send a new
 	 * valid access token.
+	 * <p>
+	 * Only to use with API KEY authentication protocol !
 	 *
-	 * @apiNote Only to use with API KEY authentication protocol !
 	 * @param p_requestCtx : The request context for the call.
 	 */
 	private void checkForRefreshToken(final ContainerRequestContext p_requestCtx) {
@@ -371,11 +374,13 @@ public abstract class RsFilter_Abs implements ContainerRequestFilter, ContainerR
 
 	/**
 	 * Check if the current token to decode is associated with the current resource.
+	 * <p>
+	 * Be sure to check the annotation is present (not null) before calling this
+	 * method !
+	 * <p>
+	 * Refresh tokens are not present in the annotation, so they will not be
+	 * processed.
 	 *
-	 * @apiNote Be sure to check the annotation is present (not null) before calling
-	 *          this method !
-	 * @apiNote Refresh tokens are not present in the annotation, so they will not
-	 *          be processed.
 	 * @param v_token : The current token to decode.
 	 * @return true if the token is associated with the current resource.
 	 */
@@ -386,10 +391,12 @@ public abstract class RsFilter_Abs implements ContainerRequestFilter, ContainerR
 
 	/**
 	 * Check if the filter has to check a refresh token.
+	 * <p>
+	 * Only for use with API KEY authentication protocol !
+	 * <p>
+	 * If this method is called, the resource is secured so the annotation can't be
+	 * null !
 	 *
-	 * @apiNote Only for use with API KEY authentication protocol !
-	 * @apiNote If this method is called, the resource is secured so the annotation
-	 *          can't be null !
 	 * @return true if all conditions are validated for checking a refresh token.
 	 */
 	private boolean isRefreshMethod() {
@@ -417,10 +424,11 @@ public abstract class RsFilter_Abs implements ContainerRequestFilter, ContainerR
 
 	/**
 	 * Check if the called resource is for refreshing an access token.
+	 * <p>
+	 * Work only for an apiKey authentication protocol !
+	 * <p>
+	 * For now, no control is made for the refresh token existence and/or validity.
 	 *
-	 * @apiNote Work only for an apiKey authentication protocol !
-	 * @apiNote For now, no control is made for the refresh token existence and/or
-	 *          validity.
 	 * @return true if the resource is for refresh and the authentication protocol
 	 *         is apiKey.
 	 */
@@ -536,9 +544,10 @@ public abstract class RsFilter_Abs implements ContainerRequestFilter, ContainerR
 
 	/**
 	 * Abort the filter chain with a 500 status code response.
+	 * <p>
+	 * The exception is thrown on the last filtering phase (Response has already
+	 * been created)
 	 *
-	 * @apiNote The exception is thrown on the last filtering phase (Response has
-	 *          already been created)
 	 * @param p_responseCtx : the container for the response context.
 	 * @param p_exception   : the exception to send.
 	 */

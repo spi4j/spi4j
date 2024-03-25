@@ -110,7 +110,8 @@ abstract public class SpiTable_Abs<TypeValue> extends SpiListTable<TypeValue> {
 	 * 
 	 * @param p_attribute Attribut d'un DTO à afficher dans la colonne à partir de
 	 *                    l'énumération des attributs correspondant aux DTOs de la
-	 *                    liste affichée<br/>
+	 *                    liste affichée.
+	 *                    <p>
 	 *                    Par exemple, <code>PersonneAttributes_Enum.nom</code> pour
 	 *                    une liste de PersonneDto.
 	 * @param p_libelle   Libellé à afficher en entête de la colonne, ou null pour
@@ -130,7 +131,8 @@ abstract public class SpiTable_Abs<TypeValue> extends SpiListTable<TypeValue> {
 	 * 
 	 * @param p_column  Colonne d'une Entity à afficher dans la colonne à partir de
 	 *                  l'énumération des colonnes correspondant aux Entitys de la
-	 *                  liste affichée<br/>
+	 *                  liste affichée.
+	 *                  <p>
 	 *                  Par exemple, <code>PersonneColumns_Enum.nom</code> pour une
 	 *                  liste de PersonneEntity.
 	 * @param p_libelle Libellé à afficher en entête de la colonne, ou null pour
@@ -151,7 +153,8 @@ abstract public class SpiTable_Abs<TypeValue> extends SpiListTable<TypeValue> {
 	 * @param p_attributesChain Attributs chainés de DTOs dont le dernier est à
 	 *                          afficher dans la colonne à partir de l'énumération
 	 *                          des attributs correspondant aux DTOs de la liste
-	 *                          affichée<br/>
+	 *                          affichée.
+	 *                          <p>
 	 *                          Par exemple,
 	 *                          <code>new AttributesNames_Itf[] {PersonneAttributes_Enum.grade, GradeAttributes_Enum.trigramme}</code>
 	 *                          pour afficher le trigramme du grade dans une liste
@@ -191,7 +194,8 @@ abstract public class SpiTable_Abs<TypeValue> extends SpiListTable<TypeValue> {
 	 * @param p_columnsChain Attributs chainés de Entitys dont le dernier est à
 	 *                       afficher dans la colonne à partir de l'énumération des
 	 *                       colonnes correspondant aux Entitys de la liste
-	 *                       affichée<br/>
+	 *                       affichée.
+	 *                       <p>
 	 *                       Par exemple,
 	 *                       <code>new ColumnsNames_Itf[] {PersonneColumns_Enum.grade, GradeColumns_Enum.trigramme}</code>
 	 *                       pour afficher le trigramme du grade dans une liste de
@@ -320,7 +324,8 @@ abstract public class SpiTable_Abs<TypeValue> extends SpiListTable<TypeValue> {
 
 	/**
 	 * Définit si une colonne est éditable. Note: En général, il faut augmenter la
-	 * hauteur des lignes pour l'édition, par exemple : table.setRowHeight(22) <br/>
+	 * hauteur des lignes pour l'édition, par exemple : table.setRowHeight(22).
+	 * <p>
 	 * Le type de l'éditeur est déterminé selon columnClass du model et donc selon
 	 * les données dans la liste ou, s'il n'y en a pas, selon le type déclaré dans
 	 * l'attribut.
@@ -335,7 +340,8 @@ abstract public class SpiTable_Abs<TypeValue> extends SpiListTable<TypeValue> {
 
 	/**
 	 * Définit si une colonne est éditable. Note: En général, il faut augmenter la
-	 * hauteur des lignes pour l'édition, par exemple : table.setRowHeight(22) <br/>
+	 * hauteur des lignes pour l'édition, par exemple : table.setRowHeight(22).
+	 * <p>
 	 * Le type de l'éditeur est déterminé selon columnClass du model et donc selon
 	 * les données dans la liste ou, s'il n'y en a pas, selon le type déclaré dans
 	 * l'attribut.
@@ -350,7 +356,8 @@ abstract public class SpiTable_Abs<TypeValue> extends SpiListTable<TypeValue> {
 
 	/**
 	 * Définit si une colonne est éditable. Note: En général, il faut augmenter la
-	 * hauteur des lignes pour l'édition, par exemple : table.setRowHeight(22) <br/>
+	 * hauteur des lignes pour l'édition, par exemple : table.setRowHeight(22).
+	 * <p>
 	 * Le type de l'éditeur est déterminé selon columnClass du model et donc selon
 	 * les données dans la liste ou, s'il n'y en a pas, selon le type déclaré dans
 	 * l'attribut.
@@ -374,7 +381,8 @@ abstract public class SpiTable_Abs<TypeValue> extends SpiListTable<TypeValue> {
 
 	/**
 	 * Définit si une colonne est éditable. Note: En général, il faut augmenter la
-	 * hauteur des lignes pour l'édition, par exemple : table.setRowHeight(22) <br/>
+	 * hauteur des lignes pour l'édition, par exemple : table.setRowHeight(22).
+	 * <p>
 	 * Le type de l'éditeur est déterminé selon columnClass du model et donc selon
 	 * les données dans la liste ou, s'il n'y en a pas, selon le type déclaré dans
 	 * l'attribut.

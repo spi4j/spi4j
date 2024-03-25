@@ -103,9 +103,9 @@ public final class RsSigningKeyHelper {
 	}
 
 	/**
-	 * Retrieve the signing key for token creation.
+	 * Retrieve the signing key for token creation.Permits to find the specified key
+	 * more efficiently.
 	 *
-	 * @apiNote : Permits to find the specified key more efficiently.
 	 * @return The signing key.
 	 */
 	static Key get_signingKeyForCreation(final String p_createSigningKeyId) {
@@ -152,8 +152,7 @@ public final class RsSigningKeyHelper {
 		v_keyGenerator.genKeyPair();
 
 		// Put the private Key and the public key in a map (separate the KeyPair).
-		v_lstKeys.put(RsConstants.c_token_signing_key_private,
-				v_keyGenerator.generateKeyPair().getPrivate());
+		v_lstKeys.put(RsConstants.c_token_signing_key_private, v_keyGenerator.generateKeyPair().getPrivate());
 		v_lstKeys.put(RsConstants.c_token_signing_key_public, v_keyGenerator.generateKeyPair().getPublic());
 
 		// As static, no defensive copy.
@@ -207,15 +206,15 @@ public final class RsSigningKeyHelper {
 		final JSONArray v_keys = p_keys.getJSONArray(RsConstants.c_jwk_keys_arrays);
 
 		for (int i = 0; i < v_keys.length(); i++) {
-			final BigInteger v_modulus = new BigInteger(1, Base64.getUrlDecoder()
-					.decode(v_keys.getJSONObject(i).getString(RsConstants.c_jwk_modulus)));
+			final BigInteger v_modulus = new BigInteger(1,
+					Base64.getUrlDecoder().decode(v_keys.getJSONObject(i).getString(RsConstants.c_jwk_modulus)));
 
-			final BigInteger v_exponent = new BigInteger(1, Base64.getUrlDecoder()
-					.decode(v_keys.getJSONObject(i).getString(RsConstants.c_jwk_exponent)));
+			final BigInteger v_exponent = new BigInteger(1,
+					Base64.getUrlDecoder().decode(v_keys.getJSONObject(i).getString(RsConstants.c_jwk_exponent)));
 
-			v_lstKeys.put(v_keys.getJSONObject(i).getString(RsConstants.c_token_key_id), KeyFactory
-					.getInstance(String.valueOf(v_keys.getJSONObject(i).get(RsConstants.c_jwk_family_name)))
-					.generatePublic(new RSAPublicKeySpec(v_modulus, v_exponent)));
+			v_lstKeys.put(v_keys.getJSONObject(i).getString(RsConstants.c_token_key_id),
+					KeyFactory.getInstance(String.valueOf(v_keys.getJSONObject(i).get(RsConstants.c_jwk_family_name)))
+							.generatePublic(new RSAPublicKeySpec(v_modulus, v_exponent)));
 		}
 		// As static, no defensive copy.
 		return v_lstKeys;

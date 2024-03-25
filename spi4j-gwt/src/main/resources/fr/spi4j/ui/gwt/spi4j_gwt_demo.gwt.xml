@@ -16,6 +16,6 @@
 	<inherits name='fr.spi4j.ui.gwt.spi4j_gwt' />
 
 	<!-- Specify the app entry point class. -->
-	<entry-point class='fr.spi4j.ui.gwt.client.Demo' />
+	<!-- entry-point class='fr.spi4j.ui.gwt.client.Demo' /-->
 
 </module>

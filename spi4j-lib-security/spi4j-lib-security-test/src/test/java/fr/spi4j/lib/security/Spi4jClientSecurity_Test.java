@@ -35,10 +35,11 @@ public class Spi4jClientSecurity_Test {
 	}
 
 	/**
-	 * Test de la méthode 'setCurrentUser' avec un utilisateur et des
-	 * permissions.<br />
+	 * Test de la méthode 'setCurrentUser' avec un utilisateur et des permissions.
+	 * <p>
 	 * Test des méthodes 'getCurrentUser', 'isCurrentUserSuperAdmin' et
-	 * 'getPermissionsOfCurrentUser'.<br />
+	 * 'getPermissionsOfCurrentUser'.
+	 * <p>
 	 * Test de la méthode 'refreshPermission'
 	 * 
 	 * @throws Throwable exception

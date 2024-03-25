@@ -21,9 +21,7 @@ public enum DatabaseLineStatus_Enum {
 
 	/**
 	 * La ligne est référencée pour l'existant mais supprimée pour les insertions
-	 * qui peuvent référencer ligne.
-	 *
-	 * @apiNote (cas des applications comptable par exemple).
+	 * qui peuvent référencer ligne. (cas des applications comptable par exemple).
 	 */
 	deletedForNewReference("1"),
 
@@ -38,10 +36,8 @@ public enum DatabaseLineStatus_Enum {
 	deletedForTrash("9");
 
 	/**
-	 * L'état (statut de la ligne).
-	 *
-	 * @apiNote L'état est sous forme String pour la compatibilité avec l'ensemble
-	 *          des Bdd.
+	 * L'état (statut de la ligne). L'état est sous forme String pour la
+	 * compatibilité avec l'ensemble des Bdd.
 	 */
 	private String _value;
 
@@ -71,8 +67,9 @@ public enum DatabaseLineStatus_Enum {
 
 	/**
 	 * Vérifie si la valeur de la ligne permet la visibilité en selection.
+	 * <p>
+	 * Laisse courir l'exception si problème de cast pour l'entier.
 	 *
-	 * @apiNote Laisse courir l'exception si problème de cast pour l'entier.
 	 * @param p_value : La valeur de l'énumération à tester.
 	 * @return 'True' si la ligne est visible pour selection.
 	 */
@@ -86,8 +83,9 @@ public enum DatabaseLineStatus_Enum {
 
 	/**
 	 * Vérifie si la valeur de la ligne permet la suppression.
+	 * <p>
+	 * Laisse courir l'exception si problème de cast pour l'entier.
 	 *
-	 * @apiNote Laisse courir l'exception si problème de cast pour l'entier.
 	 * @param p_value : La valeur de l'énumération à tester.
 	 * @return 'True' si la ligne est visible pour suppression.
 	 */

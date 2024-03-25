@@ -23,8 +23,9 @@ import jakarta.ws.rs.core.Response.StatusType;
 /**
  * This class is used to simplify and standardize the creation of an object of
  * type Response for a REST service.
+ * <p>
+ * At this time, all is in JSON format !
  *
- * @apiNote At this time, all is in JSON format !
  * @author MINARM
  */
 public final class RsResponseHelper {
@@ -98,8 +99,9 @@ public final class RsResponseHelper {
 
 	/**
 	 * Create a response with an JSON object.
+	 * <p>
+	 * Be careful, the object is already in JSON format !
 	 *
-	 * @apiNote Be careful, the object is already in JSON format !
 	 * @param p_jsonObject : The JSON object to be sent in the response.
 	 * @return The HTTP response.
 	 */
@@ -109,8 +111,9 @@ public final class RsResponseHelper {
 
 	/**
 	 * Create a response with an JSON object and headers.
+	 * <p>
+	 * Be careful, the object is already in JSON format !
 	 *
-	 * @apiNote Be careful, the object is already in JSON format !
 	 * @param p_jsonObject : The JSON object to be sent in the response.
 	 * @param p_headers    : The list of properties to include in the headers.
 	 * @return The HTTP response.
@@ -123,8 +126,9 @@ public final class RsResponseHelper {
 	/**
 	 * Create a response with an JSON object and let the developer to specify the
 	 * status.
+	 * <p>
+	 * Be careful, the object is already in JSON format !
 	 *
-	 * @apiNote Be careful, the object is already in JSON format !
 	 * @param p_jsonObject : The JSON object to be sent in the response.
 	 * @param p_status     : The HTTP status code.
 	 * @return The HTTP response.
@@ -136,8 +140,9 @@ public final class RsResponseHelper {
 	/**
 	 * Create a response with an JSON object, headers, and let the developer to
 	 * specify the status.
+	 * <p>
+	 * Be careful, the object is already in JSON format !
 	 *
-	 * @apiNote Be careful, the object is already in JSON format !
 	 * @param p_jsonObject : The JSON object to be sent in the response.
 	 * @param p_status     : The HTTP status code.
 	 * @param p_headers    : The list of properties to include in the headers.

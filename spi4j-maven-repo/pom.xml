@@ -2,18 +2,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>fr.spi4j</groupId>
+
+	<parent>
+		<groupId>fr.spi4j</groupId>
+		<artifactId>spi4j-parent</artifactId>
+		<version>4.5.0-SNAPSHOT</version>
+	</parent>
+
 	<artifactId>spi4j-maven-repo</artifactId>
 	<packaging>pom</packaging>
-	<version>4.5.0-SNAPSHOT</version>
 	<name>spi4j Maven Repository</name>
 	<description>Constructeur du repository Maven des modules de Spi4J</description>
-	<licenses>
-		<license>
-			<name>ASL</name>
-			<url>LICENSE</url>
-		</license>
-	</licenses>
 
 	<dependencies>
 		<dependency>
@@ -29,6 +28,17 @@
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
+			<artifactId>spi4j-batch</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>spi4j-batch</artifactId>
+			<version>${project.version}</version>
+			<type>java-source</type>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>spi4j</artifactId>
 			<version>${project.version}</version>
 			<classifier>gwt</classifier>
@@ -50,7 +60,6 @@
 			<version>${project.version}</version>
 			<classifier>gwt</classifier>
 		</dependency>
-
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>spi4j-gwt</artifactId>
@@ -68,7 +77,6 @@
 			<version>${project.version}</version>
 			<classifier>gwt</classifier>
 		</dependency>
-
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>spi4j-swing</artifactId>
@@ -80,7 +88,6 @@
 			<version>${project.version}</version>
 			<type>java-source</type>
 		</dependency>
-
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>spi4j-jsp</artifactId>
@@ -92,7 +99,6 @@
 			<version>${project.version}</version>
 			<type>java-source</type>
 		</dependency>
-
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>spi4j-lib-jbehave</artifactId>
@@ -104,7 +110,6 @@
 			<version>${project.version}</version>
 			<type>java-source</type>
 		</dependency>
-
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>spi4j-lib-security-server</artifactId>
@@ -116,7 +121,6 @@
 			<version>${project.version}</version>
 			<type>java-source</type>
 		</dependency>
-
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>spi4j-lib-security-commons</artifactId>
@@ -134,7 +138,6 @@
 			<version>${project.version}</version>
 			<classifier>gwt</classifier>
 		</dependency>
-
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>spi4j-lib-security-test</artifactId>
@@ -146,7 +149,6 @@
 			<version>${project.version}</version>
 			<type>java-source</type>
 		</dependency>
-
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>spi4j-report</artifactId>
@@ -158,7 +160,6 @@
 			<version>${project.version}</version>
 			<type>java-source</type>
 		</dependency>
-
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>spi4j-doc-report</artifactId>
@@ -170,27 +171,13 @@
 			<version>${project.version}</version>
 			<type>java-source</type>
 		</dependency>
-
 	</dependencies>
 
 	<build>
-		<resources>
-			<resource>
-				<directory>${project.basedir}/src/main/resources</directory>
-			</resource>
-			<!-- inclusion du fichier de licence dans le jar -->
-			<resource>
-				<directory>${project.basedir}</directory>
-				<includes>
-					<include>LICENSE*</include>
-				</includes>
-			</resource>
-		</resources>
 		<plugins>
 			<!-- Zip du projet avec structure maven (jar / sources / pom) -->
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.5.2</version>
 				<configuration>
 					<descriptors>
 						<descriptor>repo-maven-assembly.xml</descriptor>
@@ -201,44 +188,10 @@
 						<!-- Construction du zip du repository maven de spi4j en phase install 
 							(pour que ce ne soit pas fait pendant le release par Jenkins) -->
 						<phase>install</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<!-- pour corriger "Plugin not found", lors du release:perform en Maven 
-					3 -->
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.4</version>
 			</plugin>
 
-			<!-- Verification des prerequis -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-enforcer-plugin</artifactId>
-				<version>3.0.0-M2</version>
-				<executions>
-					<execution>
-						<id>enforce</id>
-						<goals>
-							<goal>enforce</goal>
-						</goals>
-						<configuration>
-							<rules>
-								<banDuplicatePomDependencyVersions />
-								<requireMavenVersion>
-									<version>3.6.3</version>
-								</requireMavenVersion>
-								<requireJavaVersion>
-									<version>11</version>
-								</requireJavaVersion>
-							</rules>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
 

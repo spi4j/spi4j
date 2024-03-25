@@ -10,12 +10,7 @@
 	<artifactId>spi4j-lib-security-commons</artifactId>
 	<packaging>jar</packaging>
 	<name>Spi4J Security - Partie commune</name>
-	<licenses>
-		<license>
-			<name>ASL</name>
-			<url>LICENSE</url>
-		</license>
-	</licenses>
+
 	<dependencies>
 		<dependency>
 			<groupId>fr.spi4j</groupId>
@@ -25,64 +20,27 @@
 	</dependencies>
 
 	<build>
-		<resources>
-			<resource>
-				<directory>${project.basedir}/src/main/resources</directory>
-			</resource>
-			<!-- inclusion du fichier de licence dans le jar -->
-			<resource>
-				<directory>${project.basedir}</directory>
-				<includes>
-					<include>LICENSE*</include>
-				</includes>
-			</resource>
-		</resources>
-
 		<plugins>
 			<!-- Jar des classes et sources pour GWT -->
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.5.2</version>
 				<configuration>
 					<descriptors>
 						<descriptor>assembly-gwt.xml</descriptor>
 					</descriptors>
 				</configuration>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<!-- Verification des prerequis -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-enforcer-plugin</artifactId>
-				<version>3.0.0-M2</version>
-				<executions>
-					<execution>
-						<id>enforce</id>
-						<goals>
-							<goal>enforce</goal>
-						</goals>
-						<configuration>
-							<rules>
-								<banDuplicatePomDependencyVersions />
-								<requireMavenVersion>
-									<version>3.6.3</version>
-								</requireMavenVersion>
-								<requireJavaVersion>
-									<version>11</version>
-								</requireJavaVersion>
-							</rules>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<artifactId>maven-pmd-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
 </project>

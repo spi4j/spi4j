@@ -214,13 +214,13 @@ class ConfigHandler implements ComponentObservable {
 	 * <p>
 	 * Any change of configuration will warn each specific proxy to refresh the
 	 * variables for which he is responsible.
-	 *
-	 * @apiNote Just note in this particular case, that the observer cannot know if
-	 *          one of its configuration variables needs to be refreshed, the
-	 *          observer always request to be registered. It is only with this
-	 *          method that we can know if a configuration variable is contained in
-	 *          the list, so, if there is no record (handler is null), we simply not
-	 *          register the observer component, without any exception.
+	 * <p>
+	 * Just note in this particular case, that the observer cannot know if one of
+	 * its configuration variables needs to be refreshed, the observer always
+	 * request to be registered. It is only with this method that we can know if a
+	 * configuration variable is contained in the list, so, if there is no record
+	 * (handler is null), we simply not register the observer component, without any
+	 * exception.
 	 *
 	 * @param p_observer any class (component) which need to be warned of a change
 	 *                   from the observable class.

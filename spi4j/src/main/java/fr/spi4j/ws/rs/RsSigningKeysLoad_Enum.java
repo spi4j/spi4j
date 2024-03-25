@@ -26,10 +26,8 @@ import fr.spi4j.ws.rs.exception.RsUnexpectedException;
 public enum RsSigningKeysLoad_Enum {
 	/**
 	 * One shot for symmetric key in production or can be also used for
-	 * development..
-	 *
-	 * @apiNote : If asymmetric, the keyPair is created at each start of the
-	 *          server...
+	 * development..If asymmetric, the keyPair is created at each start of the
+	 * server...
 	 */
 	auto {
 		@Override

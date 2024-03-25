@@ -2,21 +2,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>fr.spi4j</groupId>
+
+	<parent>
+		<groupId>fr.spi4j</groupId>
+		<artifactId>spi4j-parent</artifactId>
+		<version>4.5.0-SNAPSHOT</version>
+	</parent>
+
 	<artifactId>spi4j-swing</artifactId>
 	<packaging>jar</packaging>
-	<version>4.5.0-SNAPSHOT</version>
 	<name>spi4j Swing</name>
 	<description>Spi4j Swing : Simple Programming Interface for Swing (API Mutualisée)</description>
-	<licenses>
-		<license>
-			<name>ASL</name>
-			<url>LICENSE</url>
-		</license>
-	</licenses>
-	<organization>
-		<name>MINARM / Safr@n</name>
-	</organization>
 
 	<dependencies>
 		<dependency>
@@ -77,154 +73,15 @@
 		</dependency>
 	</dependencies>
 
-	<build>
-		<resources>
-			<resource>
-				<directory>${project.basedir}/src/main/resources</directory>
-			</resource>
-			<!-- inclusion du fichier de licence dans le jar -->
-			<resource>
-				<directory>${project.basedir}</directory>
-				<includes>
-					<include>LICENSE*</include>
-				</includes>
-			</resource>
-		</resources>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.10.1</version>
-				<configuration>
-					<release>11</release>
-					<compilerArgument>-Xlint</compilerArgument>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.4</version>
-				<executions>
-					<execution>
-						<!-- On attache les sources lors du packaging, pour que les sources 
-							de spi4j-swing soient disponibles dans le repository assemblé -->
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<!-- Verification des prerequis -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-enforcer-plugin</artifactId>
-				<version>3.0.0-M2</version>
-				<executions>
-					<execution>
-						<id>enforce</id>
-						<goals>
-							<goal>enforce</goal>
-						</goals>
-						<configuration>
-							<rules>
-								<banDuplicatePomDependencyVersions />
-								<requireMavenVersion>
-									<version>3.6.3</version>
-								</requireMavenVersion>
-								<requireJavaVersion>
-									<version>11</version>
-								</requireJavaVersion>
-							</rules>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<!-- Site Maven -->
-			<plugin>
-			 	<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-site-plugin</artifactId>
-				<version>3.7.1</version>
-			</plugin>
-		</plugins>
-	</build>
-
 	<reporting>
 		<plugins>
-			<!-- Javadoc -->
-			<plugin>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9</version>
-			</plugin>
-			<!-- Rapport checkstyle -->
-			<plugin>
-				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>2.13</version>
-				<configuration>
-					<enableRSS>false</enableRSS>
-					<linkXRef>false</linkXRef>
-					<configLocation>${basedir}/conf/Checks_Spi4j.xml</configLocation>
-				</configuration>
-			</plugin>
-			<!-- Rapport spotbugs (anciennement findbugs) -->
-			<plugin>
-				<groupId>com.github.spotbugs</groupId>
-                <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>4.8.3.1</version>
-				<configuration>
-					<plugins>
-                        <plugin>
-                            <groupId>com.h3xstream.findsecbugs</groupId>
-                            <artifactId>findsecbugs-plugin</artifactId>
-                            <version>1.12.0</version>
-                        </plugin>
-                    </plugins>
-					<xmlOutput>true</xmlOutput>
-					<omitVisitors>FindReturnRef,FindNullDeref,CloneIdiom</omitVisitors>
-				</configuration>
-			</plugin>
-			<!-- Rapport pmd -->
 			<plugin>
 				<artifactId>maven-pmd-plugin</artifactId>
-				<version>2.7.1</version>
-				<configuration>
-					<enableRulesSummary>false</enableRulesSummary>
-					<source>11</source>
-					<targetJdk>11</targetJdk>
-					<linkXRef>false</linkXRef>
-					<minimumPriority>4</minimumPriority>
-					<minimumTokens>100</minimumTokens>
-					<rulesets>
-						<ruleset>${basedir}/conf/PMD_Spi4j.xml</ruleset>
-					</rulesets>
-				</configuration>
 			</plugin>
-
-			<!-- Information sur le projet -->
 			<plugin>
-				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>2.7</version>
-				<reportSets>
-					<reportSet>
-						<reports>
-                            <report>summary</report>
-                            <report>licenses</report>
-                            <report>mailing-lists</report>
-                            <report>team</report>
-                            <report>scm</report>
-                            <report>dependencies</report>
-                            <report>dependency-info</report>
-                            <report>plugins</report>
-						</reports>
-					</reportSet>
-				</reportSets>
+				<artifactId>maven-checkstyle-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</reporting>
-
-	<properties>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-
 </project>
 

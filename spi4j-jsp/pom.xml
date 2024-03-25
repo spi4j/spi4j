@@ -2,129 +2,55 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>fr.spi4j</groupId>
+
+	<parent>
+		<groupId>fr.spi4j</groupId>
+		<artifactId>spi4j-parent</artifactId>
+		<version>4.5.0-SNAPSHOT</version>
+	</parent>
+
 	<artifactId>spi4j-jsp</artifactId>
 	<packaging>jar</packaging>
-	<version>4.5.0-SNAPSHOT</version>
 	<name>spi4j JSP</name>
 	<description>Spi4j JSP: Simple Programming Interface for JSP (API Mutualisée)</description>
-	<licenses>
-		<license>
-			<name>ASL</name>
-			<url>LICENSE</url>
-		</license>
-	</licenses>
-	<organization>
-		<name>MINARM / Safr@n</name>
-	</organization>
 
 	<dependencies>
 		<dependency>
 			<groupId>jakarta.servlet</groupId>
 			<artifactId>jakarta.servlet-api</artifactId>
-			<version>5.0.0</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>jakarta.transaction</groupId>
 			<artifactId>jakarta.transaction-api</artifactId>
-			<version>2.0.1</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>fr.spi4j</groupId>
 			<artifactId>spi4j</artifactId>
 			<version>4.5.0-SNAPSHOT</version>
 			<scope>provided</scope>
-		</dependency>		
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.10.1</version>
-				<configuration>
-					<release>11</release>
-					<compilerArgument>-Xlint</compilerArgument>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.4</version>
-				<executions>
-					<execution>
-						<!-- On attache les sources lors du packaging, pour que les sources 
-							de spi4j-jsp soient disponibles en cas de compilation JSP -->
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 			<!-- Execution des tests unitaires -->
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<!-- Attention bug sur la version 3.0.0-M6 -->
-				<version>3.0.0-M5</version>
 				<configuration>
-					<testFailureIgnore>true</testFailureIgnore>
 					<argLine>-Xmx128m -Djava.awt.headless=true</argLine>
 				</configuration>
-			</plugin>
-
-			<!-- Couverture de code des tests unitaires -->
-			<!-- JaCoco remplace cobertura-maven-plugin pour la version 11 de Java -->
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.8</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>report</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<!-- Verification des prerequis -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-enforcer-plugin</artifactId>
-				<version>3.0.0-M2</version>
-				<executions>
-					<execution>
-						<id>enforce</id>
-						<goals>
-							<goal>enforce</goal>
-						</goals>
-						<configuration>
-							<rules>
-								<banDuplicatePomDependencyVersions />
-								<requireMavenVersion>
-									<version>3.6.3</version>
-								</requireMavenVersion>
-								<requireJavaVersion>
-									<version>11</version>
-								</requireJavaVersion>
-							</rules>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
 
-	<properties>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+	<reporting>
+		<plugins>
+			<plugin>
+				<artifactId>maven-pmd-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
 </project>

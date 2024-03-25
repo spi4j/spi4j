@@ -113,9 +113,12 @@ public class RsTokensContainer {
 	/**
 	 * Add the required token to the container.
 	 *
-	 * @apiNote 1 - Build the token configuration.
-	 * @apiNote 2 - Check the minimal token validity.
-	 * @apiNote 3 - Add the token to the container.
+	 * <ul>
+	 * <li>Build the token configuration.</li>
+	 * <li>Check the minimal token validity.</li>
+	 * <li>Add the token to the container.</li>
+	 * </ul>
+	 *
 	 * @param p_tokenBuilder : The builder for the specific token.
 	 */
 	private void addToken(final RsToken.Builder p_tokenBuilder) {

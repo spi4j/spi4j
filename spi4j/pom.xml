@@ -2,21 +2,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>fr.spi4j</groupId>
+
+	<parent>
+		<groupId>fr.spi4j</groupId>
+		<artifactId>spi4j-parent</artifactId>
+		<version>4.5.0-SNAPSHOT</version>
+	</parent>
+
 	<artifactId>spi4j</artifactId>
 	<packaging>jar</packaging>
-	<version>4.5.0-SNAPSHOT</version>
 	<name>spi4j Project</name>
 	<description>Spi4j : Simple Programming Interface for Java (API Mutualisée)</description>
-	<licenses>
-		<license>
-			<name>ASL</name>
-			<url>LICENSE</url>
-		</license>
-	</licenses>
-	<organization>
-		<name>MINARM / Safr@n</name>
-	</organization>
 
 	<dependencies>
 		<!-- Non inclus par defaut. Ajouter dans les applications si besoin. -->
@@ -47,31 +43,12 @@
 			<version>2.3.2</version>
 			<optional>true</optional>
 		</dependency>
-		<!-- Nouvelle version log4j2. -->
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>2.20.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-			<version>2.20.0</version>
-		</dependency>
-		<!-- Utilisation afin de compiler les classes du package fr.spi4j.tua, 
-			mais dependance optionnelle -->
+		<!-- Afin de pouvoir compiler les classes du package fr.spi4j.tua -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
-			<version>5.9.3</version>
-			<!--<scope>test</scope> -->
+			<scope>provided</scope>
 			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
-			<version>5.3.1</version>
-			<scope>test</scope>
 		</dependency>
 		<!-- La dependance H2 est utile pour les tests unitaires "testapp" -->
 		<!-- Ne pas monter au dela de 1.4.196 car le recuperation de sequence -->
@@ -83,10 +60,20 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>jakarta.servlet</groupId>
 			<artifactId>jakarta.servlet-api</artifactId>
-			<version>5.0.0</version>
-			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
 		</dependency>
 
 		<!-- ******************************************************** -->
@@ -95,32 +82,23 @@
 		<dependency>
 			<groupId>jakarta.persistence</groupId>
 			<artifactId>jakarta.persistence-api</artifactId>
-			<version>3.1.0</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>jakarta.interceptor</groupId>
 			<artifactId>jakarta.interceptor-api</artifactId>
-			<version>2.1.0</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>jakarta.ejb</groupId>
 			<artifactId>jakarta.ejb-api</artifactId>
-			<version>4.0.1</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>jakarta.transaction</groupId>
 			<artifactId>jakarta.transaction-api</artifactId>
-			<version>2.0.1</version>
-			<scope>provided</scope>
 		</dependency>
 
 		<!-- ***************************************** -->
 		<!-- Liste des dependances pour le client JSF. -->
 		<!-- ***************************************** -->
-
 		<dependency>
 			<groupId>jakarta.faces</groupId>
 			<artifactId>jakarta.faces-api</artifactId>
@@ -140,7 +118,6 @@
 		<!-- ********************************************* -->
 		<!-- Liste des dependances pour les services REST. -->
 		<!-- ********************************************* -->
-
 		<!-- Non inclus par defaut. Ajouter dans les applications si besoin -->
 		<dependency>
 			<groupId>org.glassfish.jersey.connectors</groupId>
@@ -152,7 +129,6 @@
 		<dependency>
 			<groupId>jakarta.ws.rs</groupId>
 			<artifactId>jakarta.ws.rs-api</artifactId>
-			<version>3.1.0</version>
 			<optional>true</optional>
 		</dependency>
 		<!-- Non inclus par defaut. Ajouter dans les applications si besoin. -->
@@ -187,7 +163,6 @@
 		<!-- ****************** -->
 		<!-- Autres dependances -->
 		<!-- ****************** -->
-
 		<!-- Non inclus par defaut. Ajouter dans les applications si besoin -->
 		<dependency>
 			<groupId>com.google.zxing</groupId>
@@ -205,112 +180,13 @@
 		<dependency>
 			<groupId>org.yaml</groupId>
 			<artifactId>snakeyaml</artifactId>
-    		<version>2.1</version>
+			<version>2.1</version>
 			<optional>true</optional>
 		</dependency>
 	</dependencies>
 
 	<build>
-		<resources>
-			<resource>
-				<directory>${project.basedir}/src/main/resources</directory>
-			</resource>
-			<!-- inclusion du fichier de licence dans le jar -->
-			<resource>
-				<directory>${project.basedir}</directory>
-				<includes>
-					<include>LICENSE*</include>
-				</includes>
-			</resource>
-		</resources>
 		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.10.1</version>
-				<configuration>
-					<release>11</release>
-					<compilerArgument>-Xlint</compilerArgument>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.4</version>
-				<executions>
-					<execution>
-						<!-- On attache les sources lors du packaging, pour que les sources 
-							de spi4j soient disponibles en cas de compilation GWT -->
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<!-- Execution des tests unitaires -->
-			<plugin>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<!-- Attention bug sur la version 3.0.0-M6 -->
-				<version>3.0.0-M5</version>
-				<configuration>
-					<testFailureIgnore>true</testFailureIgnore>
-					<argLine>-Xmx128m</argLine>
-				</configuration>
-			</plugin>
-
-			<!-- Couverture de code des tests unitaires -->
-			<!-- JaCoco remplace cobertura-maven-plugin pour la version 11 de Java -->
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.8</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>report</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<!-- Verification des prerequis -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-enforcer-plugin</artifactId>
-				<version>3.0.0-M2</version>
-				<executions>
-					<execution>
-						<id>enforce</id>
-						<goals>
-							<goal>enforce</goal>
-						</goals>
-						<configuration>
-							<rules>
-								<banDuplicatePomDependencyVersions />
-								<requireMavenVersion>
-									<version>3.6.3</version>
-								</requireMavenVersion>
-								<requireJavaVersion>
-									<version>11</version>
-								</requireJavaVersion>
-							</rules>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-			<!-- Javadoc -->
-			<plugin>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9</version>
-			</plugin>
-
 			<!-- Ajout d'un fichier spi4j-build-info.properties contenant les propriétés 
 				définies ci-dessous avec des infos sur le build, en particulier pour les 
 				builds faits dans la PIC (clés : build.number, build.id, build.svnRevision, 
@@ -318,7 +194,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>properties-maven-plugin</artifactId>
-				<version>${properties-maven-plugin.version}</version>
+				<version>1.0.0</version>
 				<executions>
 					<execution>
 						<phase>generate-resources</phase>
@@ -331,169 +207,30 @@
 					</execution>
 				</executions>
 			</plugin>
-
 			<!-- Jar des classes et sources pour GWT -->
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.5.2</version>
 				<configuration>
 					<descriptors>
 						<descriptor>assembly-gwt.xml</descriptor>
 					</descriptors>
 				</configuration>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			
-			<!-- Site Maven -->
-			<plugin>
-			 	<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-site-plugin</artifactId>
-				<version>3.7.1</version>
 			</plugin>
 		</plugins>
-		<pluginManagement>
-			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
-					only. It has no influence on the Maven build itself. -->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.codehaus.mojo
-										</groupId>
-										<artifactId>
-											properties-maven-plugin
-										</artifactId>
-										<versionRange>
-											[${properties-maven-plugin.version},)
-										</versionRange>
-										<goals>
-											<goal>
-												write-project-properties
-											</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore />
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 	</build>
 
 	<reporting>
 		<plugins>
-			<!-- Javadoc -->
-			<plugin>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9</version>
-			</plugin>
-			<!-- Rapport des tests unitaires -->
-			<plugin>
-				<artifactId>maven-surefire-report-plugin</artifactId>
-				<version>2.18</version>
-				<configuration>
-					<linkXRef>false</linkXRef>
-				</configuration>
-				<!-- http://jira.codehaus.org/browse/SUREFIRE-257 -->
-				<reportSets>
-					<reportSet>
-						<reports>
-							<report>report-only</report>
-						</reports>
-					</reportSet>
-				</reportSets>
-			</plugin>
-			<!-- Rapport checkstyle -->
-			<plugin>
-				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>2.13</version>
-				<configuration>
-					<enableRSS>false</enableRSS>
-					<linkXRef>false</linkXRef>
-					<configLocation>${basedir}/conf/Checks_Spi4j.xml</configLocation>
-				</configuration>
-			</plugin>
-			<!-- Rapport spotbugs (anciennement findbugs) -->
-			<plugin>
-				<groupId>com.github.spotbugs</groupId>
-                <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>4.8.3.1</version>
-				<configuration>
-					<plugins>
-                        <plugin>
-                            <groupId>com.h3xstream.findsecbugs</groupId>
-                            <artifactId>findsecbugs-plugin</artifactId>
-                            <version>1.12.0</version>
-                        </plugin>
-                    </plugins>
-					<xmlOutput>true</xmlOutput>
-					<omitVisitors>FindReturnRef,FindNullDeref,CloneIdiom,FindSqlInjection</omitVisitors>
-				</configuration>
-			</plugin>
-			
-			<!-- Rapport pmd -->
 			<plugin>
 				<artifactId>maven-pmd-plugin</artifactId>
-				<version>2.7.1</version>
-				<configuration>
-					<enableRulesSummary>false</enableRulesSummary>
-					<source>11</source>
-					<targetJdk>11</targetJdk>
-					<linkXRef>false</linkXRef>
-					<minimumPriority>4</minimumPriority>
-					<minimumTokens>100</minimumTokens>
-					<rulesets>
-						<ruleset>${basedir}/conf/PMD_Spi4j.xml</ruleset>
-					</rulesets>
-				</configuration>
 			</plugin>
-
-			<!-- Information sur le projet -->
 			<plugin>
-				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>2.7</version>
-				<reportSets>
-					<reportSet>
-						<reports>
-                            <report>summary</report>
-                            <report>licenses</report>
-                            <report>mailing-lists</report>
-                            <report>team</report>
-                            <report>scm</report>
-                            <report>dependencies</report>
-                            <report>dependency-info</report>
-                            <report>plugins</report>
-						</reports>
-					</reportSet>
-				</reportSets>
+				<artifactId>maven-checkstyle-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</reporting>
 
 	<properties>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<org.eclipse.acceleo.maven.version>3.2.1</org.eclipse.acceleo.maven.version>
-		<properties-maven-plugin.version>1.0.0</properties-maven-plugin.version>
-
 		<!-- Les propriétés suivantes seront mises dans le fichier spi4j-build-info.properties 
 			dans le jar (avec le plugin de build ci-dessus). -->
 		<!-- Ces propriétés sont connues quand le build est fait par la PIC (Jenkins). -->
@@ -510,6 +247,5 @@
 		<build.projectGroupId>${project.groupId}</build.projectGroupId>
 		<build.projectArtifactId>${project.artifactId}</build.projectArtifactId>
 		<build.projectVersion>${project.version}</build.projectVersion>
-
 	</properties>
 </project>

@@ -21,8 +21,9 @@ import io.jsonwebtoken.impl.DefaultClaims;
 /**
  * Contains the full definition (configuration) for a token. This configuration
  * is specified by the developer in the final project.
+ * <p>
+ * This class is shared by all the processes in the filter.
  *
- * @apiNote : This class is shared by all the processes in the filter.
  * @author MINARM
  */
 public class RsToken implements Cloneable {
@@ -32,72 +33,52 @@ public class RsToken implements Cloneable {
 	private static final int c_default_signing_random = 30;
 
 	/**
-	 * Store all String properties in tab to avoid deep copy !
-	 *
-	 * @apiNote : Shallow copy.
+	 * Store all String properties in tab to avoid deep copy ! Shallow copy.
 	 */
 	private final String[] _properties;
 
 	/**
-	 * The claims for the token.
-	 *
-	 * @apiNote : Make a deep copy !!
+	 * The claims for the token.Make a deep copy !!
 	 */
 	private Claims _claims;
 
 	/**
-	 * The required claims for the token.
-	 *
-	 * @apiNote : Shallow copy.
+	 * The required claims for the token.Shallow copy.
 	 */
 	private final Claims _requiredClaims;
 
 	/**
-	 * The type (mode) for passing the token.
-	 *
-	 * @apiNote : Shallow copy.
+	 * The type (mode) for passing the token.Shallow copy.
 	 */
 	private final RsPassingMode_Enum _passingMode;
 
 	/**
-	 * The signature algorithm for the token.
-	 *
-	 * @apiNote : Shallow copy.
+	 * The signature algorithm for the token. Shallow copy.
 	 */
 	private final RsSigningAlgo_Enum _signingKeyAlgorithm;
 
 	/**
-	 * The type for the token (access, id , refresh, applicative).
-	 *
-	 * @apiNote : Shallow copy.
+	 * The type for the token (access, id , refresh, applicative). Shallow copy.
 	 */
 	private final RsTokenType_Enum _type;
 
 	/**
-	 * The authentication protocol/
-	 *
-	 * @apiNote : Shallow copy.
+	 * The authentication protocol. Shallow copy.
 	 */
 	private final RsAuthProtocol_Enum _authProtocol;
 
 	/**
-	 * The loading mode for the signing key.
-	 *
-	 * @apiNote : Shallow copy.
+	 * The loading mode for the signing key. Shallow copy.
 	 */
 	private final RsSigningKeysLoad_Enum _signingKeyLoad;
 
 	/**
-	 * The authentication flow.
-	 *
-	 * @apiNote : Shallow copy.
+	 * The authentication flow. Shallow copy.
 	 */
 	private final RsAuthFlow_Enum _authFlow;
 
 	/**
-	 * The required authentication grant type (if needed).
-	 *
-	 * @apiNote : Shallow copy.
+	 * The required authentication grant type (if needed). Shallow copy.
 	 */
 	private final RsAuthGrantType_Enum _authGrantType;
 
@@ -292,8 +273,9 @@ public class RsToken implements Cloneable {
 
 	/**
 	 * Retrieve the callback URI (for pacman application).
+	 * <p>
+	 * Not for use by external developer on now !
 	 *
-	 * @apiNote Not for use by external developer on now !
 	 * @return The callback URI under String format.
 	 */
 	public String get_callbackEndPoint() {
@@ -615,9 +597,10 @@ public class RsToken implements Cloneable {
 
 	/**
 	 * Copy the token. To be used only for apikey security protocol !
-	 *
-	 * @apiNote : Do not override the clone method.
-	 * @apiNote : We can thus reduce the visibility for the method.
+	 * <p>
+	 * Do not override the clone method.
+	 * <p>
+	 * We can thus reduce the visibility for the method.
 	 */
 	RsToken copy() {
 		try {
@@ -879,9 +862,9 @@ public class RsToken implements Cloneable {
 		}
 
 		/**
-		 * Set the list of scopes for the token.
+		 * Set the list of scopes for the token. Not for use by external developer on
+		 * now !
 		 *
-		 * @apiNote Not for use by external developer on now !
 		 * @param p_scopes : The list of scopes for the token.
 		 * @return The builder.
 		 */
@@ -1169,9 +1152,9 @@ public class RsToken implements Cloneable {
 		}
 
 		/**
-		 * Set the endpoint for getting authentication.
+		 * Set the endpoint for getting authentication.Not for use by external developer
+		 * on now !
 		 *
-		 * @apiNote Not for use by external developer on now !
 		 * @param p_authEndPoint : The endpoint to get authentication.
 		 * @return The builder.
 		 */

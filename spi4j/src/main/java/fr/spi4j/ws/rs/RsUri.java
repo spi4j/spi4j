@@ -19,9 +19,9 @@ import fr.spi4j.ws.rs.exception.RsUriSyntaxException;
 /**
  * Builder for URI (EndPoint). Can have specific parameter to set in session and
  * / or to check for callback URI.
+ * <p>
+ * Not in use for now, as callback URIs are no more used for backend generation.
  *
- * @apiNote Not in use for now, as callback URIs are no more used for backend
- *          generation.
  * @author MINARM.
  */
 public class RsUri {

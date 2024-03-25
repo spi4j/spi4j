@@ -25,9 +25,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- * Servlet pour l'administration de l'application. <br/>
- * Côté serveur, la servlet doit être déclarée dans le fichier web.xml de l'application avec une balise servlet et une balise servlet-mapping et un url-pattern "/admin/*" par exemple. <br/>
- * Il faut s'assurer que cette servlet soit sécurisée dans le web.xml afin que n'importe qui ne puisse pas y accéder.
+ * Servlet pour l'administration de l'application.
+ * <p>
+ * Côté serveur, la servlet doit être déclarée dans le fichier web.xml de
+ * l'application avec une balise servlet et une balise servlet-mapping et un
+ * url-pattern "/admin/*" par exemple.
+ * <p>
+ * Il faut s'assurer que cette servlet soit sécurisée dans le web.xml afin que
+ * n'importe qui ne puisse pas y accéder.
+ *
  * @author MINARM
  */
 public class AdministrationServlet extends HttpServlet
