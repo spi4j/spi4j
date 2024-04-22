@@ -6,7 +6,7 @@
 	<groupId>fr.spi4j</groupId>
 	<artifactId>spi4j-parent</artifactId>
 	<packaging>pom</packaging>
-	<version>4.5.0-SNAPSHOT</version>
+	<version>4.5.0</version>
 	<name>Modules Spi4j</name>
 	<description>Spi4j : Simple Programming Interface for Java (API Mutualisée)</description>
 
@@ -112,6 +112,12 @@
 				<version>1.3</version>
 				<scope>test</scope>
 			</dependency>
+			<dependency>
+				<groupId>org.quartz-scheduler</groupId>
+				<artifactId>quartz</artifactId>
+				<version>2.3.2</version>
+				<optional>true</optional>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -216,24 +222,24 @@
 
 		<pluginManagement>
 			<plugins>
-						<!-- Jar des classes et sources pour GWT -->
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.5.2</version>
-				<configuration>
-					<descriptors>
-						<descriptor>assembly-gwt.xml</descriptor>
-					</descriptors>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+				<!-- Jar des classes et sources pour GWT -->
+				<plugin>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>2.5.2</version>
+					<configuration>
+						<descriptors>
+							<descriptor>assembly-gwt.xml</descriptor>
+						</descriptors>
+					</configuration>
+					<executions>
+						<execution>
+							<phase>package</phase>
+							<goals>
+								<goal>single</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
 				<plugin>
 					<!-- Execution des tests unitaires -->
 					<!-- Attention, bug sur 3.0.0-M6. -->
@@ -254,7 +260,7 @@
 						<linkXRef>false</linkXRef>
 						<minimumPriority>4</minimumPriority>
 						<minimumTokens>100</minimumTokens>
-						<!--  <rulesets>${project.basedir}/conf/PMD_Spi4j.xml</rulesets> -->
+						<!-- <rulesets>${project.basedir}/conf/PMD_Spi4j.xml</rulesets> -->
 					</configuration>
 				</plugin>
 				<!-- Rapport checkstyle -->

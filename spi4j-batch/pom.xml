@@ -6,12 +6,20 @@
 	<parent>
 		<groupId>fr.spi4j</groupId>
 		<artifactId>spi4j-parent</artifactId>
-		<version>4.5.0-SNAPSHOT</version>
+		<version>4.5.0</version>
 	</parent>
 
 	<artifactId>spi4j-batch</artifactId>
 	<name>spi4j Batch Project</name>
 	<description></description>
+
+	<dependencies>
+		<!-- Non inclus par defaut. Ajouter dans les applications si besoin. -->
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+		</dependency>
+	</dependencies>
 
 	<reporting>
 		<plugins>
