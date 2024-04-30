@@ -40,6 +40,7 @@
 		<dependency>
 			<groupId>org.quartz-scheduler</groupId>
 			<artifactId>quartz</artifactId>
+			<optional>true</optional>
 		</dependency>
 		<!-- Afin de pouvoir compiler les classes du package fr.spi4j.tua -->
 		<dependency>
@@ -154,7 +155,7 @@
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
-			<version>20230227</version>
+			<version>20231013</version>
 			<optional>true</optional>
 		</dependency>
 

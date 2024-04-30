@@ -26,7 +26,7 @@
 		<dependency>
 			<groupId>fr.spi4j</groupId>
 			<artifactId>spi4j</artifactId>
-			<version>4.5.0</version>
+			<version>${project.version}</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
