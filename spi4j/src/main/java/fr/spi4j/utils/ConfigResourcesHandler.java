@@ -43,6 +43,7 @@ class ConfigResourcesHandler {
 	 * application.
 	 */
 	private ConfigResourcesReloader _resourcesReloader;
+
 	/**
 	 * The developer has the ability add any "base" information for the
 	 * configuration resource. This can be anything depending of the type of the
@@ -142,7 +143,7 @@ class ConfigResourcesHandler {
 	 * be the base path to concat with the name of the resource in order to obtain
 	 * the fully absolute path of the resource..
 	 *
-	 * @param p_resourcesBasePath the base path retrieved from environment variable.
+	 * @param p_resourcesBase the base path retrieved from environment variable.
 	 */
 	void setResourcesBase(final String p_resourcesBase) {
 		_resourcesBase = p_resourcesBase;

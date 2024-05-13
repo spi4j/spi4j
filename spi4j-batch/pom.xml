@@ -14,10 +14,11 @@
 	<description></description>
 
 	<dependencies>
-		<!-- Non inclus par defaut. Ajouter dans les applications si besoin. -->
 		<dependency>
-			<groupId>org.quartz-scheduler</groupId>
-			<artifactId>quartz</artifactId>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>spi4j</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 

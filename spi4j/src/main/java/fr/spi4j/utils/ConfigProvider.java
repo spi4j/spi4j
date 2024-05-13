@@ -5,6 +5,8 @@
  */
 package fr.spi4j.utils;
 
+import java.util.Date;
+
 import fr.spi4j.exception.Spi4jConfigException;
 import fr.spi4j.utils.ConfigHandler.Builder;
 
@@ -115,6 +117,16 @@ public class ConfigProvider {
 	 */
 	public static double getDouble(final String p_key) {
 		return Double.valueOf(getProperty(p_key, null));
+	}
+
+	/**
+	 * Retrieve a date property from the configurationHandler.
+	 *
+	 * @param p_key p_key the property key always under string format.
+	 * @return the property under date format.
+	 */
+	public static Date getDate(final String p_key) {
+		return new Date(getProperty(p_key, null));
 	}
 
 	/**
