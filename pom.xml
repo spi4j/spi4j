@@ -6,7 +6,7 @@
 	<groupId>fr.spi4j</groupId>
 	<artifactId>spi4j-parent</artifactId>
 	<packaging>pom</packaging>
-	<version>4.5.0</version>
+	<version>4.5.1</version>
 	<name>Modules Spi4j</name>
 	<description>Spi4j : Simple Programming Interface for Java (API Mutualisée)</description>
 
