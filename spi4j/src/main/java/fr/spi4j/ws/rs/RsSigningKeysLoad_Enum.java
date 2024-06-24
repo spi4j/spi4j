@@ -69,9 +69,9 @@ public enum RsSigningKeysLoad_Enum {
 				return RsSigningKeyHelper.createSigningWebKeys(new JSONObject(
 						RsClientFactory.get_target(p_resourcePath).request().get().readEntity(String.class)));
 			} catch (final Exception p_exception) {
-				throw new RsUnexpectedException(
-						"Impossible de récupérer le Json Web KeySet pour la configuration des jetons : "
-								+ p_exception.getMessage());
+				throw new RsUnexpectedException(p_exception,
+						"Impossible de récupérer le Json Web KeySet pour la configuration des jetons sur l''URI : {0}",
+						p_resourcePath);
 			}
 		}
 	},

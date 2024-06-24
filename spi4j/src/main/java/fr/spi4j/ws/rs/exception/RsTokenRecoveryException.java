@@ -49,4 +49,11 @@ public class RsTokenRecoveryException extends RsException_Abs {
 		return "Problème dans la récupération pour le(s) jeton(s) !";
 	}
 
+	/**
+	 * Associated default xto container for the exception.
+	 */
+	@Override
+	public RsExceptionXtoContainer_Itf get_xtoContainer() {
+		return new RsExceptionXtoDefaultContainer(this);
+	}
 }

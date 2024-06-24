@@ -70,4 +70,12 @@ public class RsServiceNotFoundException extends RsException_Abs {
 	public String get_defaultMessage() {
 		return "Le service n'a pas été trouvé, vérifier l'URI.";
 	}
+
+	/**
+	 * Associated default xto container for the exception.
+	 */
+	@Override
+	public RsExceptionXtoContainer_Itf get_xtoContainer() {
+		return new RsExceptionXtoDefaultContainer(this);
+	}
 }

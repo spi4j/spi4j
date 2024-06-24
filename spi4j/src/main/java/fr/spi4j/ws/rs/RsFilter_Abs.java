@@ -9,7 +9,6 @@ import java.io.IOException;
 
 import org.json.JSONObject;
 
-import fr.spi4j.ws.rs.exception.RsExceptionXtoContainer;
 import fr.spi4j.ws.rs.exception.RsException_Abs;
 import fr.spi4j.ws.rs.exception.RsOidcSecurityException;
 import fr.spi4j.ws.rs.exception.RsServiceClosedException;
@@ -37,6 +36,11 @@ import jakarta.ws.rs.core.Response.Status;
 public abstract class RsFilter_Abs implements ContainerRequestFilter, ContainerResponseFilter {
 
 	/**
+	 * Check if the filter cannot initialize.
+	 */
+	private static boolean _initializationfailure;
+
+	/**
 	 * The configuration for the filter.
 	 */
 	private static RsFilterConfigurator _filterConfig;
@@ -60,29 +64,36 @@ public abstract class RsFilter_Abs implements ContainerRequestFilter, ContainerR
 		// Instantiate the filter.
 		super();
 
-		// Retrieve the basic configuration for filter.
-		_filterConfig = initFilterConfig();
+		try {
+			// Retrieve the basic configuration for filter.
+			_filterConfig = initFilterConfig();
 
-		// Initialization of an empty tokens container.
-		final RsTokensContainer v_tokensContainer = new RsTokensContainer();
+			// Initialization of an empty tokens container.
+			final RsTokensContainer v_tokensContainer = new RsTokensContainer();
 
-		// Try to initiate a 'properties' object from a configuration file (if exists).
-		v_tokensContainer.loadProperties(_filterConfig.get_configPathPrefix());
+			// Try to initiate a 'properties' object from a configuration file (if exists).
+			v_tokensContainer.loadProperties(_filterConfig.get_configPathPrefix());
 
-		// Complete the tokens container with required tokens.
-		initTokensConfig().defineRequiredTokens(v_tokensContainer);
+			// Complete the tokens container with required tokens.
+			initTokensConfig().defineRequiredTokens(v_tokensContainer);
 
-		// Complete the operational keys from required tokens.
-		_filterConfig.set_tokenSigningKeys(v_tokensContainer);
+			// Complete the operational keys from required tokens.
+			_filterConfig.set_tokenSigningKeys(v_tokensContainer);
 
-		// Complete the configuration with the required tokens.
-		_filterConfig.set_tokensContainer(v_tokensContainer);
+			// Complete the configuration with the required tokens.
+			_filterConfig.set_tokensContainer(v_tokensContainer);
 
-		// Complete the configuration with header keys for paging.
-		_filterConfig.set_headersPageParams(initPaginatorHeaderKeys());
+			// Complete the configuration with header keys for paging.
+			_filterConfig.set_headersPageParams(initPaginatorHeaderKeys());
 
-		// Display configuration at startup.
-		_filterConfig.displayFilterConfigToConsole(RsLogger.get_log());
+			// Display configuration at startup.
+			_filterConfig.displayFilterConfigToConsole(RsLogger.get_log());
+
+		} catch (final Exception p_e) {
+
+			// Let the developer coding some escape operations.
+			abortWithInitializationFailure(p_e);
+		}
 	}
 
 	/**
@@ -364,6 +375,15 @@ public abstract class RsFilter_Abs implements ContainerRequestFilter, ContainerR
 	}
 
 	/**
+	 * Check if the filter cannot initialize.
+	 *
+	 * @return 'true' if the filter cannot initialize else 'false'.
+	 */
+	public static boolean hasInitializationfailure() {
+		return _initializationfailure;
+	}
+
+	/**
 	 * Check first if REST resources are "granted" for the application.
 	 */
 	private void checkUnderMaintenance() {
@@ -455,7 +475,7 @@ public abstract class RsFilter_Abs implements ContainerRequestFilter, ContainerR
 	 */
 	private void addPESHeader(final ContainerRequestContext p_requestCtx,
 			final ContainerResponseContext p_responseCtx) {
-		if (_filterConfig.isPESHeadersRequired()) {
+		if (_filterConfig.is_PESHeadersRequired()) {
 			// Set the headers needed for PES.
 			p_responseCtx.getHeaders().add(_filterConfig.get_pesHeaderSecuKey(), _filterConfig.get_pesHeaderSecu());
 			p_responseCtx.getHeaders().add(_filterConfig.get_pesHeaderMentionKey(),
@@ -487,8 +507,8 @@ public abstract class RsFilter_Abs implements ContainerRequestFilter, ContainerR
 	 */
 	private void abortWithUnauthorizedException(final ContainerRequestContext p_requestCtx,
 			final Exception p_exception) {
-		p_requestCtx.abortWith(RsResponseHelper.responseForException(
-				new RsExceptionXtoContainer.Builder().withException(new RsUnauthorizedException(p_exception)).build()));
+		p_requestCtx.abortWith(
+				RsResponseHelper.responseForException(new RsUnauthorizedException(p_exception).get_xtoContainer()));
 	}
 
 	/**
@@ -501,8 +521,7 @@ public abstract class RsFilter_Abs implements ContainerRequestFilter, ContainerR
 	 */
 	private void abortWithOidcSecurityException(final ContainerRequestContext p_requestCtx,
 			final RsOidcSecurityException p_exception) {
-		p_requestCtx.abortWith(RsResponseHelper
-				.responseForException(new RsExceptionXtoContainer.Builder().withException(p_exception).build()));
+		p_requestCtx.abortWith(RsResponseHelper.responseForException(p_exception.get_xtoContainer()));
 	}
 
 	/**
@@ -515,8 +534,7 @@ public abstract class RsFilter_Abs implements ContainerRequestFilter, ContainerR
 	 */
 	private void abortWithServiceClosedException(final ContainerRequestContext p_requestCtx,
 			final RsServiceClosedException p_exception) {
-		p_requestCtx.abortWith(RsResponseHelper
-				.responseForException(new RsExceptionXtoContainer.Builder().withException(p_exception).build()));
+		p_requestCtx.abortWith(RsResponseHelper.responseForException(p_exception.get_xtoContainer()));
 	}
 
 	/**
@@ -527,8 +545,7 @@ public abstract class RsFilter_Abs implements ContainerRequestFilter, ContainerR
 	 * @param p_exception  : the exception to send.
 	 */
 	private void abortWithRsException(final ContainerRequestContext p_requestCtx, final RsException_Abs p_exception) {
-		p_requestCtx.abortWith(RsResponseHelper
-				.responseForException(new RsExceptionXtoContainer.Builder().withException(p_exception).build()));
+		p_requestCtx.abortWith(RsResponseHelper.responseForException(p_exception.get_xtoContainer()));
 	}
 
 	/**
@@ -538,8 +555,8 @@ public abstract class RsFilter_Abs implements ContainerRequestFilter, ContainerR
 	 * @param p_exception  : the exception to send.
 	 */
 	private void abortWithUnexpectedException(final ContainerRequestContext p_requestCtx, final Exception p_exception) {
-		p_requestCtx.abortWith(RsResponseHelper.responseForException(
-				new RsExceptionXtoContainer.Builder().withException(new RsUnexpectedException(p_exception)).build()));
+		p_requestCtx.abortWith(
+				RsResponseHelper.responseForException(new RsUnexpectedException(p_exception).get_xtoContainer()));
 	}
 
 	/**
@@ -554,6 +571,17 @@ public abstract class RsFilter_Abs implements ContainerRequestFilter, ContainerR
 	private void abortWithException(final ContainerResponseContext p_responseCtx, final Exception p_exception) {
 		p_responseCtx.setStatus(Status.INTERNAL_SERVER_ERROR.getStatusCode());
 		// p_responseCtx.setEntity(RsExceptionContainerFactory.build(p_exception));
+	}
+
+	/**
+	 * Abort the filter on initialization failure. Let the developer to code some
+	 * escape operations (if needed);
+	 *
+	 * @param p_exception : the exception to send.
+	 */
+	private void abortWithInitializationFailure(final Exception p_exception) {
+		_initializationfailure = true;
+		onInitializationFailure(p_exception);
 	}
 
 	/**
@@ -616,4 +644,11 @@ public abstract class RsFilter_Abs implements ContainerRequestFilter, ContainerR
 	 */
 	protected abstract RsXto_Itf buildRefreshedTokenResponse(final RsAuthTokenXtoWrapper p_tokenWrapper);
 
+	/**
+	 * Let the developer make some operations if the filter has any initialization
+	 * exception. Usually shutdown the embedded server.
+	 *
+	 * @param p_exception : The initial initialization exception.
+	 */
+	protected abstract void onInitializationFailure(final Exception p_exception);
 }

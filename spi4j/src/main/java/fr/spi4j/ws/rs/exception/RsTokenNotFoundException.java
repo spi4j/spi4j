@@ -49,4 +49,11 @@ public class RsTokenNotFoundException extends RsException_Abs {
 		return "Auncun jeton trouvé !";
 	}
 
+	/**
+	 * Associated default xto container for the exception.
+	 */
+	@Override
+	public RsExceptionXtoContainer_Itf get_xtoContainer() {
+		return new RsExceptionXtoDefaultContainer(this);
+	}
 }

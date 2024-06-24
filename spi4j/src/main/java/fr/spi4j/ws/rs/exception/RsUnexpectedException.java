@@ -46,6 +46,27 @@ public class RsUnexpectedException extends RsException_Abs {
 	}
 
 	/**
+	 * Constructor.
+	 *
+	 * @param p_cause   : The original exception.
+	 * @param p_message : The message to be displayed.
+	 */
+	public RsUnexpectedException(final Throwable p_cause, final String p_message) {
+		super(p_cause, p_message);
+	}
+
+	/**
+	 * Constructor
+	 *
+	 * @param p_cause   : The original exception.
+	 * @param p_message : The message to be displayed.
+	 * @param p_params  : Parameters to be injected in the original message.
+	 */
+	public RsUnexpectedException(final Throwable p_cause, final String p_message, final Object... p_params) {
+		super(p_cause, p_message, p_params);
+	}
+
+	/**
 	 * HTTP status corresponding for the exception.
 	 */
 	@Override
@@ -56,5 +77,13 @@ public class RsUnexpectedException extends RsException_Abs {
 	@Override
 	public String get_defaultMessage() {
 		return "Erreur inattendue.";
+	}
+
+	/**
+	 * Associated default xto container for the exception.
+	 */
+	@Override
+	public RsExceptionXtoContainer_Itf get_xtoContainer() {
+		return new RsExceptionXtoDefaultContainer(this);
 	}
 }

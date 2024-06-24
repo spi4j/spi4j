@@ -32,20 +32,29 @@ import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 
 /**
- * iss: Principal that issued the token. sub: Principal that is the subject of
- * the JWT. exp: Expiration date for the token. nbf: Time on which the token
- * will start to be accepted for processing. iat: Time on which the token was
- * issued. j ti: Unique identifier for the token. It’s very important to
- * understand that the signature does not provide confidentiality. The signature
- * just guarantees that the token hasn’t been tampered. A JWT must be encrypted
- * to send sensitive information. If the JWT has been tampered with in any way,
- * parsing the claims will throw a SignatureException and the value of the
- * subject variable will stay HACKER.
+ * <ul>
+ * <li>iss: Principal that issued the token.</li>
+ * <li>sub: Principal that is the subject of the JWT.</li>
+ * <li>exp: Expiration date for the token.</li>
+ * <li>nbf: Time on which the token will start to be accepted for
+ * processing.<:li>
+ * <li>iat: Time on which the token was issued.</li>
+ * <li>jti: Unique identifier for the token.</li>
+ * </ul>
+ * <p>
+ * It’s very important to understand that the signature does not provide
+ * confidentiality. The signature just guarantees that the token hasn’t been
+ * tampered. A JWT must be encrypted to send sensitive information. If the JWT
+ * has been tampered with in any way, parsing the claims will throw a
+ * SignatureException and the value of the subject variable will stay HACKER.
  *
  * @author MINARM
  */
 public final class RsTokenHelper {
 
+	/**
+	 * Specific logger for this utility class.
+	 */
 	private static final Logger c_log = LogManager.getLogger(RsTokenHelper.class);
 
 	/**
@@ -278,5 +287,40 @@ public final class RsTokenHelper {
 
 		// Calculate the expiration time (milliseconds).
 		return new Date(Calendar.getInstance().getTimeInMillis() + v_offsetToAdd);
+	}
+
+	/**
+	 * Complete the builder for the token with the use of the connect URI. This URI
+	 * permits to auto-discover a maximum numbers of informations for the
+	 * authentication server. Placing this code here avoid cluttering the builder
+	 * with code that will potentially grow. In addition, it is not desirable to
+	 * have too much intelligence at builder level.
+	 *
+	 * @param p_builder         : The token builder.
+	 * @param p_connectEndPoint : The URI for auto-discovery.
+	 */
+	static void completeWithRemoteParams(final RsToken.Builder p_builder, final String p_connectEndPoint) {
+
+		c_log.info("Chargement et anayse des points de terminaison sur l'URI :" + p_connectEndPoint);
+
+		if (null == p_connectEndPoint || p_connectEndPoint.isEmpty()) {
+			throw new RsUnexpectedException(
+					"Impossible de compléter le jeton avec l'URI d'auto-découverte, l'URI est nulle ou vide !");
+		}
+
+		try {
+			final JSONObject v_jsonObj = new JSONObject(
+					RsClientFactory.get_target(p_connectEndPoint).request().get().readEntity(String.class));
+			p_builder.withAuthEndPoint((String) v_jsonObj.get(RsConstants.c_auth_oidc_server_auth));
+			p_builder.withTokenEndPoint((String) v_jsonObj.get(RsConstants.c_auth_oidc_server_token));
+			p_builder.withCertificateResourcePath((String) v_jsonObj.get(RsConstants.c_auth_oidc_server_certs));
+			p_builder.withScopes(v_jsonObj.getJSONArray(RsConstants.c_auth_oidc_server_scopes).join(","));
+
+		} catch (final Exception p_e) {
+
+			throw new RsUnexpectedException(p_e,
+					"Impossible de terminer la configuration de(s) jeton(s) pour le protocole OIDC sur l''URI : {0} !",
+					p_connectEndPoint);
+		}
 	}
 }

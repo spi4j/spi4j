@@ -11,9 +11,9 @@ import fr.spi4j.Identifiable_Itf;
 
 /**
  * Interface XML Transfert Object.
+ *
  * @author MINARM
- * @param <TypeId>
- *           Le type générique de la clé primaire.
+ * @param <TypeId> Le type generique de la cle primaire.
  */
 public interface Xto_Itf<TypeId> extends Identifiable_Itf<TypeId>, Serializable
 {

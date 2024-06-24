@@ -60,4 +60,12 @@ public class RsUnauthorizedException extends RsException_Abs {
 	public String get_defaultMessage() {
 		return "Accès non autorisé.";
 	}
+
+	/**
+	 * Associated default xto container for the exception.
+	 */
+	@Override
+	public RsExceptionXtoContainer_Itf get_xtoContainer() {
+		return new RsExceptionXtoDefaultContainer(this);
+	}
 }

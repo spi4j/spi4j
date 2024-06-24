@@ -71,4 +71,11 @@ public class RsPagingException extends RsException_Abs {
 		return "Erreur de pagination, vérifiez les paramètres de pagination.";
 	}
 
+	/**
+	 * Associated default xto container for the exception.
+	 */
+	@Override
+	public RsExceptionXtoContainer_Itf get_xtoContainer() {
+		return new RsExceptionXtoDefaultContainer(this);
+	}
 }

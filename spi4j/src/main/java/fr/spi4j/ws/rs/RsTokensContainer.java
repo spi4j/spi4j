@@ -24,11 +24,11 @@ public class RsTokensContainer {
 
 	private static final String c_err_msg3 = "L'identifiant interne de liaison SPI4J doit obligatoirement être saisi pour le jeton de rafraîchissement!";
 
-	private static final String c_err_msg4 = "Auncun jeton d'accès n'a été trouvé pour le jeton de rafrîchissement !";
+	private static final String c_err_msg4 = "Auncun jeton d'accès n'a été trouvé pour le jeton de rafraîchissement !";
 
-	private static final String c_err_msg5 = "Le jeton de rafraîchissement doit obligatorement être sous protocol apiKey !";
+	private static final String c_err_msg5 = "Le jeton de rafraîchissement doit obligatoirement être sous protocol apiKey !";
 
-	private static final String c_err_msg6 = "Deux jetons ne peuvent avoir la même clé !";
+	private static final String c_err_msg6 = "Deux jetons ne peuvent avoir la même clé ! Changez la clé pour un des jetons.";
 
 	/**
 	 * Some of token properties from a configuration file (if exists).

@@ -83,32 +83,33 @@ public class RsToken implements Cloneable {
 	private final RsAuthGrantType_Enum _authGrantType;
 
 	/**
-	 * @param p_spi4jId              : ras.
-	 * @param p_type                 : ras.
-	 * @param p_passingMode          : ras.
-	 * @param p_key                  : ras.
-	 * @param p_prefixedBy           : ras.
-	 * @param p_expirationNbMin      : ras.
-	 * @param p_expirationNbHour     : ras.
-	 * @param p_signingKeyAlgorithm  : ras.
-	 * @param p_clientId             : ras.
-	 * @param p_clientSecret         : ras.
-	 * @param p_serverAuthEndPoint   : ras.
-	 * @param p_serverTokenEndPoint  : ras.
-	 * @param p_serverUserEndPoint   : ras.
-	 * @param p_serverLogoutEndPoint : ras.
-	 * @param p_certResourcePath     : ras.
-	 * @param p_authProtocol         : ras.
-	 * @param p_signingkeyLoad       : ras.
-	 * @param p_callback             : ras.
-	 * @param p_scopes               : ras.
-	 * @param p_randomStringLength   : ras.
-	 * @param p_authFlow             : ras.
-	 * @param p_authGrantType        : ras.
-	 * @param p_requiredClaims       : ras.
-	 * @param p_readTimeout          : ras.
-	 * @param p_connectTimeOut       : ras.
-	 * @param p_application_secret   : ras.
+	 * @param p_spi4jId               : ras.
+	 * @param p_type                  : ras.
+	 * @param p_passingMode           : ras.
+	 * @param p_key                   : ras.
+	 * @param p_prefixedBy            : ras.
+	 * @param p_expirationNbMin       : ras.
+	 * @param p_expirationNbHour      : ras.
+	 * @param p_signingKeyAlgorithm   : ras.
+	 * @param p_clientId              : ras.
+	 * @param p_clientSecret          : ras.
+	 * @param p_serverAuthEndPoint    : ras.
+	 * @param p_serverTokenEndPoint   : ras.
+	 * @param p_serverUserEndPoint    : ras.
+	 * @param p_serverLogoutEndPoint  : ras.
+	 * @param p_certResourcePath      : ras.
+	 * @param p_authProtocol          : ras.
+	 * @param p_signingkeyLoad        : ras.
+	 * @param p_callback              : ras.
+	 * @param p_scopes                : ras.
+	 * @param p_randomStringLength    : ras.
+	 * @param p_authFlow              : ras.
+	 * @param p_authGrantType         : ras.
+	 * @param p_requiredClaims        : ras.
+	 * @param p_readTimeout           : ras.
+	 * @param p_connectTimeOut        : ras.
+	 * @param p_application_secret    : ras.
+	 * @param p_serverConnectEndPoint : ras.
 	 */
 	private RsToken(final String p_spi4jId, final String p_linkedSpi4jId, final String p_loadSigningKeys,
 			final RsTokenType_Enum p_type, final RsPassingMode_Enum p_passingMode, final String p_key,
@@ -119,11 +120,12 @@ public class RsToken implements Cloneable {
 			final RsAuthProtocol_Enum p_authProtocol, final RsSigningKeysLoad_Enum p_signingkeyLoad,
 			final String p_callback, final String p_scopes, final String p_randomStringLength,
 			final RsAuthFlow_Enum p_authFlow, final RsAuthGrantType_Enum p_authGrantType, final Claims p_requiredClaims,
-			final String p_readTimeout, final String p_connectTimeOut, final String p_application_secret) {
+			final String p_readTimeout, final String p_connectTimeOut, final String p_application_secret,
+			final String p_serverConnectEndPoint) {
 		// Init the claims...
 		_claims = new DefaultClaims();
 		// Init the Strings tab...
-		_properties = new String[23];
+		_properties = new String[24];
 
 		// The expiration time in hours.
 		_properties[14] = p_expirationNbHour;
@@ -167,6 +169,8 @@ public class RsToken implements Cloneable {
 		_properties[21] = p_connectTimeOut;
 		// If credential grant, internal secret for the application.
 		_properties[22] = p_application_secret;
+		// If oidc the url connect endpoint for autodiscovery.
+		_properties[23] = p_serverConnectEndPoint;
 
 		// Init complex objects.
 		_signingKeyAlgorithm = p_signingKeyAlgorithm;
@@ -536,6 +540,15 @@ public class RsToken implements Cloneable {
 	}
 
 	/**
+	 * Retreive the endpoint for oidc auto-discovery informations.
+	 *
+	 * @return The endpoint for oidc auto-discovery informations.
+	 */
+	public String get_connectEndPoint() {
+		return _properties[23];
+	}
+
+	/**
 	 * Retrieve the loading mode for the signing key.
 	 *
 	 * @return the loading mode for the signing key.
@@ -689,12 +702,12 @@ public class RsToken implements Cloneable {
 		private String _clientId;
 
 		/**
-		 * The oidc/oauth2 uri for /auth.
+		 * The oauth2 uri for /auth.
 		 */
 		private String _serverAuthEndPoint;
 
 		/**
-		 * The oidc/oauth2 uri for /token.
+		 * The oauth2 uri for /token.
 		 */
 		private String _serverTokenEndPoint;
 
@@ -704,14 +717,19 @@ public class RsToken implements Cloneable {
 		private String _serverUserInfoEndPoint;
 
 		/**
-		 * The oidc/oauth2 uri for /logout.
+		 * The oauth2 uri for /logout.
 		 */
 		private String _serverLogoutEndPoint;
 
 		/**
-		 * The iodc/oauth2 uri for /refresh.
+		 * The oauth2 uri for /refresh.
 		 */
 		private String _serverRefreshEndPoint;
+
+		/**
+		 * The oidc uri connect for autodiscovery.
+		 */
+		private String _serverConnectEndPoint;
 
 		/**
 		 * The oidc uri for /cert or file path or keytore path.
@@ -1044,12 +1062,15 @@ public class RsToken implements Cloneable {
 		}
 
 		/**
-		 * Try to convert OBEO enumeration to Spi4j enumeration.
+		 * Try to convert OBEO enumeration to Spi4j enumeration unless the flow has
+		 * already been defined.
 		 *
 		 * @param p_obeoAuthFlow : The enumeration under OBEO format.
 		 */
 		private void withAuthFlowFromObeo(final String p_obeoAuthFlow) {
-			_authFlow = RsAuthFlow_Enum.get_authFlowFromObeo(p_obeoAuthFlow);
+			if (null == _authFlow) {
+				_authFlow = RsAuthFlow_Enum.get_authFlowFromObeo(p_obeoAuthFlow);
+			}
 		}
 
 		/**
@@ -1186,6 +1207,18 @@ public class RsToken implements Cloneable {
 		}
 
 		/**
+		 * Set the endpoint for getting all oidc technical informations.
+		 *
+		 * @param p_connectEndPoint : The endpoint to get the auto discovery for oidc
+		 *                          all oidc informations.
+		 * @return The builder.
+		 */
+		public Builder withConnectEndPoint(final String p_connectEndPoint) {
+			_serverConnectEndPoint = p_connectEndPoint;
+			return this;
+		}
+
+		/**
 		 * Set the endpoint for getting refresh informations.
 		 *
 		 * @param p_refreshEndPoint : The endpoint for refresh token informations.
@@ -1301,6 +1334,7 @@ public class RsToken implements Cloneable {
 				withAuthEndPoint(getProperty(_serverAuthEndPoint, p_props));
 				withLogoutEndPoint(getProperty(_serverLogoutEndPoint, p_props));
 				withRefreshEndPoint(getProperty(_serverRefreshEndPoint, p_props));
+				withConnectEndPoint(getProperty(_serverConnectEndPoint, p_props));
 				withCertificateResourcePath(getProperty(_certResourcePath, p_props));
 				withCallbackEndPoint(getProperty(_callback, p_props));
 				withAuthFlowFromObeo(getProperty(_strAuthFlow, p_props));
@@ -1362,12 +1396,17 @@ public class RsToken implements Cloneable {
 				withPrefixedBy(RsConstants.c_auth_header_bearer);
 			}
 
+			// Complete with auto-discovery uri if oidc protocol.
+			if (RsAuthProtocol_Enum.openIdConnect == _authProtocol) {
+				RsTokenHelper.completeWithRemoteParams(this, _serverConnectEndPoint);
+			}
+
 			return new RsToken(_spi4jId, _linkedSpi4jId, _loadSigningKeys, _type, _passMode, _key, _prefixedBy,
 					_expirationNbMin, _expirationNbHour, _signingKeyAlgorithm, _clientId, _clientSecret,
 					_serverAuthEndPoint, _serverTokenEndPoint, _serverUserInfoEndPoint, _serverLogoutEndPoint,
 					_serverRefreshEndPoint, _certResourcePath, _authProtocol, _signingKeyLoad, _callback, _scopes,
 					_randomStringLength, _authFlow, _authGrantType, get_requiredClaims(), _readTimeout, _connectTimout,
-					_application_secret);
+					_application_secret, _serverConnectEndPoint);
 		}
 	}
 }

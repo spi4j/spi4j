@@ -59,4 +59,12 @@ public class RsServiceClosedException extends RsException_Abs {
 	public String get_defaultMessage() {
 		return "Service fermé pour cause de maintenance.";
 	}
+
+	/**
+	 * Associated default xto container for the exception.
+	 */
+	@Override
+	public RsExceptionXtoContainer_Itf get_xtoContainer() {
+		return new RsExceptionXtoDefaultContainer(this);
+	}
 }

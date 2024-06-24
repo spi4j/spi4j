@@ -55,4 +55,11 @@ public class RsUriSyntaxException extends RsException_Abs {
 		return "Erreur de syntaxe dans la construction d'une URI.";
 	}
 
+	/**
+	 * Associated default xto container for the exception.
+	 */
+	@Override
+	public RsExceptionXtoContainer_Itf get_xtoContainer() {
+		return new RsExceptionXtoDefaultContainer(this);
+	}
 }

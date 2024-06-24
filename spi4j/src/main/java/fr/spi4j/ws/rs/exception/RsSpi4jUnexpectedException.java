@@ -58,4 +58,11 @@ public class RsSpi4jUnexpectedException extends RsException_Abs {
 		return "Erreur inattendue dans le cadre du framework interne de l'application.";
 	}
 
+	/**
+	 * Associated default xto container for the exception.
+	 */
+	@Override
+	public RsExceptionXtoContainer_Itf get_xtoContainer() {
+		return new RsExceptionXtoDefaultContainer(this);
+	}
 }

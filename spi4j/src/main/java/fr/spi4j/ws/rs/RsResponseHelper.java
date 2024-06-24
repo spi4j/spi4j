@@ -12,7 +12,7 @@ import java.util.Map.Entry;
 
 import org.json.JSONObject;
 
-import fr.spi4j.ws.rs.exception.RsExceptionXtoContainer;
+import fr.spi4j.ws.rs.exception.RsExceptionXtoContainer_Itf;
 import jakarta.ws.rs.core.HttpHeaders;
 import jakarta.ws.rs.core.Link;
 import jakarta.ws.rs.core.Response;
@@ -295,7 +295,7 @@ public final class RsResponseHelper {
 	 *                             specific container for rest message.
 	 * @return The HTTP response.
 	 */
-	public static Response responseForException(final RsExceptionXtoContainer p_exceptionContainer) {
+	public static Response responseForException(final RsExceptionXtoContainer_Itf p_exceptionContainer) {
 		return getBuilder(RsMediaType.c_application_json_utf8, p_exceptionContainer.get_status(), p_exceptionContainer)
 				.build();
 	}

@@ -60,4 +60,12 @@ public class RsOidcSecurityException extends RsException_Abs {
 	public String get_defaultMessage() {
 		return "Incident de sécurité dans la communication avec un serveur OIDC.";
 	}
+
+	/**
+	 * Associated default xto container for the exception.
+	 */
+	@Override
+	public RsExceptionXtoContainer_Itf get_xtoContainer() {
+		return new RsExceptionXtoDefaultContainer(this);
+	}
 }

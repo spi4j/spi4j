@@ -25,4 +25,10 @@ public @interface RsSecured {
 	 * @return The associated token(s).
 	 */
 	String tokens();
+
+	/**
+	 *
+	 * @return The associated scope(s).
+	 */
+	String scopes();
 }

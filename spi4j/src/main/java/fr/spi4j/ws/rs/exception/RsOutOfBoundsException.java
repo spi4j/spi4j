@@ -52,4 +52,12 @@ public class RsOutOfBoundsException extends RsException_Abs {
 	public String get_defaultMessage() {
 		return "trop de resultats sont retournés par le service.";
 	}
+
+	/**
+	 * Associated default xto container for the exception.
+	 */
+	@Override
+	public RsExceptionXtoContainer_Itf get_xtoContainer() {
+		return new RsExceptionXtoDefaultContainer(this);
+	}
 }

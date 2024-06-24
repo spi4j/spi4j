@@ -33,12 +33,8 @@ public abstract class RsExceptionHandler_Abs implements ExceptionMapper<Exceptio
 			// Convert the exception to an exception specialized for REST service.
 			final RsException_Abs v_exception = convertToCustomSpi4jRestException(p_exception);
 
-			// Build the response with the contained exception.
-			final RsExceptionXtoContainer v_rsExceptionContainer = new RsExceptionXtoContainer.Builder()
-					.withException(v_exception).build();
-
 			// Create the completed response, ready to be sent.
-			return RsResponseHelper.responseForException(v_rsExceptionContainer);
+			return RsResponseHelper.responseForException(v_exception.get_xtoContainer());
 		} catch (final Exception p_ex) {
 			// Return a very basic error.
 			return RsResponseHelper.response(Status.INTERNAL_SERVER_ERROR);

@@ -60,4 +60,12 @@ public class RsRequirementException extends RsException_Abs {
 	public String get_defaultMessage() {
 		return "Pré-conditions fonctionnelles non remplies.";
 	}
+
+	/**
+	 * Associated default xto container for the exception.
+	 */
+	@Override
+	public RsExceptionXtoContainer_Itf get_xtoContainer() {
+		return new RsExceptionXtoDefaultContainer(this);
+	}
 }

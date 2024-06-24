@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.spi4j.ws.rs.exception.RsPagingException;
@@ -25,6 +26,11 @@ import fr.spi4j.ws.rs.exception.RsSpi4jUnexpectedException;
  * @author MINARM
  */
 public class RsFilterConfigurator {
+
+	/**
+	 * The logger for the class.
+	 */
+	private static final Logger c_log = LogManager.getLogger(RsFilterConfigurator.class);
 
 	/**
 	 * The full base path for configuration directory (with prefix).
@@ -287,10 +293,10 @@ public class RsFilterConfigurator {
 	/**
 	 * Set the specific information header key for the PES.
 	 *
-	 * @param _pesHeaderSecuKey : A key header for the PES.
+	 * @param p_pesHeaderSecuKey : A key header for the PES.
 	 */
-	public void set_pesHeaderSecuKey(final String _pesHeaderSecuKey) {
-		this._pesHeaderSecuKey = _pesHeaderSecuKey;
+	public void set_pesHeaderSecuKey(final String p_pesHeaderSecuKey) {
+		_pesHeaderSecuKey = p_pesHeaderSecuKey;
 	}
 
 	/**
@@ -305,10 +311,10 @@ public class RsFilterConfigurator {
 	/**
 	 * Set the specific information header key for the PES.
 	 *
-	 * @param _pesHeaderMentionKey : A key header for the PES.
+	 * @param p_pesHeaderMentionKey : A key header for the PES.
 	 */
-	public void set_pesHeaderMentionKey(final String _pesHeaderMentionKey) {
-		this._pesHeaderMentionKey = _pesHeaderMentionKey;
+	public void set_pesHeaderMentionKey(final String p_pesHeaderMentionKey) {
+		_pesHeaderMentionKey = p_pesHeaderMentionKey;
 	}
 
 	/**
@@ -323,10 +329,10 @@ public class RsFilterConfigurator {
 	/**
 	 * Set the specific information header key for the PES.
 	 *
-	 * @param _pesHeaderConstraintKey : A key header for the PES.
+	 * @param p_pesHeaderConstraintKey : A key header for the PES.
 	 */
-	public void set_pesHeaderConstraintKey(final String _pesHeaderConstraintKey) {
-		this._pesHeaderConstraintKey = _pesHeaderConstraintKey;
+	public void set_pesHeaderConstraintKey(final String p_pesHeaderConstraintKey) {
+		_pesHeaderConstraintKey = p_pesHeaderConstraintKey;
 	}
 
 	/**
@@ -341,10 +347,10 @@ public class RsFilterConfigurator {
 	/**
 	 * Set the specific information header key for the PES.
 	 *
-	 * @param _pesHeaderAppKey : A key header for the PES.
+	 * @param p_pesHeaderAppKey : A key header for the PES.
 	 */
-	public void set_pesHeaderAppKey(final String _pesHeaderAppKey) {
-		this._pesHeaderAppKey = _pesHeaderAppKey;
+	public void set_pesHeaderAppKey(final String p_pesHeaderAppKey) {
+		_pesHeaderAppKey = p_pesHeaderAppKey;
 	}
 
 	/**
@@ -359,10 +365,10 @@ public class RsFilterConfigurator {
 	/**
 	 * Set the specific information header key for the PES.
 	 *
-	 * @param _pesHeaderDlppKey : A key header for the PES.
+	 * @param p_pesHeaderDlppKey : A key header for the PES.
 	 */
-	public void set_pesHeaderDlppKey(final String _pesHeaderDlppKey) {
-		this._pesHeaderDlppKey = _pesHeaderDlppKey;
+	public void set_pesHeaderDlppKey(final String p_pesHeaderDlppKey) {
+		_pesHeaderDlppKey = p_pesHeaderDlppKey;
 	}
 
 	/**
@@ -410,7 +416,7 @@ public class RsFilterConfigurator {
 	 *
 	 * @return True if the filter must be under the PES.
 	 */
-	public boolean isPESHeadersRequired() {
+	public boolean is_PESHeadersRequired() {
 		return _routingStrategy == RsFilterRouting_Enum.pem_gateway
 				|| _routingStrategy == RsFilterRouting_Enum.papi_gateway;
 	}
@@ -442,6 +448,7 @@ public class RsFilterConfigurator {
 	void set_tokenSigningKeys(final RsTokensContainer p_tokenContainer) {
 		for (final RsToken v_token : p_tokenContainer.get_tokens()) {
 			if (v_token.hasToLoadSigningKeys()) {
+				c_log.info("Chargement des clés à partir de l'URI : " + v_token.get_resourcePath());
 				_tokenSigningKeys.putAll(v_token.updateWithSigningKeys(v_token.get_signingKeyLoad()
 						.load(v_token.get_resourcePath(), v_token.get_signingKeyAlgorithm())));
 			}
@@ -506,11 +513,10 @@ public class RsFilterConfigurator {
 			// set_pesHeaderTokenKey(v_props.getProperty(RsApplicationConstants.c_auth_header_pes_token));
 
 			// Load enumerations...
-			set_operatingMode(RsFilterMode_Enum
-					.valueOf(v_props.getProperty(RsConstants.c_conf_filter_operating_mode)));
+			set_operatingMode(RsFilterMode_Enum.valueOf(v_props.getProperty(RsConstants.c_conf_filter_operating_mode)));
 
-			set_routingStrategy(RsFilterRouting_Enum
-					.valueOf(v_props.getProperty(RsConstants.c_conf_filter_routing_strategy)));
+			set_routingStrategy(
+					RsFilterRouting_Enum.valueOf(v_props.getProperty(RsConstants.c_conf_filter_routing_strategy)));
 
 			// All other properties are completed directly by the filter at server
 			// loading...

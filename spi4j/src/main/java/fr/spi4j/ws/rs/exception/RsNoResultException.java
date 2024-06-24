@@ -60,4 +60,12 @@ public class RsNoResultException extends RsException_Abs {
 	public String get_defaultMessage() {
 		return "Aucun résultat pour la recherche.";
 	}
+
+	/**
+	 * Associated default xto container for the exception.
+	 */
+	@Override
+	public RsExceptionXtoContainer_Itf get_xtoContainer() {
+		return new RsExceptionXtoDefaultContainer(this);
+	}
 }

@@ -135,26 +135,6 @@ public final class RsConstants {
 	public static final String c_auth_header_pes_dlpp_name = "filter.pes.header.dlpp.key";
 
 	/**
-	 * OIDC : The EndPoint for the authentication server (/auth).
-	 */
-	static final String c_auth_oidc_server = "filter.oidc.server.auth";
-
-	/**
-	 * OIDC : The EndPoint for the authentication server (/token).
-	 */
-	static final String c_auth_oidc_server_token = "filter.oidc.server.token";
-
-	/**
-	 * OIDC : The EndPoint for the authentication server (/userInfo).
-	 */
-	static final String c_auth_oidc_server_user_info = "filter.oidc.server.userinfo";
-
-	/**
-	 * OIDC : The ID for the application in order to call the authentication server.
-	 */
-	static final String c_auth_oidc_client_id = "filter.oidc.client.id";
-
-	/**
 	 * TOKEN : The full path for signing keys resources (url or file or keystore...)
 	 */
 	static final String c_signing_keys_resources_path = "filter.signingkeys.resources.path";
@@ -173,12 +153,6 @@ public final class RsConstants {
 	 * TOKEN : Charging mode for the signing keys.
 	 */
 	static final String c_signing_keys_load = "filter.signingkeys.load.mode";
-
-	/**
-	 * OIDC : The secret for the application in order to call the authentication
-	 * server.
-	 */
-	static final String c_auth_oidc_client_secret = "filter.oidc.client.secret";
 
 	/**
 	 * PAGED LIST : The default page count for paged list.
@@ -422,4 +396,53 @@ public final class RsConstants {
 	 */
 	static final String c_page_offset_param = "&pageOffset:";
 
+	/**
+	 * OIDC : The EndPoint for the authentication server (/auth).
+	 */
+	static String c_auth_oidc_server_auth = "authorization_endpoint";
+
+	/**
+	 * OIDC : The EndPoint for the authentication server (/token).
+	 */
+	static String c_auth_oidc_server_token = "token_endpoint";
+
+	/**
+	 * OIDC : The EndPoint for the authentication server (/user).
+	 */
+	static String c_auth_oidc_server_user = "userinfo_endpoint";
+
+	/**
+	 * OIDC : The EndPoint for the authentication server (/session).
+	 */
+	static String c_auth_oidc_server_session = "end_session_endpoint";
+
+	/**
+	 * OIDC : The EndPoint for the authentication server (/certs).
+	 */
+	static String c_auth_oidc_server_certs = "jwks_uri";
+
+	/**
+	 * OIDC : All grant types supported by the authentication server.
+	 */
+	static String c_auth_oidc_server_grants = "grant_types_supported";
+
+	/**
+	 * OIDC : All response types supported by the authentication server.
+	 */
+	static String c_auth_oidc_server_responses = "response_types_supported";
+
+	/**
+	 * OIDC : The EndPoint for the authentication server (/registration).
+	 */
+	static String c_auth_oidc_server_registration = "registration_endpoint";
+
+	/**
+	 * OIDC : All claims supported by the authentication server.
+	 */
+	static String c_auth_oidc_server_claims = "claims_supported";
+
+	/**
+	 * OIDC : All grant scopes supported by the authentication server.
+	 */
+	static String c_auth_oidc_server_scopes = "scopes_supported";
 }
