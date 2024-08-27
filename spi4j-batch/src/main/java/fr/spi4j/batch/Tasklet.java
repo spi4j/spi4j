@@ -7,7 +7,7 @@ package fr.spi4j.batch;
 
 /**
  * Implementation d'une Tasklet. Il s'agit d'un batch simple qui ne necessite
- * pas de Reader, Processor, Writer.
+ * pas de Reader, Processor Writer.
  * 
  * @author MINARM
  */
