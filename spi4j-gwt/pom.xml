@@ -77,9 +77,11 @@
 					</execution>
 				</executions>
 				<configuration>
+					<!--  
 					<compileSourcesArtifacts>
 						<artifact>fr.spi4j:spi4j_ui</artifact>
 					</compileSourcesArtifacts>
+					-->
 				</configuration>
 			</plugin>
 			<!-- Jar des classes et sources pour GWT -->

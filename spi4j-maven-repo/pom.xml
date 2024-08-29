@@ -179,12 +179,16 @@
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
+					<appendAssemblyId>false</appendAssemblyId>
 					<descriptors>
 						<descriptor>repo-maven-assembly.xml</descriptor>
 					</descriptors>
 				</configuration>
 				<executions>
 					<execution>
+						<goals>
+							<goal>single</goal>
+						</goals>
 						<!-- Construction du zip du repository maven de spi4j en phase install 
 							(pour que ce ne soit pas fait pendant le release par Jenkins) -->
 						<phase>install</phase>

@@ -225,7 +225,7 @@
 				<!-- Jar des classes et sources pour GWT -->
 				<plugin>
 					<artifactId>maven-assembly-plugin</artifactId>
-					<version>3.0.0</version>
+					<version>3.7.1</version>
 					<configuration>
 						<descriptors>
 							<descriptor>assembly-gwt.xml</descriptor>

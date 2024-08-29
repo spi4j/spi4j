@@ -1,27 +1,27 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<assembly>
-  <id>repository</id>
-  <formats>
-    <format>zip</format>
-  </formats>
-  <repositories>
-    <repository>
-      <includeMetadata>false</includeMetadata>
-      <includes>
-        <include>fr.spi4j:*</include>
-      </includes>
-      <excludes>
-        <exclude>apache*:*</exclude>
-        <exclude>commons-*:*</exclude>
-        <exclude>com.*:*</exclude>
-        <exclude>org.*:*</exclude>
-        <exclude>javax.*:*</exclude>
-        <exclude>jakarta.*:*</exclude>
-        <exclude>junit:*</exclude>
-        <exclude>log4j:*</exclude>
-        <exclude>xpp3:*</exclude>
-        <exclude>fr.opensagres.xdocreport:*</exclude>
-      </excludes>
-    </repository>
-  </repositories>
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.2.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.2.0 http://maven.apache.org/xsd/assembly-2.2.0.xsd">
+
+	<id>repository</id>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<dependencySets>
+		<dependencySet>
+			<includes>
+				<include>fr.spi4j:*</include>
+			</includes>
+		</dependencySet>
+	</dependencySets>
+	<!-- Ne fonctionne pas pour l'instant... -->
+	<fileSets>
+		<fileSet>
+			<useDefaultExcludes>false</useDefaultExcludes>
+			<excludes>
+				<exclude>/spi4j-maven-repo/**</exclude>
+			</excludes>
+		</fileSet>
+	</fileSets>
 </assembly>
