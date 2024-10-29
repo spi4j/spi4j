@@ -26,6 +26,8 @@ public enum TaskStateEnum {
 	writing,
 	// Etat final.
 	done,
+	// Arrêt forcé.
+	stopped,
 	// Supprimé ou inexistant (id incorrect).
 	unknown;
 

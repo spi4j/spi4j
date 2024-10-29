@@ -5,17 +5,14 @@
  */
 package fr.spi4j.batch;
 
-import java.io.Closeable;
-
 /**
+ * Interface dediee à la persistence des donnees resultantes.
  * 
- * @param <IN>
+ * @param <OUT> Le type de donnees en sortie du reader.
  * 
  * @author MINARM
  */
-public interface ItemReader_Itf<IN> extends Closeable {
+public interface ItemReader_Itf<OUT> extends Item_Itf {
 
-	void init();
-
-	IN read();
+	OUT read();
 }

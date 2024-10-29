@@ -13,7 +13,7 @@ package fr.spi4j.batch;
  * 
  * @author MINARM
  */
-public interface ProcessInterface<RESULT> extends Runnable {
+public interface Task_Itf<RESULT> extends Runnable {
 	/**
 	 * @return L'état.
 	 */

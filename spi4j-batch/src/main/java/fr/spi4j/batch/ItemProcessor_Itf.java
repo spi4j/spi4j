@@ -5,15 +5,21 @@
  */
 package fr.spi4j.batch;
 
+import java.io.IOException;
+
 /**
  * Traite un item de type IN et le transforme en un item de type OUT.
  * 
  * @param IN  Le type de donnée en entrée.
- * @param OU> Le type de données en sortie.
+ * @param OUT> Le type de données en sortie.
  * 
  * @author MINARM
  */
-public interface ItemProcessor_Itf<IN, OUT> {
+public interface ItemProcessor_Itf<IN, OUT> extends Item_Itf {
 	
 	OUT process(IN p_in);
+	
+	default void close() throws IOException {}
+	
+	default void init() {}
 }

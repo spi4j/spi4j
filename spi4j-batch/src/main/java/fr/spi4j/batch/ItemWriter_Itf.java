@@ -8,11 +8,11 @@ package fr.spi4j.batch;
 /**
  * Interface dediee à la persistence des donnees resultantes.
  * 
- * @param <OUT> Le type de donnees en sortie du writer.
+ * @param <IN> Le type de donnees en entree du writer.
  * 
  * @author MINARM
  */
-public interface ItemWriter_Itf<OUT> {
-
-	void write(OUT p_out);
+public interface ItemWriter_Itf<IN> extends Item_Itf {
+	
+	void write(IN p_in);
 }

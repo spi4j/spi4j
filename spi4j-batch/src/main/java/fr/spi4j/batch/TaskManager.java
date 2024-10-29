@@ -24,7 +24,7 @@ import fr.spi4j.batch.exception.Spi4jTaskExecutionException;
  * 
  * @author MINARM
  */
-public class TaskManager {
+class TaskManager {
 
 	/**
 	 * LogCache.
@@ -37,10 +37,10 @@ public class TaskManager {
 	/** Le pool de thread pour le scheduled cleaner (1 thread). */
 	private final ScheduledThreadPoolExecutor _scheduledExecutor;
 
-	protected Map<String, ProcessInterface<?>> _mapInstances;
+	protected Map<String, Task_Itf<?>> _mapInstances;
 
 	/** L'instance du scheduled cleaner qui sera executee periodiquement. */
-	private final TaskCleanerScheduledProcess _scheduledCleaner;
+	//private final TaskCleanerScheduledProcess _scheduledCleaner;
 
 	/**
 	 * Cree une instance de {@link TaskManager}.
@@ -67,12 +67,12 @@ public class TaskManager {
 				new LinkedBlockingQueue<Runnable>(p_queueCapacity));
 		_scheduledExecutor = new ScheduledThreadPoolExecutor(1);
 
-		_mapInstances = Collections.synchronizedMap(new HashMap<String, ProcessInterface<?>>());
+		_mapInstances = Collections.synchronizedMap(new HashMap<String, Task_Itf<?>>());
 		_log.info("Initialisation du scheduled cleaner avec un interval de " + p_cleanInterval + " "
 				+ p_cleanIntervalUnit.toString());
 
-		_scheduledCleaner = new TaskCleanerScheduledProcess(this);
-		_scheduledExecutor.scheduleAtFixedRate(_scheduledCleaner, 0, p_cleanInterval, p_cleanIntervalUnit);
+		//_scheduledCleaner = new TaskCleanerScheduledProcess(this);
+		//_scheduledExecutor.scheduleAtFixedRate(_scheduledCleaner, 0, p_cleanInterval, p_cleanIntervalUnit);
 	}
 
 	/**
@@ -84,7 +84,7 @@ public class TaskManager {
 
 		if (null != _executor) {
 			synchronized (_mapInstances) {
-				for (final ProcessInterface<?> v_instance : _mapInstances.values()) {
+				for (final Task_Itf<?> v_instance : _mapInstances.values()) {
 					_executor.remove(v_instance);
 				}
 			}
@@ -92,29 +92,29 @@ public class TaskManager {
 		}
 
 		if (null != _scheduledExecutor) {
-			_scheduledExecutor.remove(_scheduledCleaner);
+			//_scheduledExecutor.remove(_scheduledCleaner);
 			_scheduledExecutor.shutdownNow();
 		}
 	}
 
 	/**
 	 * @param uuid UUid du process.
-	 * @param <T>  Le type de parametre du {@link ProcessInterface}.
-	 * @return Une instance de {@link ProcessInterface}, ou null sinon.
+	 * @param <T>  Le type de parametre du {@link Task_Itf}.
+	 * @return Une instance de {@link Task_Itf}, ou null sinon.
 	 */
 	@SuppressWarnings("unchecked")
-	<T> ProcessInterface<T> taskGet(final String uuid) {
+	<T> Task_Itf<T> taskGet(final String uuid) {
 
 		_log.trace("task | " + uuid);
-		ProcessInterface<T> vInstance = null;
+		Task_Itf<T> vInstance = null;
 		synchronized (_mapInstances) {
-			vInstance = (ProcessInterface<T>) _mapInstances.get(uuid);
+			vInstance = (Task_Itf<T>) _mapInstances.get(uuid);
 		}
 		return vInstance;
 	}
 
 	/**
-	 * Demarre un {@link ProcessInterface}.
+	 * Demarre un {@link Task_Itf}.
 	 * 
 	 * Attention, l'instance ne doit etre demarre qu'une seule fois.
 	 * 
@@ -123,7 +123,7 @@ public class TaskManager {
 	 * @throws RejectedExecutionException quand les capacités pool + blockingqueue
 	 *                                    sont dépassées.
 	 */
-	public String taskStart(final ProcessInterface<?> p_instance) {
+	public String taskStart(final Task_Itf<?> p_instance) {
 
 		if (null == p_instance) {
 			throw new Spi4jTaskExecutionException("Le processus à exécuter ne doit pas être null.", null);

@@ -35,7 +35,7 @@ import java.util.Date;
  * @author MINARM
  * @see java.lang.System#currentTimeMillis()
  */
-public final class Chronometre implements Serializable {
+public final class Chronometer implements Serializable {
 
 	// PS: n'utilise pas timeunit parce que a besoin de nombre à virgule.
 
@@ -58,7 +58,7 @@ public final class Chronometre implements Serializable {
 	/**
 	 * Constructeur
 	 */
-	public Chronometre() {
+	public Chronometer() {
 		super();
 
 		this.format = new DecimalFormat("####00000.### ms");
@@ -118,7 +118,7 @@ public final class Chronometre implements Serializable {
 	 * </blockquote>
 	 * 
 	 * @return la duree du precedent chrono en nanosecondes.
-	 * @see Chronometre#start()
+	 * @see Chronometer#start()
 	 */
 	public final long getTime() {
 		if (this.started()) {
@@ -147,6 +147,7 @@ public final class Chronometre implements Serializable {
 		return Math.round(this.getMilliTime()) + " ms";
 	}
 
+	@SuppressWarnings("removal")
 	public final String formatSimpleTimeMilliMillieme() {
 		return ((new Double(Math.round(this.getMilliTime() * 1000))) / 1000.d) + " ms";
 	}
