@@ -78,7 +78,7 @@ public class SpiBatchJobsHandler implements Runnable {
 	}
 
 	/**
-	 * Positionen la taille minimale du pool de taches.
+	 * Positionne la taille minimale du pool de taches.
 	 * 
 	 * @param p_corePoolSize la taille minimale du pool de taches.
 	 */

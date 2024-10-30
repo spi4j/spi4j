@@ -14,5 +14,5 @@ package fr.spi4j.batch;
  */
 public interface ItemWriter_Itf<IN> extends Item_Itf {
 	
-	void write(IN p_in);
+	void write(IN p_in) throws Exception;
 }

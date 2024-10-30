@@ -141,6 +141,7 @@ public abstract class SpiBatchJob_Abs<RESULT> extends SpiJob_Abs {
 			_progression = 0;
 			_state = TaskStateEnum.running;
 			execute();
+			_result = get_result();
 
 		} catch (Exception p_e) {
 			_state = TaskStateEnum.error;
@@ -220,7 +221,7 @@ public abstract class SpiBatchJob_Abs<RESULT> extends SpiJob_Abs {
 	 * 
 	 * @return
 	 */
-	public final RESULT get_result() {
+	public RESULT get_result() {
 		return _result;
 	}
 
@@ -241,6 +242,16 @@ public abstract class SpiBatchJob_Abs<RESULT> extends SpiJob_Abs {
 	 */
 	public final int get_progression() {
 		return _progression;
+	}
+
+	/**
+	 * Permet de récupérer le résultat du traitement (résultat qui est complétement
+	 * décorélé du dernier objet ou primitif utilisé dans la dernière opération).
+	 * 
+	 * @param p_result le résultat du traitement.
+	 */
+	protected void setResult(final RESULT p_result) {
+		_result = p_result;
 	}
 
 	/**

@@ -10,5 +10,5 @@ import java.io.Closeable;
 
 public interface Item_Itf extends Closeable {
 
-	void init();
+	void init() throws Exception;
 }

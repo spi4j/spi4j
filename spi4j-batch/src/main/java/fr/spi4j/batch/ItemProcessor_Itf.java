@@ -17,9 +17,9 @@ import java.io.IOException;
  */
 public interface ItemProcessor_Itf<IN, OUT> extends Item_Itf {
 	
-	OUT process(IN p_in);
+	OUT process(IN p_in) throws Exception;;
 	
 	default void close() throws IOException {}
-	
-	default void init() {}
+
+	default void init() throws Exception {}
 }

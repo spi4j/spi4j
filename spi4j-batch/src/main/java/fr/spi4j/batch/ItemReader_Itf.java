@@ -14,5 +14,5 @@ package fr.spi4j.batch;
  */
 public interface ItemReader_Itf<OUT> extends Item_Itf {
 
-	OUT read();
+	OUT read() throws Exception;
 }
