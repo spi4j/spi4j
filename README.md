@@ -7,7 +7,7 @@ Spi4J est composé d'une partie principale et de modules optionnels. Une applica
 
 Ces projets sont opensource en licence Apache (ASL v2).
 <br />
-Ces projets ont été créés avec la participation de [Bull] et sont encore en cours en Janvier 2024 (version courante Spi4J : 4.3.2).
+Ces projets ont été créés avec la participation de [Bull] et sont encore en cours en Avril 2024 (version courante Spi4J : 4.5.0).
 
 ### Principaux éléments techniques directeurs de l'architecture ###
   * Architecture JavaEE
@@ -22,7 +22,7 @@ Ces projets ont été créés avec la participation de [Bull] et sont encore en 
   * Librairies packagées de Spi4J
   * Update site Eclipse contenant les plugins packagés de Pacman
   
-  * NB : Téléchargement de Pacman jusqu'à la version 1.6 dans ce projet; pour les versions supérieures se rendre sur le projet [pacman](https://github.com/spi4j/pacman/)
+  * NB : Téléchargement de Pacman sur le projet [pacman](https://github.com/spi4j/pacman/)
 
 ### [Documentations](../../releases/tag/Documentations) ###
   * Présentation d'introduction à Spi4J et Pacman
@@ -38,6 +38,6 @@ Ces projets ont été créés avec la participation de [Bull] et sont encore en 
   * [DSL Implémentation Requirement 2](https://drive.google.com/file/d/0B_CIqBpjpa16bUxXOGtDTzRkRFU/edit?usp=sharing)
 
 ### Modélisation ###
-Pour créer les modèles (Cinematic, SOA/DTO, Entity, Database, Requirements, Graal, State Machine & Interaction), le Ministère des Armées dispose d'un bundle Eclipse **Safr@n Studio**. Ce bundle inclut les designers graphiques et hiérarchiques pour créer les modèles ainsi qu'Acceleo pour la génération MDA. Les designers et les fichiers des DSL (méta-modèles) sur lesquels s’appuient les modèles sont publiés en opensource sur [gitHub/ObeoNetwork](https://github.com/ObeoNetwork/InformationSystem/).
+Pour créer les modèles (Cinematic, SOA/DTO, Entity, Database, Requirements, Graal, State Machine & Interaction), le Ministère des Armées dispose du logiciel **IS-Designer TE**. Cet outil inclut les designers graphiques et hiérarchiques pour créer les modèles ainsi qu'Acceleo pour la génération MDA. Les designers et les fichiers des DSL (méta-modèles) sur lesquels s’appuient les modèles sont publiés en opensource sur [gitHub/ObeoNetwork](https://github.com/ObeoNetwork/InformationSystem/).
 
-Si vous ne disposez pas de **Safr@n Studio**, il est possible de créer les modèles en utilisant le bundle open-source [IS-Designer (Information System Designer)](https://www.isdesigner.org/).
+Si vous ne disposez pas de **IS-Designer TE**, il est possible de créer les modèles en utilisant le bundle open-source [IS-Designer CE](https://www.isdesigner.org/).
