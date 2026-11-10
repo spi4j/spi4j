@@ -1,0 +1,133 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>fr.spi4j</groupId>
+		<artifactId>spi4j-parent</artifactId>
+		<version>4.5.2</version>
+	</parent>
+
+	<artifactId>spi4j-doc-report</artifactId>
+	<packaging>jar</packaging>
+	<name>spi4j Doc Report</name>
+	<description>Spi4j Doc Report : Simple Programming Interface for XDocReport (API Mutualisée)</description>
+
+	<dependencies>
+		<!-- *********************** -->
+		<!-- * Document Dependency * -->
+		<!-- *********************** -->
+
+		<!-- OpenOffice odt : -->
+		<dependency>
+			<groupId>fr.opensagres.xdocreport</groupId>
+			<artifactId>fr.opensagres.xdocreport.document.odt</artifactId>
+			<version>2.0.4</version>
+		</dependency>
+		<!-- MS Word docx -->
+		<dependency>
+			<groupId>fr.opensagres.xdocreport</groupId>
+			<artifactId>fr.opensagres.xdocreport.document.docx</artifactId>
+			<version>2.0.4</version>
+		</dependency>
+		<!-- MS PowerPoint pptx -->
+		<dependency>
+			<groupId>fr.opensagres.xdocreport</groupId>
+			<artifactId>fr.opensagres.xdocreport.document.pptx</artifactId>
+			<version>2.0.4</version>
+		</dependency>
+		<!-- *********************** -->
+		<!-- * Template Dependency * -->
+		<!-- *********************** -->
+
+		<!-- Freemarker -->
+		<dependency>
+			<groupId>fr.opensagres.xdocreport</groupId>
+			<artifactId>fr.opensagres.xdocreport.template.freemarker</artifactId>
+			<version>2.0.4</version>
+		</dependency>
+		<!-- Velocity: -->
+		<dependency>
+			<groupId>fr.opensagres.xdocreport</groupId>
+			<artifactId>fr.opensagres.xdocreport.template.velocity</artifactId>
+			<version>2.0.4</version>
+			<optional>true</optional> <!-- optional pour ne pas être transitive -->
+		</dependency>
+		<!-- ************************ -->
+		<!-- * Converter Dependency * -->
+		<!-- ************************ -->
+
+		<!-- Convert docx 2 PDF/XHTML -->
+		<dependency>
+			<groupId>fr.opensagres.xdocreport</groupId>
+			<artifactId>fr.opensagres.xdocreport.converter.docx.xwpf</artifactId>
+			<version>2.0.4</version>
+			<optional>true</optional> <!-- optional pour ne pas être transitive -->
+		</dependency>
+		<!-- Convert odt 2 PDF/XHTML -->
+		<dependency>
+			<groupId>fr.opensagres.xdocreport</groupId>
+			<artifactId>fr.opensagres.xdocreport.converter.odt.odfdom</artifactId>
+			<version>2.0.4</version>
+			<optional>true</optional> <!-- optional pour ne pas être transitive -->
+		</dependency>
+		<!-- ******************** -->
+		<!-- * Tools Dependency * -->
+		<!-- ******************** -->
+
+		<!-- Tools gives you the capability to generate report with Java main command. 
+			It is used by xdrtools.bat and xdrtools.sh for the preview feature in the 
+			XDocReport MS Word macro and XDocReport OOo extension macro. -->
+		<!-- <dependency> <groupId>fr.opensagres.xdocreport</groupId> <artifactId>fr.opensagres.xdocreport.document.tools</artifactId> 
+			<version>1.0.4</version> </dependency> -->
+
+		<!-- * REST/SOAP Remoting Resources Dependency * -->
+
+		<!-- API : -->
+		<!-- <dependency> <groupId>fr.opensagres.xdocreport</groupId> <artifactId>fr.opensagres.xdocreport.remoting.resources</artifactId> 
+			<version>1.0.4</version> </dependency> -->
+
+		<!-- JAX-RS/JAX-WS Client : -->
+		<!-- <dependency> <groupId>fr.opensagres.xdocreport</groupId> <artifactId>fr.opensagres.xdocreport.remoting.resources.services.client</artifactId> 
+			<version>1.0.4</version> </dependency> -->
+
+		<!-- JAX-RS/JAX-WS Server: -->
+		<!-- <dependency> <groupId>fr.opensagres.xdocreport</groupId> <artifactId>fr.opensagres.xdocreport.remoting.resources.services.server</artifactId> 
+			<version>1.0.4</version> </dependency> -->
+
+		<!-- JFreeChart pour générer des images de courbes qui peuvent ensuite 
+			être incluses dans les documents -->
+		<!-- <dependency> <groupId>org.jfree</groupId> <artifactId>jfreechart</artifactId> 
+			<version>1.0.17</version> </dependency> -->
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+		</dependency>
+		<!-- Voir si encore utile avec jacoco. -->
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+		</dependency>
+	</dependencies>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<artifactId>maven-pmd-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
+</project>

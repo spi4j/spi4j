@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration strict="true" status="warn"
+	name="XMLLog4jSpi4j">
+	<Appenders>
+		<Console name="Spi4jStdOut" target="SYSTEM_OUT">
+			<PatternLayout>
+				<Pattern>%d{dd/MM/yy HH:mm:ss,SSS} [%-5level] %c{3} - %msg%n
+				</Pattern>
+			</PatternLayout>
+		</Console>
+	</Appenders>
+
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="Spi4jStdOut" level="info" />
+		</Root>
+		<Logger name="log4j.logger.freemarker.cache" level="debug">
+			<AppenderRef ref="Spi4jStdOut" />
+		</Logger>
+	</Loggers>
+</Configuration>

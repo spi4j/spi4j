@@ -1,0 +1,130 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>fr.spi4j</groupId>
+		<artifactId>spi4j-parent</artifactId>
+		<version>4.5.2</version>
+	</parent>
+
+	<artifactId>spi4j-lib-jmeter-jbehave</artifactId>
+	<packaging>jar</packaging>
+	<name>spi4j-jmeter-jbehave-sampler</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jbehave</groupId>
+			<artifactId>jbehave-core</artifactId>
+			<version>5.1</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jmeter</groupId>
+			<artifactId>jmeter-core</artifactId>
+			<version>${jmeter.version}</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/ApacheJMeter_core.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jmeter</groupId>
+			<artifactId>jmeter-java</artifactId>
+			<version>${jmeter.version}</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/ApacheJMeter_java.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jmeter</groupId>
+			<artifactId>jmeter-junit</artifactId>
+			<version>${jmeter.version}</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/ApacheJMeter_junit.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jorphan</groupId>
+			<artifactId>jorphan</artifactId>
+			<version>${jmeter.version}</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/jorphan.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logkit</groupId>
+			<artifactId>logkit</artifactId>
+			<version>${jmeter.version}</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/logkit-2.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.avalon</groupId>
+			<artifactId>avalon-framework</artifactId>
+			<version>${jmeter.version}</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/avalon-framework-4.1.4.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.oro</groupId>
+			<artifactId>oro</artifactId>
+			<version>${jmeter.version}</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/oro-2.0.8.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>fr.spi4j</groupId>
+			<artifactId>spi4j-lib-jbehave</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<testResources>
+			<testResource>
+				<directory>${project.basedir}/src/test/java</directory>
+				<includes>
+					<include>**/*.story</include>
+				</includes>
+			</testResource>
+		</testResources>
+
+		<plugins>
+			<!-- Execution des tests unitaires -->
+			<!-- -Dfile.encoding=UTF-8 est nécessaire pour que les tests jbehave dans 
+				maven sous windows fonctionnent (car JBehave ne sait lire les fichiers story 
+				qu'avec le charset par défaut, Cp1252 sous Windows, et n'accepte aucune configuration) -->
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<argLine>-Xmx128m -Dfile.encoding=UTF-8</argLine>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<artifactId>maven-pmd-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
+
+	<properties>
+		<jmeter.version>5.5</jmeter.version>
+	</properties>
+</project>

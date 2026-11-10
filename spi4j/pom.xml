@@ -1,0 +1,250 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>fr.spi4j</groupId>
+		<artifactId>spi4j-parent</artifactId>
+		<version>4.5.2</version>
+	</parent>
+
+	<artifactId>spi4j</artifactId>
+	<packaging>jar</packaging>
+	<name>spi4j Project</name>
+	<description>Spi4j : Simple Programming Interface for Java (API Mutualisée)</description>
+
+	<dependencies>
+		<!-- Non inclus par defaut. Ajouter dans les applications si besoin. -->
+		<dependency>
+			<groupId>net.bull.javamelody</groupId>
+			<artifactId>javamelody-core</artifactId>
+			<version>2.0.0</version>
+			<optional>true</optional>
+		</dependency>
+		<!-- Non inclus par defaut. Ajouter dans les applications si besoin. -->
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+			<version>2.6.11</version>
+			<optional>true</optional>
+		</dependency>
+		<!-- Non inclus par defaut. Ajouter dans les applications si besoin. -->
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>1.4.20</version>
+			<optional>true</optional>
+		</dependency>
+		<!-- Non inclus par defaut. Ajouter dans les applications si besoin. -->
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- Afin de pouvoir compiler les classes du package fr.spi4j.tua -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<scope>provided</scope>
+			<optional>true</optional>
+		</dependency>
+		<!-- La dependance H2 est utile pour les tests unitaires "testapp" -->
+		<!-- Ne pas monter au dela de 1.4.196 car le recuperation de sequence -->
+		<!-- ne fonctionne plus. -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.196</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+		</dependency>
+
+		<!-- ******************************************************** -->
+		<!-- Liste des dependances pour la gestion de la persistence. -->
+		<!-- ******************************************************** -->
+		<dependency>
+			<groupId>jakarta.persistence</groupId>
+			<artifactId>jakarta.persistence-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.interceptor</groupId>
+			<artifactId>jakarta.interceptor-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.ejb</groupId>
+			<artifactId>jakarta.ejb-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.transaction</groupId>
+			<artifactId>jakarta.transaction-api</artifactId>
+		</dependency>
+
+		<!-- ***************************************** -->
+		<!-- Liste des dependances pour le client JSF. -->
+		<!-- ***************************************** -->
+		<dependency>
+			<groupId>jakarta.faces</groupId>
+			<artifactId>jakarta.faces-api</artifactId>
+			<version>4.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.12.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.12.0</version>
+		</dependency>
+
+		<!-- ********************************************* -->
+		<!-- Liste des dependances pour les services REST. -->
+		<!-- ********************************************* -->
+		<!-- Non inclus par defaut. Ajouter dans les applications si besoin -->
+		<dependency>
+			<groupId>org.glassfish.jersey.connectors</groupId>
+			<artifactId>jersey-apache-connector</artifactId>
+			<version>3.1.2</version>
+			<optional>true</optional>
+		</dependency>
+		<!-- Non inclus par dcette dependance dans les applications si besoin -->
+		<dependency>
+			<groupId>jakarta.ws.rs</groupId>
+			<artifactId>jakarta.ws.rs-api</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- Non inclus par defaut. Ajouter dans les applications si besoin. -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>0.11.5</version>
+			<optional>true</optional>
+		</dependency>
+		<!-- Non inclus par defaut. Ajouter dans les applications si besoin. -->
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>3.1.2</version>
+			<optional>true</optional>
+		</dependency>
+		<!-- Non inclus par defaut. Ajouter dans les applications si besoin -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>0.11.5</version>
+			<optional>true</optional>
+		</dependency>
+		<!-- Non inclus par defaut. Ajouter dans les applications si besoin -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20231013</version>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- ****************** -->
+		<!-- Autres dependances -->
+		<!-- ****************** -->
+		<!-- Non inclus par defaut. Ajouter dans les applications si besoin -->
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>2.0</version>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>javase</artifactId>
+			<version>2.0</version>
+			<optional>true</optional>
+		</dependency>
+		<!-- Non inclus par defaut. Ajouter dans les applications si besoin -->
+		<dependency>
+			<groupId>org.yaml</groupId>
+			<artifactId>snakeyaml</artifactId>
+			<version>2.1</version>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- Ajout d'un fichier spi4j-build-info.properties contenant les propriétés 
+				définies ci-dessous avec des infos sur le build, en particulier pour les 
+				builds faits dans la PIC (clés : build.number, build.id, build.svnRevision, 
+				build.svnUrl ...) -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>write-project-properties</goal>
+						</goals>
+						<configuration>
+							<outputFile>${project.build.outputDirectory}/spi4j-build-info.properties</outputFile>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- Jar des classes et sources pour GWT -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptors>
+						<descriptor>assembly-gwt.xml</descriptor>
+					</descriptors>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<artifactId>maven-pmd-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
+
+	<properties>
+		<!-- Les propriétés suivantes seront mises dans le fichier spi4j-build-info.properties 
+			dans le jar (avec le plugin de build ci-dessus). -->
+		<!-- Ces propriétés sont connues quand le build est fait par la PIC (Jenkins). -->
+		<build.number>${env.BUILD_NUMBER}</build.number>
+		<build.id>${env.BUILD_ID}</build.id>
+		<build.url>${env.BUILD_URL}</build.url>
+		<build.jobName>${env.JOB_NAME}</build.jobName>
+		<build.tag>${env.BUILD_TAG}</build.tag>
+		<build.svnRevision>${env.SVN_REVISION}</build.svnRevision>
+		<build.svnUrl>${env.SVN_URL}</build.svnUrl>
+
+		<!-- Pour les propriétés suivantes, ce qui importe c'est les propriétés 
+			du module courant qui contient les infos globales sur le build. -->
+		<build.projectGroupId>${project.groupId}</build.projectGroupId>
+		<build.projectArtifactId>${project.artifactId}</build.projectArtifactId>
+		<build.projectVersion>${project.version}</build.projectVersion>
+	</properties>
+</project>

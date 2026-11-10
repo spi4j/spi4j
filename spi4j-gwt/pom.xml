@@ -1,0 +1,108 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>fr.spi4j</groupId>
+		<artifactId>spi4j-parent</artifactId>
+		<version>4.5.2</version>
+	</parent>
+
+	<artifactId>spi4j-gwt</artifactId>
+	<packaging>jar</packaging>
+	<name>spi4j GWT</name>
+	<description>Spi4j GWT: Simple Programming Interface for GWT (API Mutualisée)</description>
+
+	<dependencies>
+		<!-- Dépendance vers spi4j-ui avec classifier gwt comme ça on a aussi les 
+			sources de spi4j-ui dans l'application -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>spi4j-ui</artifactId>
+			<version>${project.version}</version>
+			<classifier>gwt</classifier>
+		</dependency>
+		<!-- Dépendance vers spi4j-ui sans classifier comme ça on a juste à exclure 
+			les *-gwt.jar du war final -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>spi4j-ui</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<!-- On rajoute aussi la dépendance à spi4j pour être sur d'avoir le classifier 
+			gwt -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>spi4j</artifactId>
+			<version>${project.version}</version>
+			<classifier>gwt</classifier>
+		</dependency>
+		<!-- Les packages restent en com.google.gwt... -->
+		<dependency>
+			<groupId>org.gwtproject</groupId>
+			<artifactId>gwt-servlet</artifactId>
+			<version>2.10.0</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.gwtproject</groupId>
+			<artifactId>gwt-user</artifactId>
+			<version>2.10.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.transaction</groupId>
+			<artifactId>jakarta.transaction-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.validation</groupId>
+			<artifactId>jakarta.validation-api</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<version>2.10.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+							<!-- <goal>generateAsync</goal> -->
+							<!-- <goal>test</goal> -->
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<compileSourcesArtifacts>
+						<artifact>fr.spi4j:spi4j_ui</artifact>
+					</compileSourcesArtifacts>
+				</configuration>
+			</plugin>
+			<!-- Jar des classes et sources pour GWT -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptors>
+						<descriptor>assembly-gwt.xml</descriptor>
+					</descriptors>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<artifactId>maven-pmd-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
+</project>
+
